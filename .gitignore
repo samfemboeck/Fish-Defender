@@ -1,7 +1,7 @@
  # ---------------[ Unity generated ]------------------ #
 Logs/
 Library/
-obj/
+**/obj/
 Temp/
 
 # ----[ VSCode ]------- #
