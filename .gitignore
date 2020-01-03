@@ -1,7 +1,8 @@
  # ---------------[ Unity generated ]------------------ #
-Log/
+Logs/
 Library/
 obj/
+Temp/
 
 # ----[ VSCode ]------- #
 *.csproj
