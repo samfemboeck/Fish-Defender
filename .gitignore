@@ -1,1 +1,16 @@
+ # ---------------[ Unity generated ]------------------ #
+Log/
+Library/
+obj/
+
+# ----[ VSCode ]------- #
 *.csproj
+*.sln
+.vscode
+
+# ----[ OS-Specific ]------- #
+.DS_Store
+Thumbs.db
+
+# ----[ misc ]------- #
+.git/
