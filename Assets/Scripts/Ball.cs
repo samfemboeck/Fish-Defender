@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
         wasShot = false;
     }
 
-    // TODO kinda buggy
+    // TODO kinda buggy -> probably needs Raycast
     void FixedUpdate()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame && collider.bounds.Contains(GetMousePosWorld()))
