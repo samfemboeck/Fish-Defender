@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int connectedGamepads = 0;
-    bool isGameRunning = false;
+    public bool isGameRunning = false;
     string canvasText = "";
     public ObjectSpawner objectSpawner;
     public Canvas canvas;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
             foreach (var device in InputSystem.devices)
             {
-                if (device.GetType() == typeof(Gamepad))
+                if (device is Gamepad)
                 {
                     gamepads++;
                 }
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
 
     public void OnPressSpace()
     {
-        startGame();
+        StartGame();
     }
 
-    public void startGame()
+    public void StartGame()
     {
         isGameRunning = true;
         canvas.enabled = false;
@@ -48,5 +48,11 @@ public class GameManager : MonoBehaviour
         {
             objectSpawner.SpawnPlayer();
         }
+    }
+
+    public void EndGame(int id)
+    {
+        isGameRunning = false;
+        // show End Screen
     }
 }

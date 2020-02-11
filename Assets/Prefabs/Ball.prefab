@@ -123,8 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22de5db73a197498e8c7bbaefef277d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  minSpeed: 50
+  speed: 5
+  minSpeed: 1
+  timer: 1
   hasLeftTurretWall: 0
   turret: {fileID: 8066796748832606490, guid: a3c484cd84145488d8e69e017fe0f84b, type: 3}
 --- !u!120 &2073256911084695834

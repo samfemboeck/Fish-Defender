@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    private ObjectSpawner objectSpawner;
+    public static int INSTANCES = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectSpawner = GameObject.FindGameObjectWithTag("ObjectSpawner").GetComponent<ObjectSpawner>();
+        INSTANCES++;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnDestroy()
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-            objectSpawner.SpawnCollectible();
-            player.OnCollect();
-        }
+        INSTANCES--;
     }
 }

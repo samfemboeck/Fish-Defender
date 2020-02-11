@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    static int INSTANCES = 0;
+    public static int INSTANCES = 0;
     private int ID;
     public float maxSpeed = 2000;
     public float forwardSpeed = 40;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ID = INSTANCES++;
+        ID = ++INSTANCES;
         scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<Scoreboard>();
         scoreboard.addPlayer(ID);
         rb = gameObject.GetComponent<Rigidbody>();
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         leftStick = value.Get<Vector2>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         //Rotation
         if (rb.velocity.magnitude > 0)
@@ -63,19 +63,18 @@ public class Player : MonoBehaviour
         rb.velocity = transform.forward * rb.velocity.magnitude;
     }
 
-    private void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
         if (collision.gameObject.CompareTag("Collectible"))
         {
             Destroy(collision.gameObject);
             objectSpawner.SpawnCollectible();
-            scoreboard.OnCollect(this.ID);
+            scoreboard.OnPlayerCollect(this.ID);
         }
     }
 
-    public void OnCollect()
+    private void OnDestroy()
     {
-        scoreboard.OnCollect(ID);
+        INSTANCES--;
     }
 }

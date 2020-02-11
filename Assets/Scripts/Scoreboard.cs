@@ -22,15 +22,39 @@ public class Scoreboard : MonoBehaviour
             playerScores.Add(id, 0);
     }
 
-    public void OnCollect(int id)
+    public void OnPlayerCollect(int id)
     {
         towerScore -= 1;
         playerScores[id] += 1;
 
-        if (towerScore <= 0)
+    }
+
+    public void OnPlayerKill(int id)
+    {
+        playerScores.Remove(id);
+    }
+
+    private void Update()
+    {
+        if (manager.isGameRunning)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // TODO End Screen
+            if (Player.INSTANCES <= 0)
+            {
+                // Tower has ID 0
+                manager.EndGame(0);
+            }
+
+            if (towerScore <= 0)
+            {
+                int winner = 0;
+                foreach (KeyValuePair<int, int> entry in playerScores)
+                {
+                    if (entry.Value > winner)
+                        winner = entry.Key;
+                }
+                // fish IDs start at value 1
+                manager.EndGame(winner);
+            }
         }
     }
 }
