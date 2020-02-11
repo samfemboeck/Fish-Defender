@@ -63,7 +63,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightMax: 1.24
+    - _HeightMax: 1.12
     - _HeightMin: 1.5
     - _Metallic: 0
     - _Mode: 0
@@ -77,5 +77,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 0, a: 1}
     - _ColorMax: {r: 0.509434, g: 0.2793014, b: 0.18503025, a: 1}
-    - _ColorMin: {r: 0.5566038, g: 0.34429568, b: 0.21266466, a: 1}
+    - _ColorMin: {r: 0.6792453, g: 0.40202758, b: 0.22748311, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
