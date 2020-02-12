@@ -201,12 +201,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365044cabcf0b6454950c67cd753433a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
-  forwardSpeed: 50
-  rotateSpeed: 20
+  maxSpeed: 3
+  forwardSpeed: 100
+  rotateSpeed: 100
   maxRotationSpeed: 3
-  minSpeed: 0.5
+  minSpeed: 2
   rb: {fileID: 0}
+  negSpeed: -0.05
+  friction: 40
 --- !u!114 &8407164741888637195
 MonoBehaviour:
   m_ObjectHideFlags: 0
