@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(Camera.main.transform.position, rayDirection, out hit);
 
-        if (hit.collider.gameObject.CompareTag("Ball"))
+        if (hit.collider == collider)
         {
             isDragged = true;
         }

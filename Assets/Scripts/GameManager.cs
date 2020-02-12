@@ -36,11 +36,9 @@ public class GameManager : MonoBehaviour
 
     public void OnPressSpace()
     {
-        StartGame();
-    }
+        if (isGameRunning)
+            return;
 
-    public void StartGame()
-    {
         isGameRunning = true;
         canvas.enabled = false;
         

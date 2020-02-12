@@ -36,25 +36,25 @@ public class Scoreboard : MonoBehaviour
 
     private void Update()
     {
-        if (manager.isGameRunning)
-        {
-            if (Player.INSTANCES <= 0)
-            {
-                // Tower has ID 0
-                manager.EndGame(0);
-            }
+        if (!manager.isGameRunning)
+            return;
 
-            if (towerScore <= 0)
+        if (Player.INSTANCES <= 0)
+        {
+            // Tower has ID 0
+            manager.EndGame(0);
+        }
+
+        if (towerScore <= 0)
+        {
+            int winner = 0;
+            foreach (KeyValuePair<int, int> entry in playerScores)
             {
-                int winner = 0;
-                foreach (KeyValuePair<int, int> entry in playerScores)
-                {
-                    if (entry.Value > winner)
-                        winner = entry.Key;
-                }
-                // fish IDs start at value 1
-                manager.EndGame(winner);
+                if (entry.Value > winner)
+                    winner = entry.Key;
             }
+            // fish IDs start at value 1
+            manager.EndGame(winner);
         }
     }
 }
