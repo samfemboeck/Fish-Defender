@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    static int INSTANCES = 0;
+    public static int instances = 0;
     private int ID;
     public float maxSpeed = 2000;
     public float forwardSpeed = 40;
@@ -18,19 +18,26 @@ public class Player : MonoBehaviour
     private Vector2 leftStick;
     private ObjectSpawner objectSpawner;
 
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 impulseDirection;
+    public float negSpeed = -0.1f;
+    public float friction = 10;
+
+    void Awake()
     {
-        ID = INSTANCES++;
-        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<Scoreboard>();
-        scoreboard.addPlayer(ID);
+        ID = instances++;
         rb = gameObject.GetComponent<Rigidbody>();
         objectSpawner = GameObject.FindGameObjectWithTag("ObjectSpawner").GetComponent<ObjectSpawner>();
+        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<Scoreboard>();
     }
 
     public void OnClickButtonSouth(InputValue value)
     {
-        rb.AddForce(transform.forward * forwardSpeed);
+        impulseDirection = transform.forward;
+
+        Vector3 dir = transform.forward;
+
+        if (!(rb.velocity.magnitude > maxSpeed))
+            rb.AddForce(dir * forwardSpeed);
     }
 
     public void OnMoveLeftStick(InputValue value)
@@ -38,9 +45,9 @@ public class Player : MonoBehaviour
         leftStick = value.Get<Vector2>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        //Rotation
+        // Rotation
         if (rb.velocity.magnitude > 0)
         {
             Vector3 addRotation = new Vector3(0, rotateSpeed * leftStick.x * (rb.velocity.magnitude / maxSpeed), 0);
@@ -55,27 +62,41 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (rb.velocity.magnitude < 0.5f)
+        if (rb.velocity.magnitude < 0.5)
         {
             rb.angularVelocity = Vector3.zero;
         }
 
         rb.velocity = transform.forward * rb.velocity.magnitude;
-    }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (collision.gameObject.CompareTag("Collectible"))
+        
+        // Friction
+        if (rb.velocity.magnitude > 0)
         {
-            Destroy(collision.gameObject);
-            objectSpawner.SpawnCollectible();
-            scoreboard.OnCollect(this.ID);
+            Vector3 dir = transform.forward;
+            rb.AddForce(dir * -friction * Time.deltaTime);
+            if (rb.velocity.magnitude - friction * Time.deltaTime < 0)
+            {
+                rb.velocity = dir * negSpeed;
+            }
+            else
+            {
+                rb.AddForce(dir * -friction * Time.deltaTime);
+            }
         }
     }
 
-    public void OnCollect()
+    void OnTriggerEnter(Collider collision)
     {
-        scoreboard.OnCollect(ID);
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            Destroy(collision.gameObject);
+            scoreboard.OnPlayerCollect(this.ID);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        instances--;
     }
 }

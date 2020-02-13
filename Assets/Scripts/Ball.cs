@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
 {
     public int speed = 1000;
     public int minSpeed = 100;
+    public float timer = 1;
     public bool hasLeftTurretWall = false;
     public Turret turret;
     private bool isDragged;
@@ -15,6 +16,7 @@ public class Ball : MonoBehaviour
     private Rigidbody rigidbody;
     private LineRenderer lineRenderer;
     private Collider collider;
+    private InputAction clickAction;
 
     // Start is called before the first frame update
     void Start()
@@ -24,25 +26,35 @@ public class Ball : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         collider = GetComponent<Collider>();
         wasShot = false;
+        clickAction = new InputAction(binding: "<Mouse>/leftButton");
+        clickAction.Enable();
+        clickAction.performed += ctx => OnMouseDown(ctx);
+        clickAction.canceled += ctx => OnMouseUp(ctx);
     }
 
-    // TODO kinda buggy -> probably needs Raycast
-    void FixedUpdate()
+    void OnMouseDown(InputAction.CallbackContext ctx) 
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && collider.bounds.Contains(GetMousePosWorld()))
+        Vector3 rayDirection = GetMousePosWorld() - Camera.main.transform.position;
+        RaycastHit hit;
+        Physics.Raycast(Camera.main.transform.position, rayDirection, out hit);
+
+        if (hit.collider == collider)
         {
             isDragged = true;
         }
+    }
 
-        if (Mouse.current.leftButton.wasReleasedThisFrame && isDragged)
+    private void OnMouseUp(InputAction.CallbackContext ctx)
+    {
+        if (isDragged)
         {
-            wasShot = true;
-            isDragged = false;        
-            Vector3 direction = (transform.position - GetMousePosWorld());
+            isDragged = false;
+            Vector3 direction = (transform.position - GetMousePosWorld(true));
             Vector3 force = (direction.magnitude * speed) < minSpeed ? minSpeed * direction.normalized : speed * direction;
-            rigidbody.AddForce(force);
+            rigidbody.AddForce(force, ForceMode.Impulse);
             turret.ScheduleBall();
             lineRenderer.enabled = false;
+            wasShot = true;
         }
     }
 
@@ -52,21 +64,26 @@ public class Ball : MonoBehaviour
         if (isDragged)
         {
             lineRenderer.SetPosition(0, transform.position);
-            Vector3 offset = transform.position - GetMousePosWorld();
+            Vector3 offset = transform.position - GetMousePosWorld(true);
             lineRenderer.SetPosition(1, transform.position + offset);
-        } 
+        }
 
-        if (wasShot && rigidbody.velocity.magnitude <= 0.5)
+        if (wasShot)
         {
-            Destroy(gameObject);
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
-    Vector3 GetMousePosWorld()
+    Vector3 GetMousePosWorld(bool leveled = false)
     {
         Vector2 mousePosCamera = Mouse.current.position.ReadValue();
         Vector3 mousePointWorld =  Camera.main.ScreenToWorldPoint(new Vector3(mousePosCamera.x, mousePosCamera.y, Camera.main.transform.position.y));
-        mousePointWorld.y = transform.position.y;
+        if (leveled)
+            mousePointWorld.y = transform.position.y;
         return mousePointWorld;
     }
 
@@ -76,6 +93,15 @@ public class Ball : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectible"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
