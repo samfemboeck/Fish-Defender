@@ -225,8 +225,8 @@ Transform:
   - {fileID: 5642744777398689485}
   - {fileID: 2875764180492540324}
   - {fileID: 6320971472336335737}
-  - {fileID: 5642744776983103070}
   - {fileID: 5642744776821004704}
+  - {fileID: 5642744776983103070}
   - {fileID: 5642744775960725915}
   - {fileID: 5642744776543828524}
   - {fileID: 5642744777407897677}
@@ -1645,7 +1645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5247872760247976779
 Transform:
   m_ObjectHideFlags: 0
@@ -6859,7 +6859,7 @@ PrefabInstance:
     - target: {fileID: 6669022514859005627, guid: 947884b4404b8a24b9d0cb03092a9bb9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6669022514859005627, guid: 947884b4404b8a24b9d0cb03092a9bb9,
         type: 3}
@@ -11201,10 +11201,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1056976570831404471}
     m_Modifications:
+    - target: {fileID: 6554438108893310535, guid: 051bd4935476b1f4e9b9ec7c060b6d55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6554438108893310536, guid: 051bd4935476b1f4e9b9ec7c060b6d55,
         type: 3}
       propertyPath: m_Intensity
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554438108893310536, guid: 051bd4935476b1f4e9b9ec7c060b6d55,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6554438108893310537, guid: 051bd4935476b1f4e9b9ec7c060b6d55,
         type: 3}
@@ -13448,7 +13458,7 @@ PrefabInstance:
     - target: {fileID: 3831132369490573847, guid: dd391dc5eec65c445b6935427f5ce9e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3831132369490573847, guid: dd391dc5eec65c445b6935427f5ce9e7,
         type: 3}
