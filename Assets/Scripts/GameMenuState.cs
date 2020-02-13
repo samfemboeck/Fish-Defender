@@ -28,7 +28,8 @@ public class GameMenuState : IGameState
         }
 
         manager.connectedGamepads = gamepads;
-        manager.menuText.text = manager.connectedGamepads + " Fishes joined";
+        manager.menuText = manager.menuScreen.GetComponent<Canvas>().transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Text>();
+        manager.menuText.text = gamepads + " Fishes Joined";
     }
 
     public void OnPressSpace()

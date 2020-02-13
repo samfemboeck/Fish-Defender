@@ -14,11 +14,16 @@ public class GameEndedState : IGameState
     public void Init()
     {
         Debug.Log("ending game.");
+        ObjectSpawner.isActive = false;
+
         foreach (Player p in manager.activePlayers)
         {
             if (p != null)
                 Object.Destroy(p.gameObject);
         }
+
+        Scoreboard.towerHealth = 10;
+
     }
 
     public void OnPressSpace()
