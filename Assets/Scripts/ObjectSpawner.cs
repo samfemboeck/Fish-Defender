@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject collectiblePrefab;
     public GameObject playerPrefab;
-    public const float spawnTime = 5;
+    public const float spawnTime = 10;
     public float timer = spawnTime;
     
     // Start is called before the first frame update
@@ -20,9 +20,9 @@ public class ObjectSpawner : MonoBehaviour
         Instantiate(collectiblePrefab, GetRandomSpawnPosition(), Quaternion.identity);
     }
 
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
-        Instantiate(playerPrefab, GetRandomSpawnPosition(), Quaternion.identity);
+        return Instantiate(playerPrefab, GetRandomSpawnPosition(), Quaternion.identity);
     }
 
     Vector3 GetRandomMapPosition()
