@@ -2,12 +2,12 @@
 
 public class Scoreboard : MonoBehaviour
 {
-    public int towerScore = 10;
+    public static int towerHealth = 10;
     public int[] playerScores;
 
     public void OnPlayerCollect(int id)
     {
-        towerScore -= 1;
+        towerHealth -= 1;
         playerScores[id] += 1;
     }
 

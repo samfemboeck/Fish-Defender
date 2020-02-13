@@ -6,13 +6,13 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject collectiblePrefab;
     public GameObject playerPrefab;
-    public const float spawnTime = 10;
-    public float timer = spawnTime;
-    
-    // Start is called before the first frame update
+    public float spawnTime;
+    public static bool isActive = false;
+    private float timer;
+
     void Start()
     {
-        SpawnCollectible();
+        timer = spawnTime;
     }
 
     public void SpawnCollectible()
@@ -54,11 +54,14 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive)
+            return;
+
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             timer = spawnTime;
-            if (Collectible.INSTANCES < 5)
+            if (Collectible.instances < 5)
                 SpawnCollectible();
         }
     }

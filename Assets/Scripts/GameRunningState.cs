@@ -14,6 +14,7 @@ public class GameRunningState : IGameState
     public void Init()
     {
         Debug.Log("starting game.");
+        ObjectSpawner.isActive = true;
     }
 
     public void OnPressSpace()
@@ -23,7 +24,7 @@ public class GameRunningState : IGameState
 
     public void Update()
     {
-        if (Player.instances <= 0 || manager.scoreboard.towerScore <= 0)
+        if (Player.instances <= 0 || Scoreboard.towerHealth <= 0)
         {
             manager.isGameRunning = false;
             manager.SetGameState(manager.gameEndedState);
