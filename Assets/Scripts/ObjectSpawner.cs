@@ -6,13 +6,13 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject collectiblePrefab;
     public GameObject playerPrefab;
-    public const float spawnTime = 5;
-    public float timer = spawnTime;
-    
-    // Start is called before the first frame update
+    public float spawnTime;
+    public static bool isActive = false;
+    private float timer;
+
     void Start()
     {
-        SpawnCollectible();
+        timer = spawnTime;
     }
 
     public void SpawnCollectible()
@@ -20,9 +20,9 @@ public class ObjectSpawner : MonoBehaviour
         Instantiate(collectiblePrefab, GetRandomSpawnPosition(), Quaternion.identity);
     }
 
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
-        Instantiate(playerPrefab, GetRandomSpawnPosition(), Quaternion.identity);
+        return Instantiate(playerPrefab, GetRandomSpawnPosition(), Quaternion.identity);
     }
 
     Vector3 GetRandomMapPosition()
@@ -54,11 +54,14 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive)
+            return;
+
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             timer = spawnTime;
-            if (Collectible.INSTANCES < 5)
+            if (Collectible.instances < 5)
                 SpawnCollectible();
         }
     }

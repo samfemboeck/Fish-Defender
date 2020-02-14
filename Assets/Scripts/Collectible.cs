@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public static int INSTANCES = 0;
+    public static int instances = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        INSTANCES++;
+        instances++;
     }
 
     private void OnDestroy()
     {
-        INSTANCES--;
+        instances--;
     }
 }
