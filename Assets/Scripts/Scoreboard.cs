@@ -9,6 +9,10 @@ public class Scoreboard : MonoBehaviour
     {
         towerHealth -= 1;
         playerScores[id] += 1;
+
+        //Update UI
+        UiHandler.UpdateTowerUI(towerHealth);
+        UiHandler.UpdateFishUI(id, playerScores[id]);
     }
 
     public void OnPlayerKill(int id)
