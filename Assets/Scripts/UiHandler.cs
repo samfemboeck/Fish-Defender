@@ -16,10 +16,10 @@ public class UiHandler : MonoBehaviour
     Canvas currentCanvas;
 
     public Image Tower;
-    public Image[] towerScore;
+    private Image[] towerScore;
 
     public Image[] Fishes = new Image[8];
-    public Image[][] fishScores;
+    private Image[][] fishScores;
 
     static UiHandler uiHandler;
 
