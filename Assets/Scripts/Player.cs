@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public static int INSTANCES = 0;
+    public static int instances = 0;
     private int ID;
     public float maxSpeed = 2000;
     public float forwardSpeed = 40;
@@ -22,33 +22,22 @@ public class Player : MonoBehaviour
     public float negSpeed = -0.1f;
     public float friction = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        ID = ++INSTANCES;
-        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<Scoreboard>();
-        scoreboard.addPlayer(ID);
+        ID = instances++;
         rb = gameObject.GetComponent<Rigidbody>();
         objectSpawner = GameObject.FindGameObjectWithTag("ObjectSpawner").GetComponent<ObjectSpawner>();
+        scoreboard = GameObject.FindGameObjectWithTag("Scoreboard").GetComponent<Scoreboard>();
     }
 
     public void OnClickButtonSouth(InputValue value)
     {
-        //Debug.Log("forward "+fire);
-
-        //Update impulse dir for friction
         impulseDirection = transform.forward;
 
         Vector3 dir = transform.forward;
 
-        if (rb.velocity.magnitude > maxSpeed)
-        {
-            //rb.velocity = transform.forward * maxSpeed;
-        }
-        else
-        {
+        if (!(rb.velocity.magnitude > maxSpeed))
             rb.AddForce(dir * forwardSpeed);
-        }
     }
 
     public void OnMoveLeftStick(InputValue value)
@@ -58,18 +47,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Rotation
+        // Rotation
         if (rb.velocity.magnitude > 0)
         {
-            /*
-            Vector3 addRotation = new Vector3(0, rotateSpeed * leftStick.x * (rb.velocity.magnitude/maxSpeed), 0);
-            Quaternion deltaRotation = Quaternion.Euler(addRotation * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
-
-            //Update force direction
-            rb.velocity = transform.forward * rb.velocity.magnitude;
-            */
-
             Vector3 addRotation = new Vector3(0, rotateSpeed * leftStick.x * (rb.velocity.magnitude / maxSpeed), 0);
             Vector3 currentTorque = rb.angularVelocity;
             if (currentTorque.magnitude > maxRotationSpeed)
@@ -89,28 +69,10 @@ public class Player : MonoBehaviour
 
         rb.velocity = transform.forward * rb.velocity.magnitude;
 
-
-        //RoateFriction
-        /*
-        if (rb.angularVelocity.magnitude > 0)
-        {
-            Vector3 dir = rb.angularVelocity.normalized;
-            rb.AddForce(dir * -rotateFriction * Time.deltaTime);
-            if (rb.angularVelocity.magnitude - rotateFriction * Time.deltaTime < 0)
-            {
-                rb.velocity = Vector3.zero;
-            }
-            else
-            {
-                rb.AddForce(dir * -rotateFriction * Time.deltaTime);
-            }
-        }
-        */
-
-        //Friction
+        
+        // Friction
         if (rb.velocity.magnitude > 0)
         {
-            //Debug.Log("friction active");
             Vector3 dir = transform.forward;
             rb.AddForce(dir * -friction * Time.deltaTime);
             if (rb.velocity.magnitude - friction * Time.deltaTime < 0)
@@ -122,13 +84,6 @@ public class Player : MonoBehaviour
                 rb.AddForce(dir * -friction * Time.deltaTime);
             }
         }
-        /*
-        if(rb.velocity.magnitude<=0.5)
-        {
-            Debug.Log("angual Velocity adjusted because no movement");
-            rb.angularVelocity = Vector3.zero;
-        }*/
-
     }
 
     void OnTriggerEnter(Collider collision)
@@ -136,13 +91,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Collectible"))
         {
             Destroy(collision.gameObject);
-            objectSpawner.SpawnCollectible();
             scoreboard.OnPlayerCollect(this.ID);
         }
     }
 
     private void OnDestroy()
     {
-        INSTANCES--;
+        instances--;
     }
 }
