@@ -239,7 +239,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8545455}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3edeff432b0c8954b896a08b687ffb93, type: 2}
   m_CullingMode: 0
@@ -4824,7 +4824,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073985255}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3edeff432b0c8954b896a08b687ffb93, type: 2}
   m_CullingMode: 0
@@ -8321,7 +8321,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952878287}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3edeff432b0c8954b896a08b687ffb93, type: 2}
   m_CullingMode: 0
@@ -8414,7 +8414,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987317826}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3edeff432b0c8954b896a08b687ffb93, type: 2}
   m_CullingMode: 0
@@ -9433,6 +9433,7 @@ MonoBehaviour:
   StartCanvas: {fileID: 6111501923970848772}
   GameplayCanvas: {fileID: 6111501925265145996}
   EndCanvas: {fileID: 6111501925404963357}
+  fadeDuration: 2
   FishesJoinedText: {fileID: 6111501923464227300}
   FishesJoined:
   - {fileID: 1987317829}
@@ -9650,6 +9651,7 @@ GameObject:
   - component: {fileID: 6111501923970848772}
   - component: {fileID: 6111501923970848773}
   - component: {fileID: 6111501923970848774}
+  - component: {fileID: 6111501923970848776}
   m_Layer: 5
   m_Name: Canvas_TitleScreen
   m_TagString: Untagged
@@ -9657,6 +9659,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!225 &6111501923970848776
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111501923970848775}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!222 &6111501924002907961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10465,13 +10479,26 @@ GameObject:
   - component: {fileID: 6111501925265145996}
   - component: {fileID: 6111501925265145997}
   - component: {fileID: 6111501925265145998}
+  - component: {fileID: 6111501925265146033}
   m_Layer: 0
   m_Name: Canvas_Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!225 &6111501925265146033
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111501925265146032}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!224 &6111501925404963328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10507,6 +10534,7 @@ GameObject:
   - component: {fileID: 6111501925404963357}
   - component: {fileID: 6111501925404963358}
   - component: {fileID: 6111501925404963359}
+  - component: {fileID: 6111501925404963330}
   m_Layer: 5
   m_Name: Canvas_GameEnd
   m_TagString: Untagged
@@ -10514,6 +10542,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!225 &6111501925404963330
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111501925404963329}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!223 &6111501925404963357
 Canvas:
   m_ObjectHideFlags: 0

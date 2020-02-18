@@ -12,7 +12,7 @@ public class GameMenuState : IGameState
 
     public void Init()
     {
-        manager.menuScreen.SetActive(true);
+        //manager.menuScreen.SetActive(true);
     }
 
     public void Update()
@@ -40,7 +40,8 @@ public class GameMenuState : IGameState
     public void OnPressSpace()
     {
         manager.isGameRunning = true;
-        manager.menuScreen.SetActive(false);
+        //manager.menuScreen.SetActive(false);
+        UiHandler.ChangeToScreen("GameplayScreen");
         manager.activePlayers = new Player[manager.connectedGamepads];
 
         for (int i = 0; i < manager.activePlayers.Length; i++)
