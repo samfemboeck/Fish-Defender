@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bc8707b0a4b5f154e9b4ab85640cf8be
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FISH BONE
+  fontNames:
+  - FISH BONE
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2b149d65a3d6e1b49b3eb5d6e82231be, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

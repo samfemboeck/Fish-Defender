@@ -11,10 +11,16 @@ public class UiHandler : MonoBehaviour
     public Canvas GameplayCanvas;
     public Canvas EndCanvas;
 
-
-    //Var
     Canvas currentCanvas;
 
+    //Start Menu
+    public Text FishesJoinedText;
+
+    public Image[] FishesJoined = new Image[8];
+
+    static int currentFishCount = -1;
+
+    //Gameplay
     public Image Tower;
     private Image[] towerScore;
 
@@ -22,6 +28,9 @@ public class UiHandler : MonoBehaviour
     private Image[][] fishScores;
 
     static UiHandler uiHandler;
+
+    public int maxTowerHealth = 10;
+    public int maxFishPoints = 10;
 
 
     //Functions
@@ -42,9 +51,44 @@ public class UiHandler : MonoBehaviour
         }
     }
 
+    static public void UpdateFishesJoinedText(int fishCount)
+    {
+        //Check whether fishCount did change
+        if (fishCount == UiHandler.currentFishCount)
+        {
+            return;
+        }
+
+        UiHandler.currentFishCount = fishCount;
+
+        //Update Text
+        if (fishCount == 1)
+        {
+            uiHandler.FishesJoinedText.text = fishCount + " fish joined";
+        }
+        else
+        {
+            uiHandler.FishesJoinedText.text = fishCount + " fishes joined";
+        }
+
+        //Update UI display
+        for (int i=0; i<uiHandler.FishesJoined.Length; i++)
+        {
+            if (i < fishCount)
+            {
+                uiHandler.FishesJoined[i].enabled = true;
+                uiHandler.FishesJoined[i].GetComponent<Animator>().enabled = true;
+            }
+            else
+            {
+                uiHandler.FishesJoined[i].enabled = false;
+            }
+        }
+    }
+
     static public void UpdateTowerUI(int towerScore)
     {
-        for (int i=1; i<=10; i++)   //RM start from 1 because first image is actually the parent itself
+        for (int i=1; i<=uiHandler.maxTowerHealth; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= towerScore)
             {
@@ -59,17 +103,14 @@ public class UiHandler : MonoBehaviour
 
     static public void UpdateFishUI(int fishId, int fishScore)
     {
-        print("update fish ui " + fishId + " - " + fishScore);
-        for (int i = 1; i <= 10; i++)   //RM start from 1 because first image is actually the parent itself
+        for (int i = 1; i <= uiHandler.maxFishPoints; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= fishScore)
             {
-                print(i + " - " + uiHandler.fishScores[fishId][i].gameObject.name + " enabled");
                 uiHandler.fishScores[fishId][i].enabled = true;
             }
             else
             {
-                print(i + " - " + uiHandler.fishScores[fishId][i].gameObject.name + " disabled");
                 uiHandler.fishScores[fishId][i].enabled = false;
             }
         }
