@@ -34,7 +34,7 @@ public class GameMenuState : IGameState
         manager.menuText = manager.menuScreen.GetComponent<Canvas>().transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Text>();
         manager.menuText.text = gamepads + " Fishes Joined";
         */
-        UiHandler.UpdateFishesJoinedText(gamepads);
+        UiHandler.UpdateFishesJoined(gamepads);
     }
 
     public void OnPressSpace()

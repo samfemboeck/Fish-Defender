@@ -51,7 +51,7 @@ public class UiHandler : MonoBehaviour
         }
     }
 
-    static public void UpdateFishesJoinedText(int fishCount)
+    static public void UpdateFishesJoined(int fishCount)
     {
         //Check whether fishCount did change
         if (fishCount == UiHandler.currentFishCount)
