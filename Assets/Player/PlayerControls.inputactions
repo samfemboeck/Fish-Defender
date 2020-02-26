@@ -93,6 +93,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "EnableShooting",
+                    "type": "Button",
+                    "id": "c4d74f5d-1c96-4b49-85c4-8bf60e78833a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -126,6 +134,74 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressDPad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f805fc8-33ee-43c7-90c4-821d52628e89",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "EnableShooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91f2cb59-974a-42d2-866e-5b32289225db",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "EnableShooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MenuPlayer",
+            "id": "737271fd-c00e-421f-bd97-fe7ac8072e5a",
+            "actions": [
+                {
+                    "name": "SwitchRole",
+                    "type": "Button",
+                    "id": "36a2078f-0b0e-4192-a5b9-483ddc7ea998",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LockRole",
+                    "type": "Button",
+                    "id": "c7e37bfa-6f1a-4bcc-81e0-99bb5d167623",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1ce48832-03a4-4f85-9699-002481fad12c",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SwitchRole",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c73d0e5-d80a-4c99-bed2-a7536b4f3c8f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "LockRole",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

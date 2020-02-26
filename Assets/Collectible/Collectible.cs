@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public static int instances = 0;
+    [SerializeField]
+    GameEvent onCollect;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        instances++;
-    }
-
-    private void OnDestroy()
-    {
-        instances--;
+        if (other.CompareTag("Fish"))
+        {
+            onCollect.Raise(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

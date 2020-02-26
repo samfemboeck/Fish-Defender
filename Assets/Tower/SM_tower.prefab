@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 3630132726866442099}
   - component: {fileID: 7879457508182954693}
   - component: {fileID: 8268718265944038704}
-  - component: {fileID: 3421302449890857218}
-  m_Layer: 0
+  - component: {fileID: 1096560708737877590}
+  - component: {fileID: 7455542524537609696}
+  - component: {fileID: 1509532032424517479}
+  m_Layer: 10
   m_Name: SM_tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8816321, z: 1}
   m_Center: {x: 0, y: 0.44081697, z: 0}
---- !u!114 &3421302449890857218
+--- !u!114 &1096560708737877590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +104,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 6001502553203148041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c38b34f56a534f87aaa223342994eee, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ee581d3a137a054db4f4cd61b91c286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1739717492790110429, guid: ba22ff5799f4c4e698de8d5e1215263f, type: 3}
+  projectilePrefab: {fileID: 8316880413592410063, guid: ba22ff5799f4c4e698de8d5e1215263f,
+    type: 3}
+  projectileSpeed: 26.7
+  projectileSpawnDelay: 1
+--- !u!114 &7455542524537609696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001502553203148041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f82b877b5b91dda786cb3e950d24906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 11400000, guid: 1a7fd8d38fa19854e92ed6ffa951a158, type: 2}
+--- !u!114 &1509532032424517479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001502553203148041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4853da7e2549544cb97040bbc3b35b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 10
+  onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}

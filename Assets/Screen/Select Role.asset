@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73773f6cc80802840bb2c8a81168209c, type: 3}
+  m_Name: Select Role
+  m_EditorClassIdentifier: 
+  ui: {fileID: 5538161627954521116, guid: f8fe0a871c618df45bfbc436a117ca05, type: 3}
+  state: {fileID: 9103012809741732801, guid: b42e6f9765e0d5243b48aebbc4c0ce37, type: 3}

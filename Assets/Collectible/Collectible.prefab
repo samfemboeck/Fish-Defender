@@ -4844,6 +4844,7 @@ GameObject:
   - component: {fileID: 4950840615992649620}
   - component: {fileID: 4950840615992649623}
   - component: {fileID: 4950840615992649622}
+  - component: {fileID: 7735475959528048107}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Collectible
@@ -4938,3 +4939,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d66e97f95ffd2921aafa4e099ed1a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCollect: {fileID: 11400000, guid: babf761795a46dc4c8af9fd0a058d063, type: 2}
+--- !u!114 &7735475959528048107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4950840615992649833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e6cd20b01363a408d28df8e86a37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: e4e82f94b509bbf4cb3e3849ad979ad4, type: 2}

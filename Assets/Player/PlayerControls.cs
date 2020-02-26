@@ -106,6 +106,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""EnableShooting"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4d74f5d-1c96-4b49-85c4-8bf60e78833a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,74 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PressDPad"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f805fc8-33ee-43c7-90c4-821d52628e89"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EnableShooting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91f2cb59-974a-42d2-866e-5b32289225db"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EnableShooting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""MenuPlayer"",
+            ""id"": ""737271fd-c00e-421f-bd97-fe7ac8072e5a"",
+            ""actions"": [
+                {
+                    ""name"": ""SwitchRole"",
+                    ""type"": ""Button"",
+                    ""id"": ""36a2078f-0b0e-4192-a5b9-483ddc7ea998"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LockRole"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7e37bfa-6f1a-4bcc-81e0-99bb5d167623"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1ce48832-03a4-4f85-9699-002481fad12c"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwitchRole"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c73d0e5-d80a-4c99-bed2-a7536b4f3c8f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LockRole"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -219,6 +295,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Tower = asset.FindActionMap("Tower", throwIfNotFound: true);
         m_Tower_MoveStick = m_Tower.FindAction("MoveStick", throwIfNotFound: true);
         m_Tower_PressDPad = m_Tower.FindAction("PressDPad", throwIfNotFound: true);
+        m_Tower_EnableShooting = m_Tower.FindAction("EnableShooting", throwIfNotFound: true);
+        // MenuPlayer
+        m_MenuPlayer = asset.FindActionMap("MenuPlayer", throwIfNotFound: true);
+        m_MenuPlayer_SwitchRole = m_MenuPlayer.FindAction("SwitchRole", throwIfNotFound: true);
+        m_MenuPlayer_LockRole = m_MenuPlayer.FindAction("LockRole", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -344,12 +425,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private ITowerActions m_TowerActionsCallbackInterface;
     private readonly InputAction m_Tower_MoveStick;
     private readonly InputAction m_Tower_PressDPad;
+    private readonly InputAction m_Tower_EnableShooting;
     public struct TowerActions
     {
         private @PlayerControls m_Wrapper;
         public TowerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveStick => m_Wrapper.m_Tower_MoveStick;
         public InputAction @PressDPad => m_Wrapper.m_Tower_PressDPad;
+        public InputAction @EnableShooting => m_Wrapper.m_Tower_EnableShooting;
         public InputActionMap Get() { return m_Wrapper.m_Tower; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +448,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressDPad.started -= m_Wrapper.m_TowerActionsCallbackInterface.OnPressDPad;
                 @PressDPad.performed -= m_Wrapper.m_TowerActionsCallbackInterface.OnPressDPad;
                 @PressDPad.canceled -= m_Wrapper.m_TowerActionsCallbackInterface.OnPressDPad;
+                @EnableShooting.started -= m_Wrapper.m_TowerActionsCallbackInterface.OnEnableShooting;
+                @EnableShooting.performed -= m_Wrapper.m_TowerActionsCallbackInterface.OnEnableShooting;
+                @EnableShooting.canceled -= m_Wrapper.m_TowerActionsCallbackInterface.OnEnableShooting;
             }
             m_Wrapper.m_TowerActionsCallbackInterface = instance;
             if (instance != null)
@@ -375,10 +461,54 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressDPad.started += instance.OnPressDPad;
                 @PressDPad.performed += instance.OnPressDPad;
                 @PressDPad.canceled += instance.OnPressDPad;
+                @EnableShooting.started += instance.OnEnableShooting;
+                @EnableShooting.performed += instance.OnEnableShooting;
+                @EnableShooting.canceled += instance.OnEnableShooting;
             }
         }
     }
     public TowerActions @Tower => new TowerActions(this);
+
+    // MenuPlayer
+    private readonly InputActionMap m_MenuPlayer;
+    private IMenuPlayerActions m_MenuPlayerActionsCallbackInterface;
+    private readonly InputAction m_MenuPlayer_SwitchRole;
+    private readonly InputAction m_MenuPlayer_LockRole;
+    public struct MenuPlayerActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MenuPlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SwitchRole => m_Wrapper.m_MenuPlayer_SwitchRole;
+        public InputAction @LockRole => m_Wrapper.m_MenuPlayer_LockRole;
+        public InputActionMap Get() { return m_Wrapper.m_MenuPlayer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuPlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuPlayerActions instance)
+        {
+            if (m_Wrapper.m_MenuPlayerActionsCallbackInterface != null)
+            {
+                @SwitchRole.started -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnSwitchRole;
+                @SwitchRole.performed -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnSwitchRole;
+                @SwitchRole.canceled -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnSwitchRole;
+                @LockRole.started -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnLockRole;
+                @LockRole.performed -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnLockRole;
+                @LockRole.canceled -= m_Wrapper.m_MenuPlayerActionsCallbackInterface.OnLockRole;
+            }
+            m_Wrapper.m_MenuPlayerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @SwitchRole.started += instance.OnSwitchRole;
+                @SwitchRole.performed += instance.OnSwitchRole;
+                @SwitchRole.canceled += instance.OnSwitchRole;
+                @LockRole.started += instance.OnLockRole;
+                @LockRole.performed += instance.OnLockRole;
+                @LockRole.canceled += instance.OnLockRole;
+            }
+        }
+    }
+    public MenuPlayerActions @MenuPlayer => new MenuPlayerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -437,5 +567,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMoveStick(InputAction.CallbackContext context);
         void OnPressDPad(InputAction.CallbackContext context);
+        void OnEnableShooting(InputAction.CallbackContext context);
+    }
+    public interface IMenuPlayerActions
+    {
+        void OnSwitchRole(InputAction.CallbackContext context);
+        void OnLockRole(InputAction.CallbackContext context);
     }
 }

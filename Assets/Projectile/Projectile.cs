@@ -2,24 +2,25 @@
 
 public class Projectile : MonoBehaviour
 {
-    public int speed = 1000;
-    public int minSpeed = 100;
+    [Range(0, 5)]
     public float destroyDelay;
 
-    public void Shoot(Vector3 direction)
+    [SerializeField]
+    GameEvent onPlayerKill;
+
+    public void Shoot(Vector3 velocity)
     {
-        Vector3 force = (direction.magnitude * speed) < minSpeed ? minSpeed * direction.normalized : speed * direction;
-        print(force);
-        GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
         Destroy(gameObject, destroyDelay);
     }
     
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Fish"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            onPlayerKill.Raise(other.gameObject);
         }
     }
 

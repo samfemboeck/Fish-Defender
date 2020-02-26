@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6357410160680811264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7712619266970393545}
+  - component: {fileID: -5820629471628301360}
+  m_Layer: 0
+  m_Name: State End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7712619266970393545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357410160680811264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24668676, y: 0.59797597, z: 2.1482143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5820629471628301360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357410160680811264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ac0aecfd5ee2949bc5bc6104fae86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectRole: {fileID: 11400000, guid: 1009db36ae2bc534ead661162c576e5b, type: 2}
+  fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+  towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  collectibles: {fileID: 11400000, guid: e4e82f94b509bbf4cb3e3849ad979ad4, type: 2}

@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ball
-  - Obstacle
-  - Collectible
-  - GameManager
   - Ground
-  - AudioSource
-  - Scoreboard
-  - ObjectSpawner
+  - Collectible
+  - Ball
+  - Fish
   - Turret
+  - ScreenManager
   layers:
   - Default
   - TransparentFX
@@ -22,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - fish_coll
-  - ball_coll
-  - 
+  - Fish
+  - Projectile
+  - Tower
   - 
   - 
   - 
