@@ -19,6 +19,11 @@ public class StateTitle : MonoBehaviour
         GetComponent<AudioSource>().Play();
     }
 
+    private void OnDestroy()
+    {
+        playerInput.Disable();
+    }
+
     public void OnPressSpace(InputAction.CallbackContext obj)
     {
         GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>().ChangeToScreen(selectRole);
