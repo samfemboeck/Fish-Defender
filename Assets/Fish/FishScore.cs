@@ -7,8 +7,6 @@ public class FishScore : MonoBehaviour
 
     public int Score { get; set; }
 
-
-    // Use this for initialization
     public void OnFishCollect(GameObject gameObject)
     {
         if (this.gameObject == gameObject)
