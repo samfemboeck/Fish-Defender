@@ -149,8 +149,8 @@ GameObject:
   - component: {fileID: 8316880413592410061}
   - component: {fileID: 8316880413592410060}
   - component: {fileID: 8316880413592410057}
+  - component: {fileID: 1739717492790110429}
   - component: {fileID: 2073256911084695834}
-  - component: {fileID: 8831833266797208005}
   m_Layer: 9
   m_Name: Projectile
   m_TagString: Ball
@@ -180,7 +180,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8316880413592410063}
-  m_Mesh: {fileID: 6259584998646066239, guid: 6e6953db9caaef54f9755f95a3d7bbfd, type: 3}
+  m_Mesh: {fileID: 830361021908229574, guid: 40f5bd7414ef03540bdc05aacbfc2a8b, type: 3}
 --- !u!23 &8316880413592410061
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -198,7 +198,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 21a01a3f12c47f045bc25fc7eb38c59a, type: 2}
+  - {fileID: 2100000, guid: 73d46df5f247d564fa25260415fd8a44, type: 2}
+  - {fileID: 2100000, guid: 0a58f8606554a9342b6084f8de8da55f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,6 +249,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &1739717492790110429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316880413592410063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7359aca9c25244fac4422d3c9f6345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 1
+  onPlayerKill: {fileID: 11400000, guid: 0b5cfa966a34b4f4ca54772d563faca2, type: 2}
 --- !u!120 &2073256911084695834
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -344,19 +359,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &8831833266797208005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8316880413592410063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca7359aca9c25244fac4422d3c9f6345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  minSpeed: 5
-  destroyDelay: 1
-  onPlayerKill: {fileID: 11400000, guid: 0b5cfa966a34b4f4ca54772d563faca2, type: 2}
