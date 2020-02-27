@@ -31,7 +31,6 @@ public class DeviceManager
 
         Gamepad gamepad = (Gamepad)device;
 
-        OnGamepadChange?.Invoke(this, EventArgs.Empty);
 
         switch (change)
         {
@@ -47,5 +46,7 @@ public class DeviceManager
             default:
                 break;
         }
+
+        OnGamepadChange?.Invoke(this, EventArgs.Empty);
     }
 }
