@@ -5035,6 +5035,7 @@ GameObject:
   - component: {fileID: 1160687068553611756}
   - component: {fileID: 2994546420139311378}
   - component: {fileID: 8477268479211746039}
+  - component: {fileID: 4782504155102311895}
   m_Layer: 0
   m_Name: goldFish_rig:Body
   m_TagString: Untagged
@@ -5102,3 +5103,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4782504155102311895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000011194399049257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd85de24ef697be44929c3df3bab30d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Mats:
+  - {fileID: 2100000, guid: 9f8891c837a880f429eb204b77b7aedf, type: 2}
+  - {fileID: 2100000, guid: d2619ee550f90854d9c5356ceae59fcb, type: 2}
+  - {fileID: 2100000, guid: 60a3d2b925791a24c981e0167e1feb79, type: 2}
+  - {fileID: 2100000, guid: 1e74d55c53b3de640a7014d4bd1e8bfa, type: 2}
+  - {fileID: 2100000, guid: c14ebfc891ea2ef44863db0af6902827, type: 2}
+  - {fileID: 2100000, guid: cb84e66dd8d6b724ab6ed6e949c38b73, type: 2}
+  maxPlayerCount: 6
