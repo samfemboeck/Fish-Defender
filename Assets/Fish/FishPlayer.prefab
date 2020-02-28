@@ -4951,12 +4951,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251dd77bb0ab43c4b87e21744cbbc4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 702
-  maxSpeed: 2000
+  rotateSpeed: 100
+  maxSpeed: 3
   maxRotationSpeed: 3
-  friction: 10
-  negativeSpeed: -0.1
-  forwardSpeed: 40
+  friction: 40
+  negativeSpeed: -0.05
+  forwardSpeed: 100
 --- !u!114 &7495706485046395593
 MonoBehaviour:
   m_ObjectHideFlags: 0
