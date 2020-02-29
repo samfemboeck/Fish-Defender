@@ -9,7 +9,7 @@ public class PlayerColor : MonoBehaviour
     public Color color;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         color = colorPool.PickColor();
     }
