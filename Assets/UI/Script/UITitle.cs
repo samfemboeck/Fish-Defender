@@ -1,46 +1,51 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class UITitle : MonoBehaviour
 {
+    /*
+     * UI Title
+     * This class handles functionaltiy for the title UI.
+     */
+
     [SerializeField]
     DeviceManager deviceManager;
 
     [SerializeField]
-    Image[] fishSprites;
+    Image[] playerDisplay;  //RM contains the placed images on the title canvas
 
     [SerializeField]
-    Text fishesJoinedText;
+    Sprite fishSprite;
 
-    //Private Var
-    private int currentGamepads = -1;    //RM used for checking whether gamepads have changed
+    [SerializeField]
+    Sprite towerSprite;
+
+    [SerializeField]
+    Text fishesJoinedText;  //RM reference to the text on the title canvas that displays player count
+
 
     void Start()
     {
         deviceManager = new DeviceManager();
         deviceManager.OnGamepadChange += OnGamepadChange;
-        //OnGamepadChange(null, null);
+        OnGamepadChange(null, null);    //RM initially call OnGamepadChange to make sure everything is hidden at start
     }
-
-    //void Update()
+    
+    //Updates title screen when gamepad (dis-)connects
     void OnGamepadChange(object sender, EventArgs e)
     {
         int gamepads = deviceManager.gamepads.Count;
 
-        //Only iterate all UI images if gamepads have changed
-        //if (gamepads == currentGamepads)
-            //return;
-
         //Iterate all UI images and check whether they should be visible
-        for (int i = 0; i < fishSprites.Length; i++)
+        for (int i = 0; i < playerDisplay.Length; i++)
         {
             if (i < gamepads)
-                fishSprites[i].enabled = true;
+                playerDisplay[i].enabled = true;
             else
-                fishSprites[i].enabled = false;
+                playerDisplay[i].enabled = false;
         }
 
         //Update displayed text
@@ -50,7 +55,8 @@ public class UITitle : MonoBehaviour
             fishesJoinedText.text = gamepads + " fishes joined";
     }
 
-    public void OnPlayerSwitch()
+    //Updates player image when they change role
+    public void OnPlayerSwitch(GameObject obj)
     {
         //TODO
     }
