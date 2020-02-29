@@ -618,11 +618,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ba805d9fb0536438bf308ec7c3e33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishSprites:
+  playerDisplay:
   - {fileID: 2346086540466686485}
   - {fileID: 2346086540499031170}
   - {fileID: 2346086540287016674}
   - {fileID: 2346086541369027770}
+  fishSprite: {fileID: 21300000, guid: dfaf98a26de406143b182abbc2023718, type: 3}
+  towerSprite: {fileID: 21300000, guid: 6700a74a055a9af4a82e69a7ffeaace7, type: 3}
   fishesJoinedText: {fileID: 8385302119490532276}
 --- !u!114 &-3346542514547268492
 MonoBehaviour:
