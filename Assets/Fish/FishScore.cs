@@ -5,13 +5,14 @@ public class FishScore : MonoBehaviour
     [SerializeField]
     GameEvent onFishScoreUpdate;
 
-    public int Score { get; set; }
+    int score;
 
-    public void OnFishCollect(GameObject gameObject)
+    public int Score
     {
-        if (this.gameObject == gameObject)
+        get => score;
+        set
         {
-            Score += 1;
+            score = value;
             onFishScoreUpdate.Raise(gameObject);
         }
     }

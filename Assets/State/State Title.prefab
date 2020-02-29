@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1050723514338192965}
   - component: {fileID: -4478362498883967501}
   - component: {fileID: -1248897453904931026}
+  - component: {fileID: 207880670789104858}
+  - component: {fileID: -5457033252655047893}
+  - component: {fileID: 6769127458440860922}
   m_Layer: 0
   m_Name: State Title
   m_TagString: Untagged
@@ -44,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834b6cadf391bc74d92374f4062da934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectRole: {fileID: 11400000, guid: 1009db36ae2bc534ead661162c576e5b, type: 2}
+  menuPlayerPrefab: {fileID: 5624139441801630355, guid: 2b812e0866f8223498b0060efead4b71,
+    type: 3}
+  gameplay: {fileID: 11400000, guid: 756894e2afd4a83479c813afd7cfcbd5, type: 2}
 --- !u!82 &-1248897453904931026
 AudioSource:
   m_ObjectHideFlags: 0
@@ -141,3 +146,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &207880670789104858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498945766172579515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0afbe813c93ad947aacf11dee346f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5457033252655047893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498945766172579515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1778f6ce8789d73469b50bc3aa2219ed, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4478362498883967501}
+        m_MethodName: OnPlayerLock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6769127458440860922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498945766172579515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f82b877b5b91dda786cb3e950d24906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 11400000, guid: 1a7fd8d38fa19854e92ed6ffa951a158, type: 2}

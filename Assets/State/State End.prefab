@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7712619266970393545}
   - component: {fileID: -5820629471628301360}
+  - component: {fileID: -3035965354447201384}
   m_Layer: 0
   m_Name: State End
   m_TagString: Untagged
@@ -43,7 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ac0aecfd5ee2949bc5bc6104fae86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectRole: {fileID: 11400000, guid: 1009db36ae2bc534ead661162c576e5b, type: 2}
+  selectRole: {fileID: 0}
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
   towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   collectibles: {fileID: 11400000, guid: e4e82f94b509bbf4cb3e3849ad979ad4, type: 2}
+--- !u!114 &-3035965354447201384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357410160680811264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0afbe813c93ad947aacf11dee346f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

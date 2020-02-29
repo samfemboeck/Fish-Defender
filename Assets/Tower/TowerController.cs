@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class TowerController : MonoBehaviour, IHavePlayerInput
+[RequireComponent(typeof(PlayerInput))]
+public class TowerController : MonoBehaviour
 {
     [SerializeField]
     [Range(0, 10)]
@@ -17,25 +18,18 @@ public class TowerController : MonoBehaviour, IHavePlayerInput
         get { return towers[curTowerIndex]; }
     }
 
-    public PlayerInput PlayerInput { get; set; }
-
     private void Awake()
     {
-        PlayerInput = new PlayerInput();
-        PlayerInput.playerControls.Tower.PressDPad.performed += OnPressDPad;
-        PlayerInput.playerControls.Tower.MoveStick.performed += OnMoveStick;
-        PlayerInput.playerControls.Tower.EnableShooting.performed += OnEnableShooting;
-        PlayerInput.playerControls.Tower.EnableShooting.canceled += OnDisableShooting;
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.playerControls.Tower.PressDPad.performed += OnPressDPad;
+        playerInput.playerControls.Tower.MoveStick.performed += OnMoveStick;
+        playerInput.playerControls.Tower.EnableShooting.performed += OnEnableShooting;
+        playerInput.playerControls.Tower.EnableShooting.canceled += OnDisableShooting;
     }
 
     private void Start()
     {
         towers = FindObjectsOfType<Tower>();
-    }
-
-    private void OnDestroy()
-    {
-        PlayerInput.Disable();
     }
 
     private void OnDisableShooting(CallbackContext ctx)

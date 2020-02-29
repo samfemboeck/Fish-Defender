@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.InputSystem;
-using System;
-using UnityEngine.Events;
-using System.Collections.Generic;
-using System.Linq;
 
-public class MenuPlayer : MonoBehaviour, IHavePlayerInput
+[RequireComponent(typeof(PlayerInput))]
+public class MenuPlayer : MonoBehaviour
 {
     [SerializeField]
     GameObject fishPlayerPrefab;
@@ -22,18 +18,18 @@ public class MenuPlayer : MonoBehaviour, IHavePlayerInput
 
     public bool isFish;
 
-    public PlayerInput PlayerInput { get; set; }
+    PlayerInput playerInput;
 
     private void Awake()
     {
-        PlayerInput = new PlayerInput();
-        PlayerInput.playerControls.MenuPlayer.SwitchRole.performed += OnSwitchRole;        
-        PlayerInput.playerControls.MenuPlayer.LockRole.performed += OnLockRole;
+        playerInput = GetComponent<PlayerInput>();
+        playerInput.playerControls.MenuPlayer.SwitchRole.performed += OnSwitchRole;        
+        playerInput.playerControls.MenuPlayer.LockRole.performed += OnLockRole;
     }
 
     public void OnLockRole(InputAction.CallbackContext obj)
     {
-        PlayerInput.Disable();
+        playerInput.enabled = false;
         OnPlayerLock.Raise(gameObject);
     }
 

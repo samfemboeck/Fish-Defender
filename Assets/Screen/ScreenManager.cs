@@ -18,7 +18,7 @@ public class ScreenManager : MonoBehaviour
         ChangeToScreen(initialScreen);
     }
 
-    public void ChangeToScreen(IScreen screen)
+    public void ChangeToScreen(Screen screen)
     {
         if (activeUI)
             StartCoroutine(FadeOutCanvas(activeUI.GetComponent<Canvas>(), fadeDuration));
@@ -26,11 +26,11 @@ public class ScreenManager : MonoBehaviour
         if (activeState)
             Destroy(activeState);
 
+        activeState = Instantiate(screen.State);
+
         GameObject targetUI = Instantiate(screen.UI);
         StartCoroutine(FadeInCanvas(targetUI.GetComponent<Canvas>(), fadeDuration));
         activeUI = targetUI;
-
-        activeState = Instantiate(screen.State);
     }
 
     private IEnumerator FadeOutCanvas(Canvas canvas, float fadeDuration)
