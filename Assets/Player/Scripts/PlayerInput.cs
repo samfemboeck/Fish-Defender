@@ -1,37 +1,25 @@
-﻿using UnityEngine.InputSystem;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerInput
+public class PlayerInput : MonoBehaviour 
 {
     public PlayerControls playerControls;
     public InputDevice device;
 
-    void Init()
+    void OnEnable()
     {
         playerControls = new PlayerControls();
         playerControls.Enable();
     }
 
-    public void Disable()
+    public void OnDisable()
     {
         playerControls.Disable();
     }
 
-    public PlayerInput()
-    {
-        Init();
-    }
-
     public void RestrictToDevice(InputDevice target)
     {
-        InputDevice targetDevice = null;
-
-        foreach (var device in InputSystem.devices)
-        {
-            if (device == target)
-                targetDevice = device;
-        }
-
-        playerControls.devices = new[] { targetDevice };
-        device = targetDevice;
+        device = target;
+        playerControls.devices = new[] { device };
     }
 }

@@ -2,27 +2,21 @@
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-public class FishController : MonoBehaviour, IHavePlayerInput
+[RequireComponent(typeof(PlayerInput))]
+public class FishController : MonoBehaviour
 {
     FishMovement fishMovement;
 
-    public PlayerInput PlayerInput { get; set; }
-
     private void Awake()
     {
-        PlayerInput = new PlayerInput();
-        PlayerInput.playerControls.Fish.PressButtonSouth.performed += OnPressButtonSouth;
-        PlayerInput.playerControls.Fish.MoveLeftStick.performed += OnMoveLeftStick;
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.playerControls.Fish.PressButtonSouth.performed += OnPressButtonSouth;
+        playerInput.playerControls.Fish.MoveLeftStick.performed += OnMoveLeftStick;
     }
 
     private void Start()
     {
         fishMovement = GetComponent<FishMovement>();
-    }
-
-    private void OnDestroy()
-    {
-        PlayerInput.Disable();
     }
 
     private void OnPressButtonSouth(CallbackContext ctx)

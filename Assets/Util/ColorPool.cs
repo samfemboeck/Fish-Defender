@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
-using System.Collections.Generic;
 
 [CreateAssetMenu]
 public class ColorPool : ScriptableObject
@@ -18,38 +15,7 @@ public class ColorPool : ScriptableObject
 
     public Color PickColor()
     {
-        Color ret;
-        switch (curIndex)
-        {
-            case 0:
-                ret = color1;
-                break;
-            case 1:
-                ret = color2;
-                break;
-            case 2:
-                ret = color3;
-                break;
-            case 3:
-                ret = color4;
-                break;
-            case 4:
-                ret = color5;
-                break;
-            case 5:
-                ret = color6;
-                break;
-            case 6:
-                ret = color7;
-                break;
-            case 7:
-                ret = color8;
-                break;
-            default:
-                ret = Color.clear;
-                break;
-        }
-        curIndex++;
-        return ret;
+        Color[] colors = new Color[] { color1, color2, color3, color4, color5, color6, color7, color8 };
+        return colors[curIndex++];
     }
 }

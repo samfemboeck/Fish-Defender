@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu]
-public class Screen : ScriptableObject, IScreen
+public class Screen : ScriptableObject
 {
     [SerializeField]
     GameObject ui;
@@ -9,6 +9,6 @@ public class Screen : ScriptableObject, IScreen
     [SerializeField]
     GameObject state;
 
-    GameObject IScreen.UI { get => ui; set => ui = value; }
-    GameObject IScreen.State { get => state; set => state = value; }
+    public GameObject UI { get => ui; set => ui = value; }
+    public GameObject State { get => state; set => state = value; }
 }

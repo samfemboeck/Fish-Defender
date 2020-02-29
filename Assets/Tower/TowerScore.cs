@@ -15,7 +15,7 @@ public class TowerScore : MonoBehaviour
         private set { score = value; } 
     }
 
-    public void OnPlayerCollect(GameObject player)
+    public void OnFishCollect(GameObject fish)
     {
         Score -= 1;
         onTowerScoreUpdate.Raise(gameObject);

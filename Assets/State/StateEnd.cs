@@ -15,15 +15,13 @@ public class StateEnd : MonoBehaviour
     [SerializeField]
     GameObjectSet collectibles;
 
-    PlayerInput playerInput;
-
     private void Start()
     {
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
         collectibles.RemoveAll();
 
-        playerInput = new PlayerInput();
+        PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
     }
 
