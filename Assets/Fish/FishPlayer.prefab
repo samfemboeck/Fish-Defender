@@ -4854,12 +4854,12 @@ GameObject:
   - component: {fileID: 7020733838869348071}
   - component: {fileID: 5454506357150163109}
   - component: {fileID: 8401822917158254697}
-  - component: {fileID: 2207268907305623262}
   - component: {fileID: -6121088356768880028}
   - component: {fileID: 7495706485046395593}
   - component: {fileID: -410730331330837670}
-  - component: {fileID: -6714160906916620459}
   - component: {fileID: -7441780833765300799}
+  - component: {fileID: -825508369635946236}
+  - component: {fileID: 3895684821996564821}
   m_Layer: 0
   m_Name: FishPlayer
   m_TagString: Fish
@@ -4927,18 +4927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounce: 3
   cooldown: 1
---- !u!114 &2207268907305623262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6059444459423081629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac79d6d392d8e444b0c90474b895fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6121088356768880028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4984,33 +4972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFishScoreUpdate: {fileID: 11400000, guid: 9ec15f9d209fa2048bf175814d34fca2, type: 2}
---- !u!114 &-6714160906916620459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6059444459423081629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: babf761795a46dc4c8af9fd0a058d063, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -410730331330837670}
-        m_MethodName: OnFishCollect
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &-7441780833765300799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5024,6 +4985,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+--- !u!114 &-825508369635946236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059444459423081629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0afbe813c93ad947aacf11dee346f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3895684821996564821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059444459423081629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac79d6d392d8e444b0c90474b895fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8000011194399049257
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 8268718265944038704}
   - component: {fileID: 1096560708737877590}
   - component: {fileID: 7455542524537609696}
-  - component: {fileID: 1509532032424517479}
   m_Layer: 10
   m_Name: SM_tower
   m_TagString: Untagged
@@ -216,17 +215,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 1a7fd8d38fa19854e92ed6ffa951a158, type: 2}
---- !u!114 &1509532032424517479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6001502553203148041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4853da7e2549544cb97040bbc3b35b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 10
-  onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}
