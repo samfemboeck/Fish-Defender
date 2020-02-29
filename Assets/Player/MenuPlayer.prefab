@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorPool: {fileID: 11400000, guid: 04dfe6942b09d024893bf12a91672846, type: 2}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-9097255802906510139
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,9 @@ public class UITitle : MonoBehaviour
     [SerializeField]
     Text fishesJoinedText;  //RM reference to the text on the title canvas that displays player count
 
+    [SerializeField]
+    GameObjectSet menuPlayers;  //RM contains all menu players
+
 
     void Start()
     {
@@ -35,15 +38,27 @@ public class UITitle : MonoBehaviour
     }
     
     //Updates title screen when gamepad (dis-)connects
-    void OnGamepadChange(object sender, EventArgs e)
+    void OnGamepadChange(object sender, EventArgs e)    //RM sender is the deviceManager that raised the event
     {
-        int gamepads = deviceManager.gamepads.Count;
+        print("gamepad changed");
 
+        int gamepads = deviceManager.gamepads.Count;
+        
         //Iterate all UI images and check whether they should be visible
         for (int i = 0; i < playerDisplay.Length; i++)
         {
             if (i < gamepads)
+            {
+                //Enable image
                 playerDisplay[i].enabled = true;
+                //Get player color
+                Color playerColor = menuPlayers.items[i].gameObject.GetComponent<PlayerColor>().color;
+                print("player color" + playerColor.ToString());
+                print("sprite color" + playerDisplay[i].color);
+                //Set sprite color
+                playerDisplay[i].color = playerColor;
+                print("sprite color" + playerDisplay[i].color);
+            }
             else
                 playerDisplay[i].enabled = false;
         }
