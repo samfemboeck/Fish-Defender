@@ -6,7 +6,9 @@ using System.Collections.Generic;
 
 public class DeviceManager
 {
-    public event EventHandler OnGamepadChange;
+    public delegate void GamepadChange(Gamepad gamepad);
+    public event GamepadChange OnGamepadAdded;
+    public event GamepadChange OnGamepadRemoved;
     public List<Gamepad> gamepads = new List<Gamepad>();
 
     public DeviceManager()
@@ -31,6 +33,7 @@ public class DeviceManager
 
         Gamepad gamepad = (Gamepad)device;
 
+        OnGamepadChange?.Invoke(this, EventArgs.Empty);
 
         switch (change)
         {
@@ -39,9 +42,11 @@ public class DeviceManager
                 break;
             case InputDeviceChange.Added:
                 gamepads.Add(gamepad);
+                OnGamepadAdded?.Invoke(gamepad);
                 break;
             case InputDeviceChange.Removed:
                 gamepads.Remove(gamepad);
+                OnGamepadRemoved?.Invoke(gamepad);
                 break;
             default:
                 break;

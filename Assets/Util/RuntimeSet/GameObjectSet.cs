@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName="Set/GameObjectSet")]
 public class GameObjectSet : RuntimeSet<GameObject> 
 {
     public override void Remove(GameObject g)
