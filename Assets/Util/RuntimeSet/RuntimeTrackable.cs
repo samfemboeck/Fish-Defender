@@ -12,7 +12,6 @@ public class RuntimeTrackable : MonoBehaviour
 
     void OnDisable()
     {
-        print("disable");
         set.Remove(gameObject);
     }
 }

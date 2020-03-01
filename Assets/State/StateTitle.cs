@@ -7,6 +7,9 @@ public class StateTitle : MonoBehaviour
     GameObject menuPlayerPrefab;
 
     [SerializeField]
+    GameObjectSet menuPlayers;
+
+    [SerializeField]
     Screen gameplay;
 
     public int LockedPlayers { get; set; }
@@ -25,13 +28,20 @@ public class StateTitle : MonoBehaviour
         
         LockedPlayers = 0;
         deviceManager = new DeviceManager();
+        deviceManager.OnGamepadAdded += CreateMenuPlayer;
+        deviceManager.OnGamepadRemoved += gamepad => menuPlayers.Remove(new PlayerInputDecorator(menuPlayers).GetByDeviceId(gamepad.deviceId).gameObject);
 
         for (int i = 0; i < deviceManager.gamepads.Count; i++)
         {
-            GameObject menuPlayer = GetComponent<ObjectSpawner>().SpawnAtPosition(menuPlayerPrefab, Vector3.zero);
-            menuPlayer.transform.SetParent(transform);
-            menuPlayer.GetComponent<PlayerInput>().RestrictToDevice(deviceManager.gamepads[i]);
+            CreateMenuPlayer(deviceManager.gamepads[i]);
         }
+    }
+
+    private void CreateMenuPlayer(Gamepad gamepad)
+    {
+        GameObject menuPlayer = GetComponent<ObjectSpawner>().SpawnAtPosition(menuPlayerPrefab, Vector3.zero);
+        menuPlayer.transform.SetParent(transform);
+        menuPlayer.GetComponent<PlayerInput>().RestrictToDevice(gamepad);
     }
 
     public void OnPlayerLock(GameObject player)
