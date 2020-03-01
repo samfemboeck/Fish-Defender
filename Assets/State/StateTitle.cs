@@ -14,7 +14,6 @@ public class StateTitle : MonoBehaviour
 
     public int LockedPlayers { get; set; }
     DeviceManager deviceManager;
-    ScreenManager screenManager;
     public bool AllPlayersLocked { get; set; }
 
     private void Start()
@@ -23,8 +22,6 @@ public class StateTitle : MonoBehaviour
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
 
         GetComponent<AudioSource>().Play();
-
-        screenManager = GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>();
         
         LockedPlayers = 0;
         deviceManager = new DeviceManager();
@@ -51,14 +48,12 @@ public class StateTitle : MonoBehaviour
         GameObject role = spawner.SpawnAtRandomPosition(menuPlayer.GetRolePrefab());
         role.GetComponent<PlayerColor>().color = player.GetComponent<PlayerColor>().color;
         role.GetComponent<PlayerInput>().RestrictToDevice(menuPlayer.GetComponent<PlayerInput>().device);
-
-        if (++LockedPlayers >= deviceManager.gamepads.Count)
-            AllPlayersLocked = true;
+        LockedPlayers++;
     }
 
     public void OnPressSpace(InputAction.CallbackContext obj)
     {
-        if (AllPlayersLocked)
-            screenManager.ChangeToScreen(gameplay);
+        if (LockedPlayers >= deviceManager.gamepads.Count)
+            ScreenManager.Instance.ChangeToScreen(gameplay);
     }
 }

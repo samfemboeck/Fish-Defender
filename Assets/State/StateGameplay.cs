@@ -12,12 +12,8 @@ public class StateGameplay : MonoBehaviour
     [SerializeField]
     Screen end;
 
-    ScreenManager screenManager;
-
     private void Start()
     {
-        screenManager = GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>();
-
         GameObject spawner = Instantiate(collectibleSpawnerPrefab);
         spawner.transform.SetParent(transform);
     }
@@ -25,12 +21,12 @@ public class StateGameplay : MonoBehaviour
     public void OnTowerScoreUpdate(GameObject tower)
     {
         if (tower.GetComponent<TowerScore>().Score <= 0)
-            screenManager.ChangeToScreen(end);
+            ScreenManager.Instance.ChangeToScreen(end);
     }
 
     public void OnFishKill(GameObject obj)
     {
         if (fishes.Count <= 0)
-            screenManager.ChangeToScreen(end);
+            ScreenManager.Instance.ChangeToScreen(end);
     }
 }

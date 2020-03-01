@@ -23,7 +23,7 @@ public class MenuPlayer : MonoBehaviour
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        playerInput.playerControls.MenuPlayer.SwitchRole.performed += OnSwitchRole;        
+        playerInput.playerControls.MenuPlayer.SwitchRole.performed += OnSwitchRole;
         playerInput.playerControls.MenuPlayer.LockRole.performed += OnLockRole;
     }
 

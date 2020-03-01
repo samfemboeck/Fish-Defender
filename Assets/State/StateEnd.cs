@@ -27,6 +27,6 @@ public class StateEnd : MonoBehaviour
 
     public void OnPressSpace(InputAction.CallbackContext ctx)
     {
-        GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>().ChangeToScreen(selectRole);
+        ScreenManager.Instance.ChangeToScreen(selectRole);
     }
 }
