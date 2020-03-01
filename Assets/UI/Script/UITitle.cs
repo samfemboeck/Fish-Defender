@@ -80,19 +80,22 @@ public class UITitle : MonoBehaviour
         //Check whether menuPlayer is fish
         //Change sprite in image with same index
 
-        //Get player index
+        //Get player index and color
         int index = menuPlayers.items.IndexOf(obj);
-        print("player index:" + index);
+        Color playerColor = menuPlayers.items[index].gameObject.GetComponent<PlayerColor>().color;
 
         if (obj.GetComponent<MenuPlayer>().isFish)
         {
             //Change to fish sprite and set color
             print("change to fish");
+            playerDisplay[index].sprite = fishSprite;
+            playerDisplay[index].color = playerColor;
         }
         else
         {
             //Change to tower sprite (and set color?)
             print("change to tower");
+            playerDisplay[index].sprite = towerSprite;
         }
     }
 
@@ -102,10 +105,9 @@ public class UITitle : MonoBehaviour
     public void OnPlayerLockRole(GameObject obj)
     {
         //Get player index
-        //int index = menuPlayers.items.IndexOf(obj);
-        //print("player index:" + index);
+        int index = menuPlayers.items.IndexOf(obj);
 
         //Stop animation
-        //playerDisplay[index].GetComponent<Animator>().StopPlayback();
+        playerDisplay[index].GetComponent<Animator>().enabled = false;
     }
 }
