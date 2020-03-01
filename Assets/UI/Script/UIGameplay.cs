@@ -3,30 +3,55 @@ using UnityEngine.UI;
 
 public class UIGameplay : MonoBehaviour
 {
-    public Image Tower;
+    [SerializeField]
+    Image towerImage;
     private Image[] towerScore;
 
-    public Image[] Fishes = new Image[8];
+    [SerializeField]
+    Image[] fishImages = new Image[8];
     private Image[][] fishScores;
 
-    int maxTowerHealth = 10;
+    [SerializeField]
+    GameObjectSet fishSet;
+
+    int maxTowerHealth = 10;    //RM need to be adjustes when balancing feat got implemented
     int maxFishPoints = 10;
     
     private void Awake()
     {
         //Get Tower Point images
-        towerScore = Tower.GetComponentsInChildren<Image>();
+        towerScore = towerImage.GetComponentsInChildren<Image>();
 
         //Get Fish point images
-        fishScores = new Image[Fishes.Length][];
-        for (int i=0; i<Fishes.Length; i++)
+        fishScores = new Image[fishImages.Length][];
+        for (int i=0; i<fishImages.Length; i++)
         {
-            fishScores[i] = Fishes[i].GetComponentsInChildren<Image>(); 
+            fishScores[i] = fishImages[i].GetComponentsInChildren<Image>(); 
+        }
+
+        //Setup
+        SetupGameplayScreenFishes();
+    }
+
+    private void SetupGameplayScreenFishes()
+    {
+        //Iterate fish set and set color of images on UI
+        for (int i=0; i<fishSet.Count; i++)
+        {
+            Color playerColor = fishSet.items[i].gameObject.GetComponent<PlayerColor>().color;
+            fishImages[i].color = playerColor;
+        }
+        //Disable unused sprites
+        for (int i=fishSet.Count; i<fishImages.Length; i++)
+        {
+            fishImages[i].enabled = false;
         }
     }
     
-    public void UpdateTowerUI(int score)
+    public void UpdateTowerUI(GameObject tower)
     {
+        int score = tower.GetComponent<TowerScore>().Score;
+
         for (int i=1; i<=maxTowerHealth; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= score)
