@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,15 +33,18 @@ public class UITitle : MonoBehaviour
 
     void Start()
     {
+        //Listen for changes on the gamepads
         deviceManager = new DeviceManager();
-        deviceManager.OnGamepadChange += OnGamepadChange;
-        OnGamepadChange(null, null);    //RM initially call OnGamepadChange to make sure everything is hidden at start
+        deviceManager.OnGamepadAdded += OnGamepadChange;
+        deviceManager.OnGamepadRemoved += OnGamepadChange;
+
+        OnGamepadChange(null);    //RM initially call OnGamepadChange to make sure everything is hidden at start
     }
     
     //Updates title screen when gamepad (dis-)connects
-    void OnGamepadChange(object sender, EventArgs e)    //RM sender is the deviceManager that raised the event
+    void OnGamepadChange(Gamepad gamepad)    //RM sender is the deviceManager that raised the event
     {
-        int gamepads = deviceManager.gamepads.Count;
+        int gamepads = menuPlayers.items.Count;
         
         //Iterate all UI images and check whether they should be visible
         for (int i = 0; i < playerDisplay.Length; i++)
@@ -58,6 +62,7 @@ public class UITitle : MonoBehaviour
             else
                 playerDisplay[i].enabled = false;
         }
+
 
         //Update displayed text
         if (gamepads == 1)

@@ -51,7 +51,5 @@ public class DeviceManager
             default:
                 break;
         }
-
-        OnGamepadChange?.Invoke(this, EventArgs.Empty);
     }
 }
