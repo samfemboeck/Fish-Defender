@@ -51,6 +51,7 @@ public class UITitle : MonoBehaviour
             {
                 //Enable image
                 playerDisplay[i].enabled = true;
+                playerDisplay[i].GetComponent<Animator>().Play("Fish_wiggle", 0, UnityEngine.Random.value);
                 //Get player color
                 Color playerColor = menuPlayers.items[i].gameObject.GetComponent<PlayerColor>().color;
                 print("player color" + playerColor.ToString());
@@ -74,5 +75,8 @@ public class UITitle : MonoBehaviour
     public void OnPlayerSwitch(GameObject obj)
     {
         //TODO
+        //Get menuPlayer index from menuPlayers.items
+        //Check whether menuPlayer is fish
+        //Change sprite in image with same index
     }
 }
