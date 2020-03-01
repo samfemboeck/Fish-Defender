@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPlayerPrefab: {fileID: 5624139441801630355, guid: 2b812e0866f8223498b0060efead4b71,
     type: 3}
+  menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
   gameplay: {fileID: 11400000, guid: 756894e2afd4a83479c813afd7cfcbd5, type: 2}
 --- !u!82 &-1248897453904931026
 AudioSource:
