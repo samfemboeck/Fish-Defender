@@ -40,8 +40,6 @@ public class UITitle : MonoBehaviour
     //Updates title screen when gamepad (dis-)connects
     void OnGamepadChange(object sender, EventArgs e)    //RM sender is the deviceManager that raised the event
     {
-        print("gamepad changed");
-
         int gamepads = deviceManager.gamepads.Count;
         
         //Iterate all UI images and check whether they should be visible
@@ -54,11 +52,8 @@ public class UITitle : MonoBehaviour
                 playerDisplay[i].GetComponent<Animator>().Play("Fish_wiggle", 0, UnityEngine.Random.value);
                 //Get player color
                 Color playerColor = menuPlayers.items[i].gameObject.GetComponent<PlayerColor>().color;
-                print("player color" + playerColor.ToString());
-                print("sprite color" + playerDisplay[i].color);
                 //Set sprite color
                 playerDisplay[i].color = playerColor;
-                print("sprite color" + playerDisplay[i].color);
             }
             else
                 playerDisplay[i].enabled = false;
@@ -72,11 +67,40 @@ public class UITitle : MonoBehaviour
     }
 
     //Updates player image when they change role
+    //RM gets called by event from MenuPlayer
     public void OnPlayerSwitch(GameObject obj)
     {
         //TODO
         //Get menuPlayer index from menuPlayers.items
         //Check whether menuPlayer is fish
         //Change sprite in image with same index
+
+        //Get player index
+        int index = menuPlayers.items.IndexOf(obj);
+        print("player index:" + index);
+
+        if (obj.GetComponent<MenuPlayer>().isFish)
+        {
+            //Change to fish sprite and set color
+            print("change to fish");
+        }
+        else
+        {
+            //Change to tower sprite (and set color?)
+            print("change to tower");
+        }
+    }
+
+    //Displays on the UI that a player locked their choice of role
+    //RM gets called by event from MenuPlayer
+    //RM at the moment simply stops the animation >_>
+    public void OnPlayerLockRole(GameObject obj)
+    {
+        //Get player index
+        //int index = menuPlayers.items.IndexOf(obj);
+        //print("player index:" + index);
+
+        //Stop animation
+        //playerDisplay[index].GetComponent<Animator>().StopPlayback();
     }
 }
