@@ -907,6 +907,10 @@ MonoBehaviour:
   - {fileID: 2346086540499031170}
   - {fileID: 2346086540287016674}
   - {fileID: 2346086541369027770}
+  - {fileID: 189344922541146791}
+  - {fileID: 3368742829703707520}
+  - {fileID: 3596013379093959973}
+  - {fileID: 881921600165440568}
   fishSprite: {fileID: 21300000, guid: a76b32457251be24a96197d31249b19d, type: 3}
   towerSprite: {fileID: 21300000, guid: 6700a74a055a9af4a82e69a7ffeaace7, type: 3}
   fishesJoinedText: {fileID: 8385302119490532276}
@@ -945,7 +949,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8385302118990709335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
   m_Name: 
