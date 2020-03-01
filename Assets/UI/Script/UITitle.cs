@@ -87,14 +87,12 @@ public class UITitle : MonoBehaviour
         if (obj.GetComponent<MenuPlayer>().isFish)
         {
             //Change to fish sprite and set color
-            print("change to fish");
             playerDisplay[index].sprite = fishSprite;
             playerDisplay[index].color = playerColor;
         }
         else
         {
             //Change to tower sprite (and set color?)
-            print("change to tower");
             playerDisplay[index].sprite = towerSprite;
         }
     }
