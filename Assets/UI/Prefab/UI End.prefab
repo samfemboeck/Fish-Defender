@@ -242,12 +242,12 @@ GameObject:
   - component: {fileID: 1516681257170279821}
   - component: {fileID: -638189531134331074}
   m_Layer: 5
-  m_Name: EndScreen
+  m_Name: UI End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1516681257170279823
 RectTransform:
   m_ObjectHideFlags: 0
