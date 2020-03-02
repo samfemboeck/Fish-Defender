@@ -4941,7 +4941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   maxSpeed: 3
-  maxRotationSpeed: 3
+  maxRotationSpeed: 0.1
   friction: 40
   negativeSpeed: -0.05
   forwardSpeed: 100
