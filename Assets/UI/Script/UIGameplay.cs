@@ -13,10 +13,7 @@ public class UIGameplay : MonoBehaviour
 
     [SerializeField]
     GameObjectSet fishSet;
-
-    int maxTowerHealth = 10;    //RM need to be adjustes when balancing feat got implemented
-    int maxFishPoints = 10;
-    
+        
     private void Awake()
     {
         //Get Tower Point images
@@ -58,6 +55,7 @@ public class UIGameplay : MonoBehaviour
     {
         int score = tower.GetComponent<TowerScore>().Score;
 
+        /*
         for (int i=1; i<towerScore.Length; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= score)
@@ -69,23 +67,19 @@ public class UIGameplay : MonoBehaviour
                 towerScore[i].enabled = false;
             }
         }
+        */
+
+        //Disable lost point
+        towerScore[score + 1].enabled = false;
     }
 
     public void UpdateFishUI(GameObject fish)
     {
-        int score = fish.GetComponent<FishScore>().Score;
         int id = fishSet.items.IndexOf(fish);
-
-        for (int i = 1; i<fishScores[id].Length; i++)   //RM start from 1 because first image is actually the parent itself
-        {
-            if (i <= score)
-            {
-                fishScores[id][i].enabled = true;
-            }
-            else
-            {
-                fishScores[id][i].enabled = false;
-            }
-        }
+        int score = fish.GetComponent<FishScore>().Score;
+        
+        //Enable next point
+        //RM works because fishes never lose points
+        fishScores[id][score].enabled = true;
     }
 }
