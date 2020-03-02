@@ -912,7 +912,7 @@ MonoBehaviour:
   - {fileID: 3596013379093959973}
   - {fileID: 881921600165440568}
   fishSprite: {fileID: 21300000, guid: da9a33f4d2f960f47a759d8fa0b23d08, type: 3}
-  towerSprite: {fileID: 21300000, guid: 6700a74a055a9af4a82e69a7ffeaace7, type: 3}
+  towerSprite: {fileID: 21300000, guid: 677c2ec7336140d48bea4ea35b6b990c, type: 3}
   fishesJoinedText: {fileID: 8385302119490532276}
   menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
 --- !u!114 &-3346542514547268492
