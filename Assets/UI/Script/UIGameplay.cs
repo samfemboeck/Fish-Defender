@@ -65,17 +65,20 @@ public class UIGameplay : MonoBehaviour
         }
     }
 
-    public void UpdateFishUI(int fishId, int fishScore)
+    public void UpdateFishUI(GameObject fish)
     {
+        int score = fish.GetComponent<FishScore>().Score;
+        int id = fishSet.items.IndexOf(fish);
+
         for (int i = 1; i <= maxFishPoints; i++)   //RM start from 1 because first image is actually the parent itself
         {
-            if (i <= fishScore)
+            if (i <= score)
             {
-                fishScores[fishId][i].enabled = true;
+                fishScores[id][i].enabled = true;
             }
             else
             {
-                fishScores[fishId][i].enabled = false;
+                fishScores[id][i].enabled = false;
             }
         }
     }

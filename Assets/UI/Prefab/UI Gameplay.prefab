@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 3070152352818605433}
   - component: {fileID: -5710823674172578069}
   - component: {fileID: 2405748011479169697}
+  - component: {fileID: 3437697152748620537}
   m_Layer: 0
   m_Name: UI Gameplay
   m_TagString: Untagged
@@ -636,6 +637,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5710823674172578069}
         m_MethodName: UpdateTowerUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3437697152748620537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070152352818605432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 9ec15f9d209fa2048bf175814d34fca2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5710823674172578069}
+        m_MethodName: UpdateFishUI
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
