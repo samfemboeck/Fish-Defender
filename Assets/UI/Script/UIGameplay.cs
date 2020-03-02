@@ -55,21 +55,8 @@ public class UIGameplay : MonoBehaviour
     {
         int score = tower.GetComponent<TowerScore>().Score;
 
-        /*
-        for (int i=1; i<towerScore.Length; i++)   //RM start from 1 because first image is actually the parent itself
-        {
-            if (i <= score)
-            {
-                towerScore[i].enabled = true;
-            }
-            else
-            {
-                towerScore[i].enabled = false;
-            }
-        }
-        */
-
         //Disable lost point
+        //RM works because towers never regain points
         towerScore[score + 1].enabled = false;
     }
 
