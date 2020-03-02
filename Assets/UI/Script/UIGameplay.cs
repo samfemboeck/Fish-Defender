@@ -47,12 +47,18 @@ public class UIGameplay : MonoBehaviour
             fishImages[i].enabled = false;
         }
     }
+
+    public void SetupGameplayScreenTower()
+    {
+        //TODO
+        //After points based on fish count got implemented
+    }
     
     public void UpdateTowerUI(GameObject tower)
     {
         int score = tower.GetComponent<TowerScore>().Score;
 
-        for (int i=1; i<=maxTowerHealth; i++)   //RM start from 1 because first image is actually the parent itself
+        for (int i=1; i<towerScore.Length; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= score)
             {
@@ -70,7 +76,7 @@ public class UIGameplay : MonoBehaviour
         int score = fish.GetComponent<FishScore>().Score;
         int id = fishSet.items.IndexOf(fish);
 
-        for (int i = 1; i <= maxFishPoints; i++)   //RM start from 1 because first image is actually the parent itself
+        for (int i = 1; i<fishScores[id].Length; i++)   //RM start from 1 because first image is actually the parent itself
         {
             if (i <= score)
             {
