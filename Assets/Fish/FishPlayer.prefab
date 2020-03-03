@@ -5068,6 +5068,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d2619ee550f90854d9c5356ceae59fcb, type: 2}
+  - {fileID: 2100000, guid: 4a7a3cba045bd734bb8a1ab3f27427e2, type: 2}
+  - {fileID: 2100000, guid: 858820ea707335948ac4e5395e355f93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5100,13 +5102,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd85de24ef697be44929c3df3bab30d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idk: {fileID: 11400000, guid: 04dfe6942b09d024893bf12a91672846, type: 2}
-  colours:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
