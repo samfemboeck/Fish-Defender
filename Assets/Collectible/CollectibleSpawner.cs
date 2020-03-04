@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+
+[RequireComponent(typeof(ObjectSpawner))]
 public class CollectibleSpawner : MonoBehaviour
 {
     [SerializeField]

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a1831faabd7354eb362ef77a02eef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
   colorPool: {fileID: 11400000, guid: 04dfe6942b09d024893bf12a91672846, type: 2}
-  color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-9097255802906510139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishPlayerPrefab: {fileID: 6059444459423081629, guid: dffc790a26fa30b4d911d6b069580725,
     type: 3}
-  towerPlayerPrefab: {fileID: 8363502071662476973, guid: acfd945c296a60345a916d7ff272fccb,
+  gamepadTowerPlayerPrefab: {fileID: 8363502071662476973, guid: 2212222b130f9d74f8a4b2829be692ed,
     type: 3}
+  towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
   OnPlayerLock: {fileID: 11400000, guid: 1778f6ce8789d73469b50bc3aa2219ed, type: 2}
   OnPlayerSwitch: {fileID: 11400000, guid: 3d7da0e2805536041a96dd46e61835e7, type: 2}
   isFish: 1

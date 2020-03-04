@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     GameEvent onPlayerKill;
 
+    public Tower ActiveTower { get; set; }
+
     public void Shoot(Vector3 velocity)
     {
         GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);

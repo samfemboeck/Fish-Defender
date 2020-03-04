@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class StateEnd : MonoBehaviour
 {
     [SerializeField]
-    Screen selectRole;
+    Screen title;
 
     [SerializeField]
     GameObjectSet fishes;
@@ -27,6 +27,6 @@ public class StateEnd : MonoBehaviour
 
     public void OnPressSpace(InputAction.CallbackContext ctx)
     {
-        GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>().ChangeToScreen(selectRole);
+        ScreenManager.Instance.ChangeToScreen(title);
     }
 }

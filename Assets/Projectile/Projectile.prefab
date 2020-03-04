@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2073256911084695834}
   m_Layer: 9
   m_Name: Projectile
-  m_TagString: Ball
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +242,7 @@ Rigidbody:
   m_GameObject: {fileID: 8316880413592410063}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.5
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0

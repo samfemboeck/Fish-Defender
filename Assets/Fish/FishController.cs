@@ -10,8 +10,8 @@ public class FishController : MonoBehaviour
     private void Awake()
     {
         PlayerInput playerInput = GetComponent<PlayerInput>();
-        playerInput.playerControls.Fish.PressButtonSouth.performed += OnPressButtonSouth;
-        playerInput.playerControls.Fish.MoveLeftStick.performed += OnMoveLeftStick;
+        playerInput.playerControls.Gamepad.PressButtonSouth.performed += OnPressButtonSouth;
+        playerInput.playerControls.Gamepad.MoveLeftStick.performed += OnMoveLeftStick;
     }
 
     private void Start()

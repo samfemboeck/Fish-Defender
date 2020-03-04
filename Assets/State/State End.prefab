@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ac0aecfd5ee2949bc5bc6104fae86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectRole: {fileID: 0}
+  title: {fileID: 11400000, guid: 70a5f63e844cf714993191ec1e362a6f, type: 2}
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
   towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   collectibles: {fileID: 11400000, guid: e4e82f94b509bbf4cb3e3849ad979ad4, type: 2}

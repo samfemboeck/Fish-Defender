@@ -10,27 +10,32 @@ public class StateGameplay : MonoBehaviour
     GameObjectSet fishes;
 
     [SerializeField]
-    Screen end;
+    GameObjectSet towers;
 
-    ScreenManager screenManager;
+    [SerializeField]
+    Screen end;
 
     private void Start()
     {
-        screenManager = GameObject.FindWithTag("ScreenManager").GetComponent<ScreenManager>();
-
         GameObject spawner = Instantiate(collectibleSpawnerPrefab);
         spawner.transform.SetParent(transform);
+        Invoke("SpawnTowerProjectiles", 3);
+    }
+
+    private void SpawnTowerProjectiles()
+    {
+        new TowerDecorator(towers).SpawnProjectiles();
     }
 
     public void OnTowerScoreUpdate(GameObject tower)
     {
         if (tower.GetComponent<TowerScore>().Score <= 0)
-            screenManager.ChangeToScreen(end);
+            ScreenManager.Instance.ChangeToScreen(end);
     }
 
     public void OnFishKill(GameObject obj)
     {
         if (fishes.Count <= 0)
-            screenManager.ChangeToScreen(end);
+            ScreenManager.Instance.ChangeToScreen(end);
     }
 }

@@ -2,52 +2,6 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Fish",
-            "id": "0884fb35-7406-4f04-b425-5d72391ea42f",
-            "actions": [
-                {
-                    "name": "PressButtonSouth",
-                    "type": "Button",
-                    "id": "10a4bde5-8e11-42d4-91c9-71fda5e955de",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MoveLeftStick",
-                    "type": "Value",
-                    "id": "45076340-88e1-4e88-b55a-51cdcad41d12",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "8417cf79-4c52-4130-97bb-d253740c56a7",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "PressButtonSouth",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d980c89-e5aa-4e36-b33f-6438819e99cb",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MoveLeftStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Keyboard",
             "id": "f45ef3a7-f1f4-47ed-91cd-5f81e81eb0a0",
             "actions": [
@@ -75,11 +29,11 @@
             ]
         },
         {
-            "name": "Tower",
+            "name": "Gamepad",
             "id": "774c61dd-cfd4-486c-b54b-9d1693d4e41f",
             "actions": [
                 {
-                    "name": "MoveStick",
+                    "name": "MoveLeftStick",
                     "type": "Button",
                     "id": "ee2592c5-197e-46fc-951a-6fc4146e5bcf",
                     "expectedControlType": "",
@@ -95,9 +49,33 @@
                     "interactions": ""
                 },
                 {
-                    "name": "EnableShooting",
+                    "name": "PressButtonSouth",
                     "type": "Button",
                     "id": "c4d74f5d-1c96-4b49-85c4-8bf60e78833a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MoveRightStick",
+                    "type": "Button",
+                    "id": "df402b4f-b5c6-446e-9ac8-c5528f9ba3fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightShoulder",
+                    "type": "Button",
+                    "id": "13c74b7c-fe4a-4669-bc3f-2782ef79a1d7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LeftShoulder",
+                    "type": "Button",
+                    "id": "405bd3f7-8850-4981-8651-5e09b6b59f1e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -111,18 +89,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "MoveStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "91930aca-c76b-4b1c-8f03-fccbc0f49852",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MoveStick",
+                    "action": "MoveLeftStick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -144,39 +111,53 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "EnableShooting",
+                    "action": "PressButtonSouth",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "91f2cb59-974a-42d2-866e-5b32289225db",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "acac4e8a-4ecc-4761-8ba3-63b4f5390315",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "EnableShooting",
+                    "action": "MoveRightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c757d76-1f14-422a-be30-3ebf811cad8a",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "047e99ff-caec-4b85-b39c-0ad1b33c7af0",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftShoulder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "MenuPlayer",
-            "id": "737271fd-c00e-421f-bd97-fe7ac8072e5a",
+            "name": "Mouse",
+            "id": "b339e058-032d-4867-975e-deb533a3d6f3",
             "actions": [
                 {
-                    "name": "SwitchRole",
+                    "name": "LeftClick",
                     "type": "Button",
-                    "id": "36a2078f-0b0e-4192-a5b9-483ddc7ea998",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "LockRole",
-                    "type": "Button",
-                    "id": "c7e37bfa-6f1a-4bcc-81e0-99bb5d167623",
+                    "id": "59a14cd4-9ec2-4de7-ac70-68a46bfd1fe7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -185,23 +166,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "1ce48832-03a4-4f85-9699-002481fad12c",
-                    "path": "<Gamepad>/dpad",
+                    "id": "71cd4188-e0b9-41f5-9635-78215da42a42",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "SwitchRole",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6c73d0e5-d80a-4c99-bed2-a7536b4f3c8f",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "LockRole",
+                    "groups": "Keyboard&Mouse",
+                    "action": "LeftClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
