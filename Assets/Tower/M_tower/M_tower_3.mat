@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_tower_2
+  m_Name: M_tower_3
   m_Shader: {fileID: 4800000, guid: 88e08d775cf7d14408761cc1e8d5a792, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -77,7 +77,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _ColorMax: {r: 0.14576718, g: 0.9150943, b: 0, a: 1}
-    - _ColorMin: {r: 0.037696473, g: 0.4716981, b: 0.011124954, a: 1}
+    - _ColorMax: {r: 0.231, g: 0.41527638, b: 1, a: 1}
+    - _ColorMin: {r: 0.039639212, g: 0.093882315, b: 0.266, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
