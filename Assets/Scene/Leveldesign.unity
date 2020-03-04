@@ -299,6 +299,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d17471bf65f8143b93d331dbe504ea, type: 3}
+--- !u!1001 &1133389292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8769713397179305603, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_Name
+      value: TopDownCam
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 61.955
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.33113378
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769713397179305612, guid: c408547189433f243b4ad797c5855a68,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.656451
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c408547189433f243b4ad797c5855a68, type: 3}
 --- !u!1 &1492236406
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1492236407
 AudioListener:
   m_ObjectHideFlags: 0
@@ -351,7 +400,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 52
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: 0

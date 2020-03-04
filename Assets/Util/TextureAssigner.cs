@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class TextureAssigner : MonoBehaviour
 {
-    MeshRenderer rend;
+    SkinnedMeshRenderer rend;
     public void Start()
     {
-        rend = gameObject.GetComponent<MeshRenderer>();
+        rend = gameObject.GetComponent<SkinnedMeshRenderer>();
         Color col = gameObject.GetComponentInParent<PlayerColor>().color;
         rend.material.SetColor("_Color", col);
         rend.material.SetColor("_EmissionColor", col);
