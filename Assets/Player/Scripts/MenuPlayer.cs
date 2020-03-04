@@ -50,6 +50,8 @@ public class MenuPlayer : MonoBehaviour
             else
                 fishCount--;
         }
+        else
+            fishCount++;
 
         isFish = !isFish;
         OnPlayerSwitch.Raise(gameObject);

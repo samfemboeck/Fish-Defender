@@ -89,7 +89,6 @@ MonoBehaviour:
     type: 3}
   gamepadTowerPlayerPrefab: {fileID: 8363502071662476973, guid: 2212222b130f9d74f8a4b2829be692ed,
     type: 3}
-  towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
   OnPlayerLock: {fileID: 11400000, guid: 1778f6ce8789d73469b50bc3aa2219ed, type: 2}
   OnPlayerSwitch: {fileID: 11400000, guid: 3d7da0e2805536041a96dd46e61835e7, type: 2}

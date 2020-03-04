@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectiblePrefab: {fileID: 4950840615992649833, guid: cec23499ff1c04fef9b5ccdc399defe7,
     type: 3}
-  collectibles: {fileID: 11400000, guid: e4e82f94b509bbf4cb3e3849ad979ad4, type: 2}
+  collectibles: {fileID: 11400000, guid: 73b11ceb7708761499fb73be36d66398, type: 2}
   spawnTime: 2
 --- !u!114 &5873252243416343101
 MonoBehaviour:
