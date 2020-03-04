@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 
 // You can create events in the editor with right click -> create
-[CreateAssetMenu(menuName="Event/GameEvent", fileName="GameEvent")]
+[CreateAssetMenu(menuName="GameEvent", fileName="GameEvent")]
 public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> listeners = new List<GameEventListener>();

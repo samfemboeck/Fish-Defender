@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
-public class PlayerInputDecorator : RuntimeSetDecorator<GameObject>
+/* 
+ * A Decorator for GameObjectSets.
+ * Allows you to Query GameObjectSets for PlayerInput Components
+ */
+public class PlayerInputDecorator : ComponentDecorator<PlayerInput>
 {
-    public PlayerInputDecorator(RuntimeSet<GameObject> runtimeSet) : base(runtimeSet)
+    public PlayerInputDecorator(GameObjectSet set) : base(set)
     {
     }
 
     public PlayerInput GetByDeviceId(int deviceId)
     {
-        foreach (GameObject g in runtimeSet.items)
+        foreach (GameObject g in set.items)
         {
-            PlayerInput playerInput = g.GetComponent<PlayerInput>();
-
-            if (!playerInput || playerInput.device == null)
-                continue;
-            else if (playerInput.device.deviceId == deviceId)
+            PlayerInput playerInput;
+            if (TryGetComponent(g, out playerInput) && 
+                playerInput.device != null && 
+                playerInput.device.deviceId == deviceId)
                 return playerInput;
         }
         return null;

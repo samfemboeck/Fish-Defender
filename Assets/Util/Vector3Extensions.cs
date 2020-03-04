@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/*
+ * Extend Vector3s functionality for better readability.
+ */
 public static class Vector3Extensions
 {
     public static Vector3 With(this Vector3 original, float? x = null, float? y = null, float? z = null)

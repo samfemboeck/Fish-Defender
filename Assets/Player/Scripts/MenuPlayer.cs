@@ -8,7 +8,10 @@ public class MenuPlayer : MonoBehaviour
     GameObject fishPlayerPrefab;
 
     [SerializeField]
-    GameObject towerPlayerPrefab;
+    GameObject gamepadTowerPlayerPrefab;
+
+    [SerializeField]
+    GameObjectSet menuPlayers;
 
     [SerializeField]
     GameEvent OnPlayerLock;
@@ -17,14 +20,15 @@ public class MenuPlayer : MonoBehaviour
     GameEvent OnPlayerSwitch;
 
     public bool isFish;
-
+    public static int fishCount;
     PlayerInput playerInput;
 
-    private void Awake()
+    private void Start()
     {
+        if (isFish) fishCount++;
         playerInput = GetComponent<PlayerInput>();
-        playerInput.playerControls.MenuPlayer.SwitchRole.performed += OnSwitchRole;
-        playerInput.playerControls.MenuPlayer.LockRole.performed += OnLockRole;
+        playerInput.playerControls.Gamepad.PressDPad.performed += OnSwitchRole;
+        playerInput.playerControls.Gamepad.PressButtonSouth.performed += OnLockRole;
     }
 
     public void OnLockRole(InputAction.CallbackContext obj)
@@ -35,6 +39,18 @@ public class MenuPlayer : MonoBehaviour
 
     public void OnSwitchRole(InputAction.CallbackContext ctx)
     {
+        int towerCount = menuPlayers.Count - fishCount;
+
+        if (isFish)
+        {
+            // There has to be at least one fish 
+            // There can be no more than 2 tower players
+            if (fishCount <= 1 || towerCount >= 2)
+                return;
+            else
+                fishCount--;
+        }
+
         isFish = !isFish;
         OnPlayerSwitch.Raise(gameObject);
     }
@@ -44,6 +60,6 @@ public class MenuPlayer : MonoBehaviour
         if (isFish)
             return fishPlayerPrefab;
         else
-            return towerPlayerPrefab;
+            return gamepadTowerPlayerPrefab;
     }
 }

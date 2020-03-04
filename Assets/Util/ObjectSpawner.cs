@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Utility script for spawning objects.
+ */
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -21,9 +24,9 @@ public class ObjectSpawner : MonoBehaviour
         return Instantiate(prefab, position, Quaternion.identity);
     }
     
-    // TODO get position from actual map
     Vector3 GetRandomMapPosition()
     { 
+        // TODO magic numbers
         float randX = Random.Range(-7, 7);
         float randZ = Random.Range(-6, 6);
         return new Vector3(randX, map.yCoordinate, randZ);
