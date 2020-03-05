@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 88.1}
-  m_SizeDelta: {x: 500, y: 60}
+  m_AnchoredPosition: {x: 0, y: 223}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1516681256047368885
 CanvasRenderer:
@@ -64,12 +64,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 1e33deb2a8d9fe04ca6f6f0634f86838, type: 3}
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 89
+    m_MaxSize: 101
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1516681256580840685}
   - component: {fileID: 1516681256580840684}
   m_Layer: 5
-  m_Name: PressReturn
+  m_Name: Quote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,12 +107,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1516681257170279823}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -136.5}
-  m_SizeDelta: {x: 200, y: 51.3}
+  m_AnchoredPosition: {x: 0, y: -154}
+  m_SizeDelta: {x: 900, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1516681256580840685
 CanvasRenderer:
@@ -141,19 +141,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 4075a4092da92e34a9a9516f1383559e, type: 3}
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: press Space to return to title screen
+  m_Text: An inflated porcupine fish can reach a diameter of up to 35 inches (90 cm).
+    It puffs up by swallowing water and then storing it in its stomach. The stomach
+    increases in size with more water. If the fish is taken out of water, it can inflate
+    in a similar way by swallowing air.
 --- !u!1 &1516681256711249124
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 0.3764706}
+  m_Color: {r: 0, g: 1, b: 1, a: 0.72156864}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -261,8 +264,8 @@ RectTransform:
   m_Children:
   - {fileID: 1516681256711249125}
   - {fileID: 1516681256047368883}
-  - {fileID: 1516681257755273013}
   - {fileID: 1516681256580840683}
+  - {fileID: 5317319188767328702}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -355,7 +358,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3161b1608bee94e84de3fdd5ae4e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1516681257755273012
+  winnerImage: {fileID: 2009162698877420975}
+  fishSprite: {fileID: 21300000, guid: 025b87f51a275c443911d318b57dfd28, type: 3}
+  towerSprite: {fileID: 21300000, guid: 677c2ec7336140d48bea4ea35b6b990c, type: 3}
+  fishQuotes:
+  - The word "halibut" means "holy flatfish" (hali=holy + butte=flatfish) because
+    it was only eaten on holy days.
+  - Some fish, such as the great white shark, can raise their body temperature. This
+    helps them hunt for prey in cold water.
+  - The oldest known age for a fish was an Australian lungfish. In 2003, it was still
+    alive and well at 65 years old.
+  - Starfish are not fish. Neither are jellyfish.
+  - "Since a fish\u2019s jaw is not attached to its skull, many fishes can shoot their
+    mouths forward like a spring to catch startled prey."
+  - Electric eels and electric rays have enough electricity to kill a horse.
+  - Fish have sleep-like periods where they have lowered response to stimuli, slowed
+    physical activity, and reduced metabolism but they do not share the same changes
+    in brain waves as humans do when they sleep.
+  - Some fish, such as the herbivorous fish (grazers), often lack jaw teeth but have
+    tooth-like grinding mills in their throats called pharyngeal teeth.
+  - Most fish have taste buds all over their body.
+  - The oldest fishhook ever found dates back to about 42,000 years ago.
+  - A fish does not add new scales as it grows, but the scales it has increase in
+    size. In this way, growth rings are formed and the rings reveal the age of a fish.
+  - On average, flying fish can glide 160 feet (50m), but have been known to glide
+    as far as 660 feet (200 m). And they can reach heights up to 19 feet (6m).
+  - An inflated porcupine fish can reach a diameter of up to 35 inches (90 cm). It
+    puffs up by swallowing water and then storing it in its stomach. The stomach increases
+    in size with more water. If the fish is taken out of water, it can inflate in
+    a similar way by swallowing air.
+  - "A fish can drown in water. Like humans, fish need oxygen, so if there isn\u2019t
+    enough oxygen in the water, they will suffocate."
+  - "Although the fangtooth fish is only a few inches long, it has teeth about the
+    size of a human\u2019s"
+  - Most fish cannot swim backwards. Those that can are mainly members of one of the
+    eel families.
+  - The biggest fish in the world is the giant whale shark, which can grow to nearly
+    60 feet, or the length of two school buses. It weighs over 25 tons and eats mainly
+    plankton. It has over 4,000 teeth, though they are only 3 mm long.
+  - The most poisonous fish in the world is the stone fish. Its sting can cause shock,
+    paralysis, and even death if not treated within a few hours.
+  - The fastest fish is the sailfish. It can swim as fast as a car travels on the
+    highway.
+  - Anableps, four-eyed fish, can see above and below water at the same time.
+  factText: {fileID: 1516681256580840684}
+  towerSet: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  fishSet: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+--- !u!1 &4734085409026441257
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,72 +412,88 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1516681257755273013}
-  - component: {fileID: 1516681257755273015}
-  - component: {fileID: 1516681257755273014}
+  - component: {fileID: 5317319188767328702}
+  - component: {fileID: 7850100999757270075}
+  - component: {fileID: 2009162698877420975}
+  - component: {fileID: 528931268115230295}
   m_Layer: 5
-  m_Name: Winner
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1516681257755273013
+--- !u!224 &5317319188767328702
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516681257755273012}
+  m_GameObject: {fileID: 4734085409026441257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1516681257170279823}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -21.2}
-  m_SizeDelta: {x: 173.6, y: 30}
+  m_AnchoredPosition: {x: 0, y: 82}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1516681257755273015
+--- !u!222 &7850100999757270075
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516681257755273012}
+  m_GameObject: {fileID: 4734085409026441257}
   m_CullTransparentMesh: 0
---- !u!114 &1516681257755273014
+--- !u!114 &2009162698877420975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516681257755273012}
+  m_GameObject: {fileID: 4734085409026441257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Player X won!
+  m_Sprite: {fileID: 21300000, guid: 025b87f51a275c443911d318b57dfd28, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!95 &528931268115230295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734085409026441257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3edeff432b0c8954b896a08b687ffb93, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
