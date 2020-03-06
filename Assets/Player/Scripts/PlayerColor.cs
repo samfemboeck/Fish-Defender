@@ -12,5 +12,9 @@ public class PlayerColor : MonoBehaviour
     void Awake()
     {
         color = colorPool.PickColor();
+        if (gameObject.layer == 10)
+        {
+            gameObject.GetComponent<towerColAssigner>().AssignMat(ColorPool.curIndex);
+        }
     }
 }

@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 7455542524537609696}
   - component: {fileID: 6393012333903419872}
   - component: {fileID: 4150829753291155769}
-  - component: {fileID: -6293840036212536026}
   m_Layer: 10
   m_Name: SM_tower
   m_TagString: Untagged
@@ -244,19 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2593a2168de82241ad20be6bdf45537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6293840036212536026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6001502553203148041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15be433b4cbad504595803efde0ec475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Mats:
   - {fileID: 2100000, guid: 7411ff363f49db04aa0c8894f40c00fa, type: 2}
   - {fileID: 2100000, guid: d1650c41fd9ab824381939959721f024, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 10a8a905e0c9c2a4996ed6e8b4923387, type: 2}
+  - {fileID: 2100000, guid: df493496faf75234d80a9ecf694764e8, type: 2}
+  - {fileID: 2100000, guid: e11b70c3d39b1b745804849bc873b1e1, type: 2}
+  - {fileID: 2100000, guid: 7879820c1771b784687076b80e0f10fe, type: 2}
+  - {fileID: 2100000, guid: d60d45a7df02d04409b739e4364006a0, type: 2}
+  - {fileID: 2100000, guid: 2757acf2a2eea9e49a3f999a1913d61c, type: 2}
