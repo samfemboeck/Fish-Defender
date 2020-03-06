@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public class RuntimeTrackable : MonoBehaviour
+/*
+ * You need this Script on every GameObject that you want to add to a Runtimeset.
+ */ 
+public class GameObjectItem : MonoBehaviour
 {
     [SerializeField]
     GameObjectSet set;

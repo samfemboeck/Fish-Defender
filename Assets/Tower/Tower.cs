@@ -2,31 +2,45 @@
 
 public class Tower : MonoBehaviour
 {
+    public int index;
+
     [SerializeField]
-    GameObject projectilePrefab;
+    private GameObject projectilePrefab;
+
+    [SerializeField]
+    [Range(0, 10)]
+    private float aimIndicatorRange;
 
     [SerializeField]
     [Range(0, 100)]
-    float projectileSpeed;
+    private float projectileSpeed;
 
     [SerializeField]
     [Range(0, 5)]
-    public float projectileSpawnDelay;
+    private float projectileSpawnDelay;
 
-    public GameObject ActiveProjectile { get; private set; }
-
-    void Start()
-    {
-        SpawnProjectile();
-    }
+    public Projectile ActiveProjectile { get; private set; }
+    public GamepadTowerController ActivePlayer { get; set; }
  
-    void SpawnProjectile()
+    public void SpawnProjectile()
     {
         if (ActiveProjectile)
             return;
             
         Vector3 center = GetComponent<Renderer>().bounds.center;
-        ActiveProjectile = GetComponent<ObjectSpawner>().SpawnAndSetY(projectilePrefab, center);
+        ActiveProjectile = GetComponent<ObjectSpawner>().SpawnAndSetY(projectilePrefab, center).GetComponent<Projectile>();
+        ActiveProjectile.ActiveTower = this;
+    }
+
+    // direction is a vector with magnitude between 0 and 1!
+    public void SetAimDirection(Vector3 direction)
+    {
+        if (!ActiveProjectile)
+            return;
+
+        Vector3 projectilePos = ActiveProjectile.transform.position;
+        ActiveProjectile.GetComponent<LineRenderer>().SetPosition(0, projectilePos);
+        ActiveProjectile.GetComponent<LineRenderer>().SetPosition(1, projectilePos + (direction * aimIndicatorRange));
     }
 
     public void ShootProjectile(Vector3 direction)
@@ -34,8 +48,17 @@ public class Tower : MonoBehaviour
         if (!ActiveProjectile)
             return;
 
-        ActiveProjectile.GetComponent<Projectile>().Shoot(direction * projectileSpeed);
+        ActiveProjectile.Shoot(direction * projectileSpeed);
         ActiveProjectile = null;
         Invoke("SpawnProjectile", projectileSpawnDelay);
+    }
+
+    public bool TryClaim(GamepadTowerController gamepadTowerController)
+    {
+        if (ActivePlayer)
+            return false;
+
+        ActivePlayer = gamepadTowerController;
+        return true;
     }
 }

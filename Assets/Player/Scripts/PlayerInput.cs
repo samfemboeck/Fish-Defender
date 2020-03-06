@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+/*
+ * Script for handling Input. By default input is allowed from EVERY device.
+ * That's why you need to RestrictToDevice() where necessary.
+ */
 public class PlayerInput : MonoBehaviour 
 {
     public PlayerControls playerControls;

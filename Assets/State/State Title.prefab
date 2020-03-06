@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1050723514338192965}
   - component: {fileID: -4478362498883967501}
   - component: {fileID: -1248897453904931026}
-  - component: {fileID: 207880670789104858}
   - component: {fileID: -5457033252655047893}
   - component: {fileID: 6769127458440860922}
   m_Layer: 0
@@ -49,7 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPlayerPrefab: {fileID: 5624139441801630355, guid: 2b812e0866f8223498b0060efead4b71,
     type: 3}
+  mouseTowerPlayerPrefab: {fileID: 8363502071662476973, guid: acfd945c296a60345a916d7ff272fccb,
+    type: 3}
   menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
+  towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   gameplay: {fileID: 11400000, guid: 756894e2afd4a83479c813afd7cfcbd5, type: 2}
 --- !u!82 &-1248897453904931026
 AudioSource:
@@ -147,18 +149,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &207880670789104858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498945766172579515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0afbe813c93ad947aacf11dee346f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5457033252655047893
 MonoBehaviour:
   m_ObjectHideFlags: 0

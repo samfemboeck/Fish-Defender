@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.InputSystem;
-using System;
+﻿using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine;
 
+/*
+ * Handles Gamepad Join/Removal. Invokes Events.
+ */
 public class DeviceManager
 {
     public delegate void GamepadChange(Gamepad gamepad);

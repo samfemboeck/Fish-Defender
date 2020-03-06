@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class CameraWiggle : MonoBehaviour
 {
-     public ScreenManager screenManager;
-     public GameObject[] players;
+     public GameObjectSet fishes;
      Vector3 averagePos;
-     Vector3 mainCamPos;
-
      public static Vector3 midPoint = new Vector3(0.25f,10f,0.25f);
-
-     // Start is called before the first frame update
-     void Start(){
-     }
 
      //TODO: optimize so FindGameObject is only called on new Player
      // Update is called once per frame
      void Update(){
-          players = GameObject.FindGameObjectsWithTag("Fish");
-          if (players.Length > 0)
+          if (fishes.Count > 0)
           {
                FollowPos();
           }
@@ -27,7 +19,7 @@ public class CameraWiggle : MonoBehaviour
 
      //TODO: no blackmagic
      public void FollowPos(){
-          averagePos = GetAveragePos(players);
+          averagePos = GetAveragePos(fishes);
           averagePos = new Vector3((averagePos.x * midPoint.x), (midPoint.y),(averagePos.z * midPoint.z - 5));
 
           //assign
@@ -36,13 +28,12 @@ public class CameraWiggle : MonoBehaviour
      }
 
      //gets average transforms of player instances
-     public Vector3 GetAveragePos(GameObject[] players){
+     public Vector3 GetAveragePos(GameObjectSet fishes){
           Vector3 averagePos = Vector3.zero;
-          Vector3[] positions = new Vector3[players.Length];
-               for (int i = 0; i < players.Length; i++){
-                   positions[i] = players[i].transform.position;
-                   averagePos += positions[i];
-               }
-               return ((averagePos + midPoint) / (players.Length +1)); //midPoint so cam wont fuck off into Nomansland
+
+          foreach (GameObject gameObject in fishes.items)
+            averagePos += gameObject.transform.position;
+
+          return ((averagePos + midPoint) / (fishes.Count +1)); //midPoint so cam wont fuck off into Nomansland
      }
 }

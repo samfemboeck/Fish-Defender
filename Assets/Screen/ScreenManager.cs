@@ -10,8 +10,15 @@ public class ScreenManager : MonoBehaviour
     [SerializeField]
     Screen initialScreen;
 
+    public static ScreenManager Instance { get; set; }
+
     GameObject activeUI;
     GameObject activeState;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

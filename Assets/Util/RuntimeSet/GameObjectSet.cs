@@ -1,19 +1,53 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
+using System.Collections.Generic;
 
-[CreateAssetMenu(menuName="Set/GameObjectSet")]
-public class GameObjectSet : RuntimeSet<GameObject> 
+[CreateAssetMenu(menuName="GameObjectSet")]
+public class GameObjectSet : ScriptableObject
 {
-    public override void Remove(GameObject g)
+    public List<GameObject> items = new List<GameObject>();
+
+    public int Count {
+        get
+        {
+            return items.Count;
+        }
+    }
+    
+    public void Add(GameObject gameObject)
     {
-        base.Remove(g);
-        Destroy(g);
+        if (!items.Contains(gameObject))
+        {
+            items.Add(gameObject);
+        }
     }
 
-    public override void RemoveAll()
+    public GameObject Get(int index)
     {
-        foreach (GameObject g in items.ToArray())
-            Remove(g);
+        return items[index];
+    }
+
+    public virtual void Remove(GameObject gameObject)
+    {
+        if (items.Contains(gameObject))
+        {
+            items.Remove(gameObject);
+            Destroy(gameObject);
+        }
+    }
+    
+    public virtual void RemoveAll()
+    {
+        items.RemoveAll(All);
+    }
+
+    private static bool All(GameObject gameObject) 
+    {
+        Destroy(gameObject);
+        return true; 
+    }
+
+    private void OnEnable()
+    {
+        RemoveAll();
     }
 }
