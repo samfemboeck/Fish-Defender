@@ -7,7 +7,26 @@ public class TowerScore : MonoBehaviour
     int score;
 
     [SerializeField]
+    int baseScore;
+
+    [SerializeField]
+    int multiplier;
+
+    [SerializeField]
+    GameObjectSet fishes;
+
+    [SerializeField]
     GameEvent onTowerScoreUpdate;
+
+    //Initially calculate tower points based on fish count
+    public void InitializeScore()
+    {
+        int fishCount = fishes.items.Count;
+        score = baseScore + (fishCount * multiplier);
+
+        print("fish count:" + fishCount);
+        print("tower score:" + score);
+    }
 
     public int Score 
     {

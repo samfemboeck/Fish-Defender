@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 
 public class UIGameplay : MonoBehaviour
 {
@@ -13,8 +15,11 @@ public class UIGameplay : MonoBehaviour
 
     [SerializeField]
     GameObjectSet fishSet;
+
+    [SerializeField]
+    GameObjectSet towerSet;
         
-    private void Awake()
+    private void Start()
     {
         //Get Tower Point images
         towerScore = towerImage.GetComponentsInChildren<Image>();
@@ -28,8 +33,10 @@ public class UIGameplay : MonoBehaviour
 
         //Setup
         SetupGameplayScreenFishes();
+        SetupGameplayScreenTower();
     }
 
+    //Setup displayed fishes based on joined fishes
     private void SetupGameplayScreenFishes()
     {
         //Iterate fish set and set color of images on UI
@@ -45,10 +52,22 @@ public class UIGameplay : MonoBehaviour
         }
     }
 
-    public void SetupGameplayScreenTower()
+    //Setup displayed initial tower score
+    private void SetupGameplayScreenTower()
     {
-        //TODO
-        //After points based on fish count got implemented
+        int score = towerSet.items[0].GetComponent<TowerScore>().Score;
+        print("tower score ui:" + score);
+        for (int i=0; i< towerScore.Length; i++)
+        {
+            if (i < score)
+            {
+                towerScore[i].enabled = true;
+            }
+            else
+            {
+                towerScore[i].enabled = false;
+            }
+        }
     }
     
     public void UpdateTowerUI(GameObject tower)
