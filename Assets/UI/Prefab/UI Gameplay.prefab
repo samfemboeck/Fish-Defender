@@ -619,6 +619,7 @@ MonoBehaviour:
   - {fileID: 9100426651302911804}
   - {fileID: 9100426650604670804}
   fishSet: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+  towerSet: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
 --- !u!114 &2405748011479169697
 MonoBehaviour:
   m_ObjectHideFlags: 0
