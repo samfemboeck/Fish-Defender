@@ -59,6 +59,8 @@ public class StateTitle : MonoBehaviour
         if (towerPlayers.Count == 0)
             Instantiate(mouseTowerPlayerPrefab);
 
+        towerPlayers.items[0].GetComponent<TowerScore>().InitializeScore();
+
         ScreenManager.Instance.ChangeToScreen(gameplay);
     }
 }
