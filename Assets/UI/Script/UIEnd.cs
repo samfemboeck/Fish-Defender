@@ -33,12 +33,10 @@ public class UIEnd : MonoBehaviour
     private void Start()
     {
         //Get winner
-        //Get tower score
-        //int towerScore = towerSet.items[0].GetComponent<TowerScore>().Score;
-        print("end tower score: " + towerSet.items.Count);
-        print("end fish score: " + fishSet.items.Count);
+        //RM TODO
 
         //Set image
+        //RM TODO
 
         //Choose random fact
         int randomIndex = Random.Range(0, fishQuotes.Length - 1);
