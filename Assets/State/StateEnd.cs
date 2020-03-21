@@ -15,13 +15,13 @@ public class StateEnd : MonoBehaviour
     [SerializeField]
     GameObjectSet collectibles;
 
-    private GameObject[] winner;
-    private int highestFishScore;
+    public bool fishWin;
+    public Color[] winnerColor;
     
 
     private void Start()
     {
-        winner = new GameObject[fishes.Count];
+        GetWinner();
 
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
@@ -36,42 +36,50 @@ public class StateEnd : MonoBehaviour
         ScreenManager.Instance.ChangeToScreen(title);
     }
 
-    private GameObject[] GetWinner()
-    {
-        GameObject[] winnerFishes;
-
-        int fishScore = GetHighestFishScore(out winnerFishes);
-        int towerScore = towerPlayers.items[0].GetComponent<TowerScore>().Score;
-
-        if (towerScore <= 0 || fishScore >= 10)
-        {
-            return winnerFishes;
-        }
-        else
-        {
-            GameObject[] winnerTower = { towerPlayers.items[0] };
-            return winnerTower;
-        }
-    }
-
-    private int GetHighestFishScore(out GameObject[] winner)
+    private void GetWinner()
     {
         GameObject[] winnerFishes = new GameObject[fishes.Count];
+
+        int fishScore = GetHighestFishScore(ref winnerFishes);
+        int towerScore = towerPlayers.items[0].GetComponent<TowerScore>().Score;
+
+        //Fishes win
+        if (towerScore <= 0 || fishScore >= 10)
+        {
+            winnerColor = new Color[fishes.Count];
+            for (int i=0; i<winnerFishes.Length; i++)
+            {
+                print("debug fish: " + i + " " + winnerFishes.Length);
+                if (winnerFishes[i] == null) break;
+                winnerColor[i] = winnerFishes[i].GetComponent<PlayerColor>().color;
+            }
+            fishWin = true;
+        }
+        //Tower wins
+        else
+        {
+            fishWin = false;
+        }
+        
+        print("Debug fishWin: " + fishWin);
+    }
+
+    private int GetHighestFishScore(ref GameObject[] winner)
+    {
         int nextIndex = 0;
         int winnerScore = -1;
 
         foreach (GameObject fish in fishes.items)
         {
             int fishScore = fish.GetComponent<FishScore>().Score;
-            if (fishScore > winnerScore)
+            if (fishScore >= winnerScore)
             {
-                winnerFishes[nextIndex] = fish;
+                winner[nextIndex] = fish;
                 winnerScore = fishScore;
                 nextIndex++;
             }
         }
 
-        winner = winnerFishes;
         return winnerScore;
     }
 }
