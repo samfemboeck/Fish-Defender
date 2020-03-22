@@ -50,7 +50,6 @@ public class StateEnd : MonoBehaviour
             winnerColor = new Color[fishCount];
             for (int i=0; i<winnerFishes.Length; i++)
             {
-                print("debug fish: " + i + " " + winnerFishes.Length);
                 if (winnerFishes[i] == null) break;
                 winnerColor[i] = winnerFishes[i].GetComponent<PlayerColor>().color;
             }
@@ -61,8 +60,8 @@ public class StateEnd : MonoBehaviour
         {
             fishWin = false;
         }
-        
-        print("Debug fishWin: " + fishWin);
+
+        print("debug win: " + winnerColor.Length);
     }
 
     private int GetHighestFishScore(ref GameObject[] winner, out int winnerCount)
