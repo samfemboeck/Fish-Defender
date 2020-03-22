@@ -39,14 +39,15 @@ public class StateEnd : MonoBehaviour
     private void GetWinner()
     {
         GameObject[] winnerFishes = new GameObject[fishes.Count];
+        int fishCount = 0;
 
-        int fishScore = GetHighestFishScore(ref winnerFishes);
+        int fishScore = GetHighestFishScore(ref winnerFishes, out fishCount);
         int towerScore = towerPlayers.items[0].GetComponent<TowerScore>().Score;
 
         //Fishes win
         if (towerScore <= 0 || fishScore >= 10)
         {
-            winnerColor = new Color[fishes.Count];
+            winnerColor = new Color[fishCount];
             for (int i=0; i<winnerFishes.Length; i++)
             {
                 print("debug fish: " + i + " " + winnerFishes.Length);
@@ -64,7 +65,7 @@ public class StateEnd : MonoBehaviour
         print("Debug fishWin: " + fishWin);
     }
 
-    private int GetHighestFishScore(ref GameObject[] winner)
+    private int GetHighestFishScore(ref GameObject[] winner, out int winnerCount)
     {
         int nextIndex = 0;
         int winnerScore = -1;
@@ -72,14 +73,23 @@ public class StateEnd : MonoBehaviour
         foreach (GameObject fish in fishes.items)
         {
             int fishScore = fish.GetComponent<FishScore>().Score;
-            if (fishScore >= winnerScore)
+            if (fishScore > winnerScore)
             {
-                winner[nextIndex] = fish;
+                for (int i=0; i<winner.Length; i++)
+                {
+                    winner[i] = null;
+                }
+                winner[0] = fish;
                 winnerScore = fishScore;
-                nextIndex++;
+                nextIndex = 1;
+            }
+            else if (fishScore == winnerScore)
+            {
+                winner[++nextIndex] = fish;
             }
         }
 
+        winnerCount = nextIndex;
         return winnerScore;
     }
 }
