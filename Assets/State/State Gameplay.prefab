@@ -52,6 +52,7 @@ MonoBehaviour:
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
   towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
   end: {fileID: 11400000, guid: fc815f27f53354c48bc714f32e2d9d65, type: 2}
+  fishInstaWin: 10
 --- !u!114 &-3189037917154281644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,12 +123,12 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2281337884572593422}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: -1289396883111691272}
+        m_MethodName: OnFishScoreUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
