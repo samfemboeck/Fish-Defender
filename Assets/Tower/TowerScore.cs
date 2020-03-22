@@ -23,9 +23,6 @@ public class TowerScore : MonoBehaviour
     {
         int fishCount = fishes.items.Count;
         score = baseScore + (fishCount * multiplier);
-
-        print("fish count:" + fishCount);
-        print("tower score:" + score);
     }
 
     public int Score 

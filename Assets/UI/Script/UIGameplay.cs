@@ -56,10 +56,9 @@ public class UIGameplay : MonoBehaviour
     private void SetupGameplayScreenTower()
     {
         int score = towerSet.items[0].GetComponent<TowerScore>().Score;
-        print("tower score ui:" + score);
         for (int i=0; i< towerScore.Length; i++)
         {
-            if (i < score)
+            if (i <= score)
             {
                 towerScore[i].enabled = true;
             }
