@@ -57,9 +57,10 @@ public class StateGameplay : MonoBehaviour
             ScreenManager.Instance.ChangeToScreen(end);
     }
 
-    public void OnFishScoreUpdate(GameObject fish)
+    public void OnFishScoreUpdate(GameEvent gameEvent)
     {
         //TODO
+		GameObject fish = gameEvent.GameObject;
         if (fish.GetComponent<FishScore>().Score >= fishInstaWin)
             ScreenManager.Instance.ChangeToScreen(end);
     }
