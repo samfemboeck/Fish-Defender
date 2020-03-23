@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class StateGameplay : MonoBehaviour
 {
@@ -15,25 +16,45 @@ public class StateGameplay : MonoBehaviour
     [SerializeField]
     Screen end;
 
+	[SerializeField]
+	private int timerSeconds;
+
+	[SerializeField]
+	private GameEvent onTimerUpdate;
+
     private void Start()
     {
         GameObject spawner = Instantiate(collectibleSpawnerPrefab);
         spawner.transform.SetParent(transform);
         Invoke("SpawnTowerProjectiles", 3);
+		InvokeRepeating("UpdateTimer", 1, 1);
     }
+
+	private void OnDestroy()
+	{
+		CancelInvoke("UpdateTimer");
+	}
+
+	private void UpdateTimer()
+	{
+		onTimerUpdate.Raise(--timerSeconds);
+		if (timerSeconds <= 0)
+			ScreenManager.Instance.ChangeToScreen(end);
+	}
 
     private void SpawnTowerProjectiles()
     {
         new TowerDecorator(towers).SpawnProjectiles();
     }
 
-    public void OnTowerScoreUpdate(GameObject tower)
+    public void OnTowerScoreUpdate(GameEvent gameEvent)
     {
+        GameObject tower = gameEvent.GameObject;
         if (tower.GetComponent<TowerScore>().Score <= 0)
             ScreenManager.Instance.ChangeToScreen(end);
     }
 
-    public void OnFishKill(GameObject obj)
+    public void OnFishKill(GameEvent gameEvent)
     {
         if (fishes.Count <= 0)
             ScreenManager.Instance.ChangeToScreen(end);

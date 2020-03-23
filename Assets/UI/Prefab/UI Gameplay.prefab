@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: -5710823674172578069}
   - component: {fileID: 2405748011479169697}
   - component: {fileID: 3437697152748620537}
+  - component: {fileID: -2919529454192070035}
   m_Layer: 0
   m_Name: UI Gameplay
   m_TagString: Untagged
@@ -618,6 +619,7 @@ MonoBehaviour:
   - {fileID: 9100426650798228780}
   - {fileID: 9100426651302911804}
   - {fileID: 9100426650604670804}
+  timerText: {fileID: 9100426651023377557}
   fishSet: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
   towerSet: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
 --- !u!114 &2405748011479169697
@@ -665,6 +667,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5710823674172578069}
         m_MethodName: UpdateFishUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-2919529454192070035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070152352818605432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: ba2661c32e74c481ebb5e1796445a566, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5710823674172578069}
+        m_MethodName: UpdateTimer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3846,7 +3875,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5:00
+  m_Text: '05:00
+
+'
 --- !u!1 &9100426651053348485
 GameObject:
   m_ObjectHideFlags: 0

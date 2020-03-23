@@ -73,7 +73,7 @@ public class UITitle : MonoBehaviour
 
     //Updates player image when they change role
     //RM gets called by event from MenuPlayer
-    public void OnPlayerSwitch(GameObject obj)
+    public void OnPlayerSwitch(GameEvent gameEvent)
     {
         //TODO
         //Get menuPlayer index from menuPlayers.items
@@ -81,6 +81,7 @@ public class UITitle : MonoBehaviour
         //Change sprite in image with same index
 
         //Get player index and color
+        GameObject obj = gameEvent.GameObject;
         int index = menuPlayers.items.IndexOf(obj);
         Color playerColor = menuPlayers.items[index].gameObject.GetComponent<PlayerColor>().color;
 
@@ -100,10 +101,10 @@ public class UITitle : MonoBehaviour
     //Displays on the UI that a player locked their choice of role
     //RM gets called by event from MenuPlayer
     //RM at the moment simply stops the animation >_>
-    public void OnPlayerLockRole(GameObject obj)
+    public void OnPlayerLockRole(GameEvent gameEvent)
     {
         //Get player index
-        int index = menuPlayers.items.IndexOf(obj);
+        int index = menuPlayers.items.IndexOf(gameEvent.GameObject);
 
         //Stop animation
         playerDisplay[index].GetComponent<Animator>().enabled = false;

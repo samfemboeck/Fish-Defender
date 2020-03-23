@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
-using System;
-using System.Collections;
 
 public class UIGameplay : MonoBehaviour
 {
@@ -12,6 +11,9 @@ public class UIGameplay : MonoBehaviour
     [SerializeField]
     Image[] fishImages = new Image[8];
     private Image[][] fishScores;
+
+	[SerializeField]
+	private Text timerText;
 
     [SerializeField]
     GameObjectSet fishSet;
@@ -70,8 +72,9 @@ public class UIGameplay : MonoBehaviour
         }
     }
     
-    public void UpdateTowerUI(GameObject tower)
+    public void UpdateTowerUI(GameEvent gameEvent)
     {
+        GameObject tower = gameEvent.GameObject;
         int score = tower.GetComponent<TowerScore>().Score;
 
         //Disable lost point
@@ -79,8 +82,9 @@ public class UIGameplay : MonoBehaviour
         towerScore[score + 1].enabled = false;
     }
 
-    public void UpdateFishUI(GameObject fish)
+    public void UpdateFishUI(GameEvent gameEvent)
     {
+        GameObject fish = gameEvent.GameObject;
         int id = fishSet.items.IndexOf(fish);
         int score = fish.GetComponent<FishScore>().Score;
         
@@ -88,4 +92,12 @@ public class UIGameplay : MonoBehaviour
         //RM works because fishes never lose points
         fishScores[id][score].enabled = true;
     }
+
+	public void UpdateTimer(GameEvent gameEvent)
+    {
+		TimeSpan time = TimeSpan.FromSeconds(gameEvent.FloatData);
+		string txt = time.ToString(@"mm\:ss");
+		timerText.text = txt;
+	}
+
 }

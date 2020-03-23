@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
-public class ListenerEvent : UnityEvent<GameObject> { }
+public class ListenerEvent : UnityEvent<GameEvent> { }
 
 public class GameEventListener : MonoBehaviour
 {
@@ -13,8 +13,8 @@ public class GameEventListener : MonoBehaviour
     private void OnEnable() { Event.RegisterListener(this); }
     private void OnDisable() { Event.UnRegisterListener(this); }
 
-    public void OnEventRaised(GameObject go) 
+    public void OnEventRaised(GameEvent gameEvent) 
     {
-        Response.Invoke(go);
+        Response.Invoke(gameEvent);
     }
 }

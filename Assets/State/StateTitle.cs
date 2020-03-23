@@ -36,6 +36,11 @@ public class StateTitle : MonoBehaviour
         }
     }
 
+	private void Start()
+	{
+		StartGame();
+	}
+
     private void CreateMenuPlayer(Gamepad gamepad)
     {
         GameObject menuPlayer = Instantiate(menuPlayerPrefab);
@@ -43,8 +48,9 @@ public class StateTitle : MonoBehaviour
         menuPlayer.GetComponent<PlayerInput>().RestrictToDevice(gamepad);
     }
 
-    public void OnPlayerLock(GameObject player)
+    public void OnPlayerLock(GameEvent gameEvent)
     {
+        GameObject player = gameEvent.GameObject;
         MenuPlayer menuPlayer = player.GetComponent<MenuPlayer>();
         ObjectSpawner spawner = GetComponent<ObjectSpawner>();
         GameObject role = spawner.SpawnAtRandomPosition(menuPlayer.GetRolePrefab());

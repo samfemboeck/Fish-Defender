@@ -6,14 +6,28 @@ using System.Collections.Generic;
 public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> listeners = new List<GameEventListener>();
+    public GameObject GameObject { get; set; }
+    public float FloatData { get; set; }
 
-    public void Raise(GameObject go)
+    public void Raise()
     {
         // iterate backwards so listeners can UnRegisterListener() in OnEventRaised()
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            listeners[i].OnEventRaised(go);
+            listeners[i].OnEventRaised(this);
         }
+    }
+
+    public void Raise(GameObject gameObject)
+    {
+        GameObject = gameObject;
+        Raise();
+    }
+
+    public void Raise(float f)
+    {
+        FloatData = f;
+        Raise();
     }
 
     public void RegisterListener(GameEventListener listener)
