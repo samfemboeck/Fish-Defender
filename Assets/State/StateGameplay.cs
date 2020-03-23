@@ -22,6 +22,9 @@ public class StateGameplay : MonoBehaviour
 	[SerializeField]
 	private GameEvent onTimerUpdate;
 
+    [SerializeField]
+    int fishInstaWin = 10;
+
     private void Start()
     {
         GameObject spawner = Instantiate(collectibleSpawnerPrefab);
@@ -51,6 +54,13 @@ public class StateGameplay : MonoBehaviour
     {
         GameObject tower = gameEvent.GameObject;
         if (tower.GetComponent<TowerScore>().Score <= 0)
+            ScreenManager.Instance.ChangeToScreen(end);
+    }
+
+    public void OnFishScoreUpdate(GameObject fish)
+    {
+        //TODO
+        if (fish.GetComponent<FishScore>().Score >= fishInstaWin)
             ScreenManager.Instance.ChangeToScreen(end);
     }
 

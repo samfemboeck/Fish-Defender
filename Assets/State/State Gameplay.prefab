@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1289396883111691272}
   - component: {fileID: -3189037917154281644}
   - component: {fileID: 5706604576200669209}
+  - component: {fileID: 8511959235599029778}
   - component: {fileID: 2689232892025064365}
   m_Layer: 0
   m_Name: State Gameplay
@@ -53,6 +54,7 @@ MonoBehaviour:
   end: {fileID: 11400000, guid: fc815f27f53354c48bc714f32e2d9d65, type: 2}
   timerSeconds: 300
   onTimerUpdate: {fileID: 11400000, guid: ba2661c32e74c481ebb5e1796445a566, type: 2}
+  fishInstaWin: 10
 --- !u!114 &-3189037917154281644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +100,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -1289396883111691272}
         m_MethodName: OnTowerScoreUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8511959235599029778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281337884572593422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579fc012e1c656848b86ca6632dcdc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 9ec15f9d209fa2048bf175814d34fca2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1289396883111691272}
+        m_MethodName: OnFishScoreUpdate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
