@@ -5089,6 +5089,8 @@ GameObject:
   - component: {fileID: -7441780833765300799}
   - component: {fileID: -825508369635946236}
   - component: {fileID: 3895684821996564821}
+  - component: {fileID: 1170345940302622901}
+  - component: {fileID: 3753754153636352307}
   m_Layer: 0
   m_Name: FishPlayer
   m_TagString: Fish
@@ -5138,9 +5140,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.02
-  m_Height: 0.08
+  m_Height: 0.067449264
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: -0.017}
+  m_Center: {x: 0, y: 0, z: -0.023275374}
 --- !u!114 &8401822917158254697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5237,6 +5239,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac79d6d392d8e444b0c90474b895fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1170345940302622901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059444459423081629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e47f90470767f944b0c20c9b144cfa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3753754153636352307}
+--- !u!95 &3753754153636352307
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059444459423081629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4186ada8e469d1f4a8a694297930e3b7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 198f6926c4a6e9343b81941a0ebdecd4, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6422264357433871831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,8 +5403,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4910710241688746609}
-  - component: {fileID: 3074932924226623243}
-  - component: {fileID: 9052861747015522064}
   m_Layer: 0
   m_Name: sm_GoldFish
   m_TagString: Untagged
@@ -5386,7 +5418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249751375285323874}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000009536743, y: 0.013322779, z: -0.024296803}
+  m_LocalPosition: {x: 0.000000009536743, y: 0.013322779, z: -0.0453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7452225618646684992}
@@ -5395,34 +5427,3 @@ Transform:
   m_Father: {fileID: 7083073118654813838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3074932924226623243
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249751375285323874}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4186ada8e469d1f4a8a694297930e3b7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 198f6926c4a6e9343b81941a0ebdecd4, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9052861747015522064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8249751375285323874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e47f90470767f944b0c20c9b144cfa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
