@@ -36,11 +36,6 @@ public class StateTitle : MonoBehaviour
         }
     }
 
-	private void Start()
-	{
-		StartGame();
-	}
-
     private void CreateMenuPlayer(Gamepad gamepad)
     {
         GameObject menuPlayer = Instantiate(menuPlayerPrefab);
