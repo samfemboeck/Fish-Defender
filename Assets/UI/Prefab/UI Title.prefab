@@ -906,12 +906,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDisplay:
   - {fileID: 2346086540466686485}
-  - {fileID: 2346086540499031170}
-  - {fileID: 2346086540287016674}
-  - {fileID: 2346086541369027770}
-  - {fileID: 189344922541146791}
   - {fileID: 3368742829703707520}
+  - {fileID: 2346086540499031170}
+  - {fileID: 189344922541146791}
+  - {fileID: 2346086540287016674}
   - {fileID: 3596013379093959973}
+  - {fileID: 2346086541369027770}
   - {fileID: 881921600165440568}
   fishSprite: {fileID: 21300000, guid: da9a33f4d2f960f47a759d8fa0b23d08, type: 3}
   towerSprite: {fileID: 21300000, guid: 677c2ec7336140d48bea4ea35b6b990c, type: 3}

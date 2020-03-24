@@ -20,6 +20,9 @@ public class UIGameplay : MonoBehaviour
 
     [SerializeField]
     GameObjectSet towerSet;
+
+    [SerializeField]
+    Sprite deadFishSprite;
         
     private void Start()
     {
@@ -90,6 +93,14 @@ public class UIGameplay : MonoBehaviour
         //Enable next point
         //RM works because fishes never lose points
         fishScores[id][score].enabled = true;
+    }
+
+    public void OnFishKill(GameEvent gameEvent)
+    {
+        GameObject fish = gameEvent.GameObject;
+        int id = fishSet.items.IndexOf(fish);
+        int score = fish.GetComponent<FishScore>().Score;
+        print("debug fish killed: " + id + " " + score);
     }
 
 	public void UpdateTimer(GameEvent gameEvent)
