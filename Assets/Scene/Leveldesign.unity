@@ -349,7 +349,7 @@ MonoBehaviour:
     pitch: 1
     looped: 1
     source: {fileID: 0}
-  - name: CollectibleColelct
+  - name: CollectibleCollect
     clip: {fileID: 8300000, guid: cbff7b553d421424c9f3520c4a2413b1, type: 3}
     volume: 1
     pitch: 1
