@@ -4,12 +4,14 @@ Library/
 **/obj/
 Temp/
 
-# ----[ VS [Code] ]------- #
+# ----[ Editor Specific ]------- #
 *.csproj
 *.sln
 *.sln.meta
 .vscode
 .vs
+**/tags
+**/tags.meta
 
 # ----[ OS-Specific ]------- #
 .DS_Store

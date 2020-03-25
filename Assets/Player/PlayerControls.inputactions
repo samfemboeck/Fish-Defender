@@ -57,6 +57,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "ReleaseButtonSouth",
+                    "type": "Button",
+                    "id": "e80791f4-ae21-4aaf-ad4f-4b3f876bac4f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "MoveRightStick",
                     "type": "Button",
                     "id": "df402b4f-b5c6-446e-9ac8-c5528f9ba3fe",
@@ -145,6 +153,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "075c0112-b97c-4d50-a65d-d8a2b6841c96",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ReleaseButtonSouth",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
