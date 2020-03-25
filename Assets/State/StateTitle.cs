@@ -21,6 +21,8 @@ public class StateTitle : MonoBehaviour
     public int LockedPlayers { get; set; }
     DeviceManager deviceManager;
 
+    AudioManager audio;
+
     private void Awake()
     {
         GetComponent<AudioSource>().Play();
@@ -34,6 +36,8 @@ public class StateTitle : MonoBehaviour
         {
             CreateMenuPlayer(deviceManager.gamepads[i]);
         }
+
+        audio = FindObjectOfType<AudioManager>();
     }
 
     private void CreateMenuPlayer(Gamepad gamepad)
@@ -53,6 +57,11 @@ public class StateTitle : MonoBehaviour
         role.GetComponent<PlayerInput>().RestrictToDevice(menuPlayer.GetComponent<PlayerInput>().device);
         if (++LockedPlayers >= deviceManager.gamepads.Count)
             StartGame();
+
+        if (menuPlayer.isFish)
+            audio.Play("Connect");
+        else
+            audio.Play("Disconnect");
     }
 
     private void StartGame()

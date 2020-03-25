@@ -59,7 +59,7 @@ public class GamepadTowerController : MonoBehaviour
         Vector3 newDirection = -new Vector3(value.x, 0, value.y);
 
         // Joysticks tend to deliver inaccurate values
-        float tolerance = 0.03f;
+        float tolerance = 0.3f;
 
         if (newDirection.magnitude + tolerance < curDirection.magnitude)
         {

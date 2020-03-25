@@ -10,10 +10,19 @@ public class Projectile : MonoBehaviour
 
     public Tower ActiveTower { get; set; }
 
+    AudioManager audio;
+
+    private void Awake()
+    {
+        audio = FindObjectOfType<AudioManager>();
+    }
+
     public void Shoot(Vector3 velocity)
     {
         GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Impulse);
         Destroy(gameObject, destroyDelay);
+
+        audio.Play("Schuss");
     }
     
     private void OnCollisionEnter(Collision other)
@@ -23,6 +32,8 @@ public class Projectile : MonoBehaviour
             onPlayerKill.Raise(other.gameObject);
             Destroy(gameObject);
             Destroy(other.gameObject);
+
+            audio.Play("FishDie");
         }
     }
 

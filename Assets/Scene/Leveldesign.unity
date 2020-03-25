@@ -419,6 +419,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e61c806c3b132294897bde1d2eebdf71, type: 3}
     volume: 1
     pitch: 1
+    looped: 1
+    source: {fileID: 0}
+  - name: CollectibleSpawn3
+    clip: {fileID: 8300000, guid: 122afec7069cc1d4db91768ded529761, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleSpawn4
+    clip: {fileID: 8300000, guid: 35aa09cbf0a775d49a994a6531198cab, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleSpawn5
+    clip: {fileID: 8300000, guid: d6c8a801327e2fc46bd31a83f8cf43cc, type: 3}
+    volume: 1
+    pitch: 1
     looped: 0
     source: {fileID: 0}
 --- !u!1001 &1133389292

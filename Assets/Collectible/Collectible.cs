@@ -5,6 +5,13 @@ public class Collectible : MonoBehaviour
     [SerializeField]
     GameEvent onFishCollect;
 
+    AudioManager audio;
+
+    private void Awake()
+    {
+        audio = FindObjectOfType<AudioManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fish"))
@@ -13,6 +20,8 @@ public class Collectible : MonoBehaviour
             score.Score += 1;
             onFishCollect.Raise(other.gameObject);
             Destroy(gameObject);
+
+            audio.Play("CollectibleCollect");
         }
     }
 }

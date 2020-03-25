@@ -17,6 +17,8 @@ public class StateEnd : MonoBehaviour
 
     public bool fishWin;
     public Color[] winnerColor;
+
+    AudioManager audio;
     
 
     private void Start()
@@ -29,6 +31,9 @@ public class StateEnd : MonoBehaviour
 
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
+
+        audio = FindObjectOfType<AudioManager>();
+        audio.Play("MatchStarts");
     }
 
     public void OnPressSpace(InputAction.CallbackContext ctx)

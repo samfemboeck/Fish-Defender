@@ -12,9 +12,19 @@ public class CollectibleSpawner : MonoBehaviour
     [SerializeField]
     float spawnTime;
 
+    AudioManager audio;
+    string[] spawnSounds = {
+        "CollectibleSpawn1",
+        "CollectibleSpawn2",
+        "CollectibleSpawn3",
+        "CollectibleSpawn4",
+        "CollectibleSpawn5"
+    };
+
     private void Start()
     {
         Enable();
+        audio = FindObjectOfType<AudioManager>();
     }
 
     public void Enable()
@@ -31,6 +41,11 @@ public class CollectibleSpawner : MonoBehaviour
     public void TrySpawnCollectible()
     {
         if (collectibles.Count < 5)
+        {
             GetComponent<ObjectSpawner>().SpawnAtRandomPosition(collectiblePrefab);
+
+            int soundIndex = Random.Range(0, spawnSounds.Length);
+            audio.Play(spawnSounds[soundIndex]);
+        }
     }
 }
