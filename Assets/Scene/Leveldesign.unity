@@ -343,10 +343,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: Ambiente
+    clip: {fileID: 8300000, guid: ec7c887407677ea4cae0ec3410fd5389, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 1
+    source: {fileID: 0}
+  - name: CollectibleColelct
+    clip: {fileID: 8300000, guid: cbff7b553d421424c9f3520c4a2413b1, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleSpawn1
+    clip: {fileID: 8300000, guid: 9db1d719880bcd541bdc03306f76b8c3, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleSpawn2
+    clip: {fileID: 8300000, guid: 22b899df2886b5f4cba18e19a0b852f4, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: Connect
+    clip: {fileID: 8300000, guid: 81159ffecb177d44699ebee8b27ce306, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: Disconnect
+    clip: {fileID: 8300000, guid: 60106365f4bc778479ce7521fd4d913f, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: FishDie
+    clip: {fileID: 8300000, guid: 6ab03c9af90c5f044b703702ff8169e5, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
   - name: FishHit
     clip: {fileID: 8300000, guid: c3ba47988aed06d479eb5862a0131831, type: 3}
     volume: 1
     pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: FlosseSchlagen1
+    clip: {fileID: 8300000, guid: 2da5f1147eacb624198f7e82f1b78512, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: FlosseSchlagen2
+    clip: {fileID: 8300000, guid: 607d2373a793f324690d95e419ed97bc, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: MatchStarts
+    clip: {fileID: 8300000, guid: 453641111fcf9674982cf8a75486aaf5, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: Schuss
+    clip: {fileID: 8300000, guid: 8af9566cacdefea4380d1e830c645266, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: Zielen
+    clip: {fileID: 8300000, guid: e61c806c3b132294897bde1d2eebdf71, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
     source: {fileID: 0}
 --- !u!1001 &1133389292
 PrefabInstance:
