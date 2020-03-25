@@ -20,9 +20,9 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Fish"))
         {
+            onPlayerKill.Raise(other.gameObject);
             Destroy(gameObject);
             Destroy(other.gameObject);
-            onPlayerKill.Raise(other.gameObject);
         }
     }
 

@@ -99,8 +99,8 @@ public class UIGameplay : MonoBehaviour
     {
         GameObject fish = gameEvent.GameObject;
         int id = fishSet.items.IndexOf(fish);
-        int score = fish.GetComponent<FishScore>().Score;
-        print("debug fish killed: " + id + " " + score);
+        fishImages[id].sprite = deadFishSprite;
+        print("debug fish killed: " + id);
     }
 
 	public void UpdateTimer(GameEvent gameEvent)

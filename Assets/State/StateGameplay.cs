@@ -67,7 +67,7 @@ public class StateGameplay : MonoBehaviour
 
     public void OnFishKill(GameEvent gameEvent)
     {
-        if (fishes.Count <= 0)
+        if (fishes.Count <= 1)
             ScreenManager.Instance.ChangeToScreen(end);
     }
 }
