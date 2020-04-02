@@ -441,7 +441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492236406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ea07e0592328a4e86845cd4759d62f, type: 3}
+  m_Script: {fileID: 11500000, guid: 21626443220e44043a99438f7bd03e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}

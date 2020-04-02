@@ -70,14 +70,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ReleaseButtonSouth"",
-                    ""type"": ""Button"",
-                    ""id"": ""e80791f4-ae21-4aaf-ad4f-4b3f876bac4f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""MoveRightStick"",
                     ""type"": ""Button"",
                     ""id"": ""df402b4f-b5c6-446e-9ac8-c5528f9ba3fe"",
@@ -166,17 +158,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LeftShoulder"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""075c0112-b97c-4d50-a65d-d8a2b6841c96"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""ReleaseButtonSouth"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -281,7 +262,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gamepad_MoveLeftStick = m_Gamepad.FindAction("MoveLeftStick", throwIfNotFound: true);
         m_Gamepad_PressDPad = m_Gamepad.FindAction("PressDPad", throwIfNotFound: true);
         m_Gamepad_PressButtonSouth = m_Gamepad.FindAction("PressButtonSouth", throwIfNotFound: true);
-        m_Gamepad_ReleaseButtonSouth = m_Gamepad.FindAction("ReleaseButtonSouth", throwIfNotFound: true);
         m_Gamepad_MoveRightStick = m_Gamepad.FindAction("MoveRightStick", throwIfNotFound: true);
         m_Gamepad_RightShoulder = m_Gamepad.FindAction("RightShoulder", throwIfNotFound: true);
         m_Gamepad_LeftShoulder = m_Gamepad.FindAction("LeftShoulder", throwIfNotFound: true);
@@ -373,7 +353,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gamepad_MoveLeftStick;
     private readonly InputAction m_Gamepad_PressDPad;
     private readonly InputAction m_Gamepad_PressButtonSouth;
-    private readonly InputAction m_Gamepad_ReleaseButtonSouth;
     private readonly InputAction m_Gamepad_MoveRightStick;
     private readonly InputAction m_Gamepad_RightShoulder;
     private readonly InputAction m_Gamepad_LeftShoulder;
@@ -384,7 +363,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @MoveLeftStick => m_Wrapper.m_Gamepad_MoveLeftStick;
         public InputAction @PressDPad => m_Wrapper.m_Gamepad_PressDPad;
         public InputAction @PressButtonSouth => m_Wrapper.m_Gamepad_PressButtonSouth;
-        public InputAction @ReleaseButtonSouth => m_Wrapper.m_Gamepad_ReleaseButtonSouth;
         public InputAction @MoveRightStick => m_Wrapper.m_Gamepad_MoveRightStick;
         public InputAction @RightShoulder => m_Wrapper.m_Gamepad_RightShoulder;
         public InputAction @LeftShoulder => m_Wrapper.m_Gamepad_LeftShoulder;
@@ -406,9 +384,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressButtonSouth.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonSouth;
                 @PressButtonSouth.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonSouth;
                 @PressButtonSouth.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonSouth;
-                @ReleaseButtonSouth.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnReleaseButtonSouth;
-                @ReleaseButtonSouth.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnReleaseButtonSouth;
-                @ReleaseButtonSouth.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnReleaseButtonSouth;
                 @MoveRightStick.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnMoveRightStick;
                 @MoveRightStick.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnMoveRightStick;
                 @MoveRightStick.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnMoveRightStick;
@@ -431,9 +406,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressButtonSouth.started += instance.OnPressButtonSouth;
                 @PressButtonSouth.performed += instance.OnPressButtonSouth;
                 @PressButtonSouth.canceled += instance.OnPressButtonSouth;
-                @ReleaseButtonSouth.started += instance.OnReleaseButtonSouth;
-                @ReleaseButtonSouth.performed += instance.OnReleaseButtonSouth;
-                @ReleaseButtonSouth.canceled += instance.OnReleaseButtonSouth;
                 @MoveRightStick.started += instance.OnMoveRightStick;
                 @MoveRightStick.performed += instance.OnMoveRightStick;
                 @MoveRightStick.canceled += instance.OnMoveRightStick;
@@ -534,7 +506,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnMoveLeftStick(InputAction.CallbackContext context);
         void OnPressDPad(InputAction.CallbackContext context);
         void OnPressButtonSouth(InputAction.CallbackContext context);
-        void OnReleaseButtonSouth(InputAction.CallbackContext context);
         void OnMoveRightStick(InputAction.CallbackContext context);
         void OnRightShoulder(InputAction.CallbackContext context);
         void OnLeftShoulder(InputAction.CallbackContext context);

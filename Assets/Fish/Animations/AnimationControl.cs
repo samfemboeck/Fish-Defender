@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class AnimationControl : MonoBehaviour{
 
     public Animator animator;
-    float varAnimSpeed;
+    public static float varAnimSpeed;
     public float animSpeedMin = 0.15f;
     public float animSpeedMax = 3.25f;
 
