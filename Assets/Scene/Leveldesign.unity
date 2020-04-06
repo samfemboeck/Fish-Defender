@@ -439,6 +439,30 @@ MonoBehaviour:
     pitch: 1
     looped: 0
     source: {fileID: 0}
+  - name: MenuNav1
+    clip: {fileID: 8300000, guid: 093c8b9b8d94dd14fa39ec7f11492fbe, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: MenuNav2
+    clip: {fileID: 8300000, guid: ad1c2865395178a42ac1c4c97a3cce68, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: MenuNav3
+    clip: {fileID: 8300000, guid: ae3f1144df9f6f545addc014df0b25f4, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: MenuNav4
+    clip: {fileID: 8300000, guid: 0edc7ca10c4d0c54b9c1b898b683f42a, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
 --- !u!1001 &1133389292
 PrefabInstance:
   m_ObjectHideFlags: 0

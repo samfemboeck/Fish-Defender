@@ -13,7 +13,8 @@ public class CollectibleSpawner : MonoBehaviour
     float spawnTime;
 
     AudioManager audio;
-    string[] spawnSounds = {
+    string[] spawnSounds =
+    {
         "CollectibleSpawn1",
         "CollectibleSpawn2",
         "CollectibleSpawn3",

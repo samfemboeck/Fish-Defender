@@ -23,12 +23,23 @@ public class MenuPlayer : MonoBehaviour
     public static int fishCount;
     PlayerInput playerInput;
 
+    AudioManager audio;
+    string[] switchSounds =
+    {
+        "MenuNav1",
+        "MenuNav2",
+        "MenuNav3",
+        "MenuNav4"
+    };
+
     private void Start()
     {
         if (isFish) fishCount++;
         playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Gamepad.PressDPad.performed += OnSwitchRole;
         playerInput.playerControls.Gamepad.PressButtonSouth.performed += OnLockRole;
+
+        audio = FindObjectOfType<AudioManager>();
     }
 
     public void OnLockRole(InputAction.CallbackContext obj)
@@ -48,10 +59,18 @@ public class MenuPlayer : MonoBehaviour
             if (fishCount <= 1 || towerCount >= 2)
                 return;
             else
+            {
                 fishCount--;
+                int soundIndex = Random.Range(0, switchSounds.Length);
+                audio.Play(switchSounds[soundIndex]);
+            }
         }
         else
+        {
             fishCount++;
+            int soundIndex = Random.Range(0, switchSounds.Length);
+            audio.Play(switchSounds[soundIndex]);
+        }
 
         isFish = !isFish;
         OnPlayerSwitch.Raise(gameObject);
