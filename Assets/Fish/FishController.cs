@@ -13,7 +13,6 @@ public class FishController : MonoBehaviour
     {
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Gamepad.PressButtonSouth.performed += OnPressButtonSouth;
-        playerInput.playerControls.Gamepad.ReleaseButtonSouth.performed += OnReleaseButtonSouth;
         playerInput.playerControls.Gamepad.MoveLeftStick.performed += OnMoveLeftStick;
     }
 
@@ -26,12 +25,8 @@ public class FishController : MonoBehaviour
     private void OnPressButtonSouth(CallbackContext ctx)
     {
         fishMovement.PushForward();
-        fishAnimation.AnimateFishForward();
     }
 
-    private void OnReleaseButtonSouth(CallbackContext ctx){
-        fishAnimation.AnimateFishIdle();
-    }
 
     private void OnMoveLeftStick(CallbackContext ctx)
     {
