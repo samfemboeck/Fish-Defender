@@ -21,16 +21,20 @@ public class StateEnd : MonoBehaviour
     AudioManager audio;
     
 
-    private void Start()
+    private void Awake()
     {
         GetWinner();
+
+        print("debug winner: " + winnerColor.Length);
 
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
         collectibles.RemoveAll();
 
+        /*
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
+        //*/
 
         audio = FindObjectOfType<AudioManager>();
         audio.Play("MatchStarts");
@@ -44,7 +48,7 @@ public class StateEnd : MonoBehaviour
     private void GetWinner()
     {
         GameObject[] winnerFishes = new GameObject[fishes.Count];
-        int fishCount = 0;
+        int fishCount;
 
         int fishScore = GetHighestFishScore(ref winnerFishes, out fishCount);
         int towerScore = towerPlayers.items[0].GetComponent<TowerScore>().Score;
@@ -72,7 +76,7 @@ public class StateEnd : MonoBehaviour
     private int GetHighestFishScore(ref GameObject[] winner, out int winnerCount)
     {
         int nextIndex = 0;
-        int winnerScore = -1;
+        int winnerScore = int.MinValue;
 
         foreach (GameObject fish in fishes.items)
         {
@@ -83,13 +87,12 @@ public class StateEnd : MonoBehaviour
                 {
                     winner[i] = null;
                 }
-                winner[0] = fish;
+                winner[nextIndex++] = fish;
                 winnerScore = fishScore;
-                nextIndex = 1;
             }
             else if (fishScore == winnerScore)
             {
-                winner[++nextIndex] = fish;
+                winner[nextIndex++] = fish;
             }
         }
 
