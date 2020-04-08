@@ -29,9 +29,6 @@ public class UIEnd : MonoBehaviour
 
         StateEnd endState = FindObjectOfType<StateEnd>();
 
-        print("debug fishWin:" + endState.fishWin);
-        print("debug end ui: " + winnerImages.Length + " " + endState.winnerColor.Length);
-
         if (endState.fishWin)
         {
             for (int i=0; i<winnerImages.Length; i++)
