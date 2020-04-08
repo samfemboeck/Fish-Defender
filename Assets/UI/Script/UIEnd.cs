@@ -40,6 +40,7 @@ public class UIEnd : MonoBehaviour
                 {
                     winnerImages[i].sprite = fishSprite;
                     winnerImages[i].enabled = true;
+                    winnerImages[i].GetComponent<Animator>().Play("Fish_wiggle", 0, Random.value);
                     winnerImages[i].color = endState.winnerColor[i];
                 }
                 else
