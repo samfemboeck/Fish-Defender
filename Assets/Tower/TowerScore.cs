@@ -4,16 +4,19 @@ using System.Collections;
 public class TowerScore : MonoBehaviour
 {
     [SerializeField]
-    int score;
+    static int score = 3;
 
     [SerializeField]
-    int baseScore;
+    static int baseScore = 6;
 
     [SerializeField]
-    int multiplier;
+    static int multiplier = 2;
 
     [SerializeField]
     GameObjectSet fishes;
+
+    [SerializeField]
+    GameObjectSet towers;
 
     [SerializeField]
     GameEvent onTowerScoreUpdate;
@@ -23,6 +26,7 @@ public class TowerScore : MonoBehaviour
     {
         int fishCount = fishes.items.Count;
         score = baseScore + (fishCount * multiplier);
+        print("debug tower score: " + score + " " + fishCount);
     }
 
     public int Score 
@@ -33,6 +37,7 @@ public class TowerScore : MonoBehaviour
 
     public void OnFishCollect(GameEvent gameEvent)
     {
+        if (towers.items.IndexOf(gameObject) != 0) return;
         Score -= 1;
         onTowerScoreUpdate.Raise(gameObject);
     }
