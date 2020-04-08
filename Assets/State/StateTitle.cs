@@ -40,11 +40,6 @@ public class StateTitle : MonoBehaviour
         audio = FindObjectOfType<AudioManager>();
     }
 
-	private void Start()
-	{
-		StartGame();
-	}
-
     private void CreateMenuPlayer(Gamepad gamepad)
     {
         GameObject menuPlayer = Instantiate(menuPlayerPrefab);
