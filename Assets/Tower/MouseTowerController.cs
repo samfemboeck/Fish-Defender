@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class MouseTowerController : MonoBehaviour
+public class MouseTowerController : MonoBehaviour, ITowerController
 {
     [SerializeField]
     private int maxMagnitude;
@@ -19,12 +18,15 @@ public class MouseTowerController : MonoBehaviour
         mouseControls.OnMouseUp += MouseUp;
     }
 
+	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>(); }
+
     private void MouseUp(Vector2Control mousePos)
     {
         if (curTower)
         {
             curTower.ShootProjectile(aimDirection);
-            curTower = null;
+            curTower.Release();
+			curTower = null;
         }
     }
 
@@ -38,7 +40,13 @@ public class MouseTowerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, ~LayerMask.NameToLayer("Projectile")))
         {
             Transform objectHit = hit.transform;
-            curTower = objectHit.GetComponent<Projectile>().ActiveTower;
+			Tower tower = objectHit.GetComponent<Projectile>().ActiveTower; 
+
+			if (tower.TryClaim(this))
+			{
+				curTower = tower;
+			}
+
             dragPosition = mousePos.ReadValue();
         }
     }

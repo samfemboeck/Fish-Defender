@@ -205,6 +205,7 @@ MonoBehaviour:
   aimIndicatorRange: 4
   projectileSpeed: 26.7
   projectileSpawnDelay: 1
+  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
 --- !u!114 &7455542524537609696
 MonoBehaviour:
   m_ObjectHideFlags: 0
