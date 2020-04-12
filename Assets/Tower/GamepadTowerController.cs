@@ -2,7 +2,7 @@
 using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(PlayerInput))]
-public class GamepadTowerController : MonoBehaviour
+public class GamepadTowerController : MonoBehaviour, ITowerController
 {
     [SerializeField]
     GameObjectSet towers;
@@ -19,6 +19,8 @@ public class GamepadTowerController : MonoBehaviour
         playerInput.playerControls.Gamepad.MoveRightStick.performed += OnMoveStick;
         ClaimAvailableTower();
     }
+
+	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>();}
 
     private void SetTowerIndex(int index)
     {
@@ -41,11 +43,12 @@ public class GamepadTowerController : MonoBehaviour
     public void ClaimAvailableTower()
     {
         TowerDecorator decorator = new TowerDecorator(towers);
+
         while (!decorator.GetByIndex(activeTowerIndex).TryClaim(this))
             SetTowerIndex(++activeTowerIndex);
 
         if (activeTower)
-            activeTower.ActivePlayer = null;
+            activeTower.Release();
 
         activeTower = decorator.GetByIndex(activeTowerIndex);
     }

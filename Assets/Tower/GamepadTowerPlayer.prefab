@@ -100,10 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4853da7e2549544cb97040bbc3b35b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 3
-  baseScore: 8
-  multiplier: 2
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+  towers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}
 --- !u!114 &-3494611732040174204
 MonoBehaviour:

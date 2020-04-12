@@ -29,9 +29,6 @@ public class UIEnd : MonoBehaviour
 
         StateEnd endState = FindObjectOfType<StateEnd>();
 
-        print("debug fishWin:" + endState.fishWin);
-        print("debug end ui: " + winnerImages.Length + " " + endState.winnerColor.Length);
-
         if (endState.fishWin)
         {
             for (int i=0; i<winnerImages.Length; i++)
@@ -40,6 +37,7 @@ public class UIEnd : MonoBehaviour
                 {
                     winnerImages[i].sprite = fishSprite;
                     winnerImages[i].enabled = true;
+                    winnerImages[i].GetComponent<Animator>().Play("Fish_wiggle", 0, Random.value);
                     winnerImages[i].color = endState.winnerColor[i];
                 }
                 else

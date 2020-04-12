@@ -19,8 +19,11 @@ public class Tower : MonoBehaviour
     [Range(0, 5)]
     private float projectileSpawnDelay;
 
+	[SerializeField]
+	private Color neutralColor;
+
     public Projectile ActiveProjectile { get; private set; }
-    public GamepadTowerController ActivePlayer { get; set; }
+    public ITowerController ActiveController { get; set; }
  
     public void SpawnProjectile()
     {
@@ -53,12 +56,35 @@ public class Tower : MonoBehaviour
         Invoke("SpawnProjectile", projectileSpawnDelay);
     }
 
-    public bool TryClaim(GamepadTowerController gamepadTowerController)
+    public bool TryClaim(ITowerController towerController)
     {
-        if (ActivePlayer)
+        if (ActiveController != null)
             return false;
 
-        ActivePlayer = gamepadTowerController;
+        ActiveController = towerController;
+		SetColor(ActiveController.PlayerColor.color);
         return true;
     }
+
+	private Color GetDarkerShadeFor(Color color)
+	{
+		float hue, saturation, val;
+		Color.RGBToHSV(color, out hue, out saturation, out val);
+		val *= 0.5f;
+		return Color.HSVToRGB(hue, saturation, val);
+	}
+
+	public void Release()
+	{
+		ActiveController = null;
+		SetColor(neutralColor);
+	}
+
+	private void SetColor(Color color)
+	{
+		gameObject.GetComponent<Renderer>().material.SetColor("_ColorMin", GetDarkerShadeFor(color));
+		gameObject.GetComponent<Renderer>().material.SetColor("_ColorMax", color);
+		Light light = GetComponentInChildren<Light>();
+		light.color = color;
+	}
 }
