@@ -349,7 +349,7 @@ MonoBehaviour:
     pitch: 1
     looped: 1
     source: {fileID: 0}
-  - name: CollectibleCollect
+  - name: CollectibleCollect1
     clip: {fileID: 8300000, guid: cbff7b553d421424c9f3520c4a2413b1, type: 3}
     volume: 1
     pitch: 1
@@ -459,6 +459,24 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuNav4
     clip: {fileID: 8300000, guid: 0edc7ca10c4d0c54b9c1b898b683f42a, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleCollect2
+    clip: {fileID: 8300000, guid: 3e14ea1202bb0594e92bd080d1f70fe7, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleCollect3
+    clip: {fileID: 8300000, guid: a7ce692252aad7b469374ec619dec520, type: 3}
+    volume: 1
+    pitch: 1
+    looped: 0
+    source: {fileID: 0}
+  - name: CollectibleCollect4
+    clip: {fileID: 8300000, guid: 089114d29d4ea6643bb16cd6f905a3a3, type: 3}
     volume: 1
     pitch: 1
     looped: 0
