@@ -7,6 +7,10 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
     [SerializeField]
     GameObjectSet towers;
 
+    [SerializeField]
+    [Range(0,1)]
+    float tolerance = .3f;  // Joysticks tend to deliver inaccurate values
+
     private int activeTowerIndex = 0;
     private Tower activeTower;
     private Vector3 curDirection = Vector3.zero;
@@ -60,9 +64,6 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
 
         Vector2 value = ctx.ReadValue<Vector2>();
         Vector3 newDirection = -new Vector3(value.x, 0, value.y);
-
-        // Joysticks tend to deliver inaccurate values
-        float tolerance = 0.3f;
 
         if (newDirection.magnitude + tolerance < curDirection.magnitude)
         {
