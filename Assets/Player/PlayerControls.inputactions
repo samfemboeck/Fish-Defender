@@ -79,6 +79,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressButtonEast",
+                    "type": "Button",
+                    "id": "5df54d9b-4b8a-4723-bed2-ed418d87efe1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -145,6 +153,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83381263-5d66-4949-89f9-e94045044df3",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PressButtonEast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
