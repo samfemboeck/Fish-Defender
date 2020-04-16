@@ -203,7 +203,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8316880413592410063, guid: ba22ff5799f4c4e698de8d5e1215263f,
     type: 3}
   aimIndicatorRange: 4
-  projectileSpeed: 10.4
+  projectileSpeed: 20
   projectileSpawnDelay: 3
   neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
 --- !u!114 &7455542524537609696
