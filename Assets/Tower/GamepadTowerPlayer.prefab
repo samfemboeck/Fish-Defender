@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -886832103423171442}
   - component: {fileID: -8607535976131529412}
   - component: {fileID: -3494611732040174204}
+  - component: {fileID: 5446269365908203751}
   m_Layer: 0
   m_Name: GamepadTowerPlayer
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
-  towers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
   onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}
 --- !u!114 &-3494611732040174204
 MonoBehaviour:
@@ -131,3 +132,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5446269365908203751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363502071662476973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e6cd20b01363a408d28df8e86a37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 63a5474da873db54c94567f3e4008876, type: 2}

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5748166611184360463}
   - component: {fileID: -1029906313934087302}
-  - component: {fileID: -3846641288697428798}
   - component: {fileID: 1406896480757838051}
   - component: {fileID: -8607535976131529412}
   - component: {fileID: -3494611732040174204}
   - component: {fileID: -1313580109875331302}
+  - component: {fileID: -2109946459595623461}
   m_Layer: 0
   m_Name: MouseTowerPlayer
   m_TagString: Untagged
@@ -50,19 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 0, a: 0}
   colorPool: {fileID: 11400000, guid: 04dfe6942b09d024893bf12a91672846, type: 2}
---- !u!114 &-3846641288697428798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8363502071662476973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e6cd20b01363a408d28df8e86a37d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  set: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
 --- !u!114 &1406896480757838051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4853da7e2549544cb97040bbc3b35b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 3
-  baseScore: 8
-  multiplier: 2
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+  towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
   onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}
 --- !u!114 &-3494611732040174204
 MonoBehaviour:
@@ -132,3 +117,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMagnitude: 200
+--- !u!114 &-2109946459595623461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8363502071662476973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e6cd20b01363a408d28df8e86a37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}

@@ -5091,6 +5091,7 @@ GameObject:
   - component: {fileID: 3895684821996564821}
   - component: {fileID: 1170345940302622901}
   - component: {fileID: 3753754153636352307}
+  - component: {fileID: -6775689016307341739}
   m_Layer: 0
   m_Name: FishPlayer
   m_TagString: Fish
@@ -5252,6 +5253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3753754153636352307}
+  animSpeedMin: 0.15
+  animSpeedMax: 3.25
 --- !u!95 &3753754153636352307
 Animator:
   serializedVersion: 3
@@ -5271,6 +5274,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6775689016307341739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059444459423081629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e6cd20b01363a408d28df8e86a37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 63a5474da873db54c94567f3e4008876, type: 2}
 --- !u!1 &6422264357433871831
 GameObject:
   m_ObjectHideFlags: 0

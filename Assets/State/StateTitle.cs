@@ -30,7 +30,7 @@ public class StateTitle : MonoBehaviour
         LockedPlayers = 0;
         deviceManager = new DeviceManager();
         deviceManager.OnGamepadAdded += CreateMenuPlayer;
-        deviceManager.OnGamepadRemoved += gamepad => menuPlayers.Remove(new PlayerInputDecorator(menuPlayers).GetByDeviceId(gamepad.deviceId).gameObject);
+        deviceManager.OnGamepadRemoved += RemoveMenuPlayer;
 
         for (int i = 0; i < deviceManager.gamepads.Count; i++)
         {
@@ -38,6 +38,17 @@ public class StateTitle : MonoBehaviour
         }
 
         audio = FindObjectOfType<AudioManager>();
+    }
+
+    private void OnDestroy()
+    {
+        deviceManager.OnGamepadAdded -= CreateMenuPlayer;
+        deviceManager.OnGamepadRemoved -= RemoveMenuPlayer;
+    }
+
+    private void RemoveMenuPlayer(Gamepad gamepad)
+    {
+        menuPlayers.Remove(new PlayerInputDecorator(menuPlayers).GetByDeviceId(gamepad.deviceId).gameObject);
     }
 
     private void CreateMenuPlayer(Gamepad gamepad)

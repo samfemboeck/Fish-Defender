@@ -51,6 +51,7 @@ MonoBehaviour:
     type: 3}
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
   towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
+  playerInputs: {fileID: 11400000, guid: 63a5474da873db54c94567f3e4008876, type: 2}
   end: {fileID: 11400000, guid: fc815f27f53354c48bc714f32e2d9d65, type: 2}
   timerSeconds: 300
   onTimerUpdate: {fileID: 11400000, guid: ba2661c32e74c481ebb5e1796445a566, type: 2}

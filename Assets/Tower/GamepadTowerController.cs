@@ -76,5 +76,10 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
             activeTower.SetAimDirection(curDirection);
         }
     }
+
+    private void OnDestroy()
+    {
+        activeTower.Release();
+    }
 }
 

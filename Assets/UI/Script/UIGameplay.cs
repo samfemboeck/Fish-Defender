@@ -19,7 +19,7 @@ public class UIGameplay : MonoBehaviour
     GameObjectSet fishSet;
 
     [SerializeField]
-    GameObjectSet towerSet;
+    GameObjectSet towerPlayerSet;
 
     [SerializeField]
     Sprite deadFishSprite;
@@ -60,7 +60,7 @@ public class UIGameplay : MonoBehaviour
     //Setup displayed initial tower score
     private void SetupGameplayScreenTower()
     {
-        int score = towerSet.items[0].GetComponent<TowerScore>().Score;
+        int score = towerPlayerSet.items[0].GetComponent<TowerScore>().Score;
         for (int i=0; i< towerScore.Length; i++)
         {
             if (i <= score)

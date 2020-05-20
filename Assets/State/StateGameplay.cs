@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class StateGameplay : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class StateGameplay : MonoBehaviour
     GameObjectSet towers;
 
     [SerializeField]
+    GameObjectSet playerInputs;
+
+    [SerializeField]
     Screen end;
 
 	[SerializeField]
@@ -25,25 +31,54 @@ public class StateGameplay : MonoBehaviour
     [SerializeField]
     int fishInstaWin = 10;
 
+    // when a new gamepad connects, try to reconnect to the first gamepad that disconnected
+    Queue<PlayerInput> disconnectedInputs = new Queue<PlayerInput>();
+    DeviceManager deviceManager;
+
     private void Start()
     {
         GameObject spawner = Instantiate(collectibleSpawnerPrefab);
         spawner.transform.SetParent(transform);
         Invoke("SpawnTowerProjectiles", 3);
 		InvokeRepeating("UpdateTimer", 1, 1);
+        deviceManager = new DeviceManager();
+        deviceManager.OnGamepadRemoved += (gamepad) => DisconnectGamepad(gamepad);
+        deviceManager.OnGamepadAdded += (gamepad) => ReconnectGamepad(gamepad);
     }
 
-	private void OnDestroy()
-	{
-		CancelInvoke("UpdateTimer");
-	}
+    void DisconnectGamepad(Gamepad gamepad)
+    {
+        foreach (GameObject gameObject in playerInputs.items)
+        {
+            PlayerInput playerInput = gameObject.GetComponent<PlayerInput>();
 
-	private void UpdateTimer()
-	{
-		onTimerUpdate.Raise(--timerSeconds);
-		if (timerSeconds <= 0)
-			ScreenManager.Instance.ChangeToScreen(end);
-	}
+            if (playerInput.device.deviceId == gamepad.deviceId)
+            {
+                disconnectedInputs.Enqueue(playerInput);
+                break;
+            }
+        }
+    }
+
+    void ReconnectGamepad(Gamepad gamepad)
+    {
+        if (disconnectedInputs.Count == 0) return;
+
+        PlayerInput playerInput = disconnectedInputs.Dequeue();
+        playerInput.RestrictToDevice(gamepad);
+    }
+
+    private void OnDestroy()
+    {
+        CancelInvoke("UpdateTimer");
+    }
+
+    private void UpdateTimer()
+    {
+        onTimerUpdate.Raise(--timerSeconds);
+        if (timerSeconds <= 0)
+            ScreenManager.Instance.ChangeToScreen(end);
+    }
 
     private void SpawnTowerProjectiles()
     {
@@ -60,7 +95,7 @@ public class StateGameplay : MonoBehaviour
     public void OnFishScoreUpdate(GameEvent gameEvent)
     {
         //TODO
-		GameObject fish = gameEvent.GameObject;
+        GameObject fish = gameEvent.GameObject;
         if (fish.GetComponent<FishScore>().Score >= fishInstaWin)
             ScreenManager.Instance.ChangeToScreen(end);
     }

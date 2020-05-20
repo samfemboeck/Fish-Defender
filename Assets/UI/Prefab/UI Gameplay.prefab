@@ -3041,7 +3041,7 @@ MonoBehaviour:
   - {fileID: 6860064797994363106}
   timerText: {fileID: 9100426651023377557}
   fishSet: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
-  towerSet: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  towerPlayerSet: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   deadFishSprite: {fileID: 21300000, guid: db203bf9d60527c45b1cb86e4de38bb6, type: 3}
 --- !u!114 &2405748011479169697
 MonoBehaviour:

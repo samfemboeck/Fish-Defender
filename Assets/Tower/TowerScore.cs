@@ -37,7 +37,6 @@ public class TowerScore : MonoBehaviour
 
     public void OnFishCollect(GameEvent gameEvent)
     {
-        if (towers.items.IndexOf(gameObject) != 0) return;
         Score -= 1;
         onTowerScoreUpdate.Raise(gameObject);
     }
