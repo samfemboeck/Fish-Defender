@@ -27,7 +27,17 @@ public class UIEnd : MonoBehaviour
         //Set image
         //RM TODO
 
-        StateEnd endState = FindObjectOfType<StateEnd>();
+        //Choose random fact
+        int randomIndex = Random.Range(0, fishQuotes.Length - 1);
+        factText.text = fishQuotes[randomIndex];
+    }
+
+    public void SetWinnerSprite(StateEnd endState)
+    {
+
+        //StateEnd endState = FindObjectOfType<StateEnd>();
+
+        Debug.Log("debug end: " + endState.fishWin + " " + endState.winnerColor[0]);
 
         if (endState.fishWin)
         {
@@ -56,9 +66,6 @@ public class UIEnd : MonoBehaviour
                 winnerImages[i].enabled = false;
             }
         }
-
-        //Choose random fact
-        int randomIndex = Random.Range(0, fishQuotes.Length - 1);
-        factText.text = fishQuotes[randomIndex];
+        
     }
 }

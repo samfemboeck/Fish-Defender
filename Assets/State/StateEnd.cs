@@ -25,7 +25,9 @@ public class StateEnd : MonoBehaviour
     {
         GetWinner();
 
-        print("debug winner: " + winnerColor.Length);
+        print("debug winner: " + " " + winnerColor[0] + " " + winnerColor.Length);
+
+        FindObjectOfType<UIEnd>().SetWinnerSprite(this);
 
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
