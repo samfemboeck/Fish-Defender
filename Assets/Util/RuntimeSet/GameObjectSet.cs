@@ -37,14 +37,14 @@ public class GameObjectSet : ScriptableObject
     
     public virtual void RemoveAll()
     {
-        items.RemoveAll(All);
+        foreach (GameObject gameObject in items)
+        {
+            Destroy(gameObject);
+        }
+        
+        items.RemoveRange(0, items.Count);
     }
 
-    private static bool All(GameObject gameObject) 
-    {
-        Destroy(gameObject);
-        return true; 
-    }
 
     private void OnEnable()
     {

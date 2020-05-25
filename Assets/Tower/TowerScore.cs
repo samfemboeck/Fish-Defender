@@ -4,7 +4,7 @@ using System.Collections;
 public class TowerScore : MonoBehaviour
 {
     [SerializeField]
-    static int score = 3;
+    int score = 3;
 
     [SerializeField]
     static int baseScore = 6;
