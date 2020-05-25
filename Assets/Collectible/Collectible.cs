@@ -6,6 +6,13 @@ public class Collectible : MonoBehaviour
     GameEvent onFishCollect;
 
     AudioManager audio;
+    string[] collectSounds =
+    {
+        "CollectibleCollect1",
+        "CollectibleCollect2",
+        "CollectibleCollect3",
+        "CollectibleCollect4",
+    };
 
     private void Awake()
     {
@@ -21,7 +28,8 @@ public class Collectible : MonoBehaviour
             onFishCollect.Raise(other.gameObject);
             Destroy(gameObject);
 
-            audio.Play("CollectibleCollect");
+            int soundIndex = Random.Range(0, collectSounds.Length);
+            audio.Play(collectSounds[soundIndex]);
         }
     }
 }

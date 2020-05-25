@@ -92,6 +92,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PressButtonEast"",
+                    ""type"": ""Button"",
+                    ""id"": ""5df54d9b-4b8a-4723-bed2-ed418d87efe1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -158,6 +166,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LeftShoulder"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83381263-5d66-4949-89f9-e94045044df3"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PressButtonEast"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -265,6 +284,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gamepad_MoveRightStick = m_Gamepad.FindAction("MoveRightStick", throwIfNotFound: true);
         m_Gamepad_RightShoulder = m_Gamepad.FindAction("RightShoulder", throwIfNotFound: true);
         m_Gamepad_LeftShoulder = m_Gamepad.FindAction("LeftShoulder", throwIfNotFound: true);
+        m_Gamepad_PressButtonEast = m_Gamepad.FindAction("PressButtonEast", throwIfNotFound: true);
         // Mouse
         m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
         m_Mouse_LeftClick = m_Mouse.FindAction("LeftClick", throwIfNotFound: true);
@@ -356,6 +376,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gamepad_MoveRightStick;
     private readonly InputAction m_Gamepad_RightShoulder;
     private readonly InputAction m_Gamepad_LeftShoulder;
+    private readonly InputAction m_Gamepad_PressButtonEast;
     public struct GamepadActions
     {
         private @PlayerControls m_Wrapper;
@@ -366,6 +387,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @MoveRightStick => m_Wrapper.m_Gamepad_MoveRightStick;
         public InputAction @RightShoulder => m_Wrapper.m_Gamepad_RightShoulder;
         public InputAction @LeftShoulder => m_Wrapper.m_Gamepad_LeftShoulder;
+        public InputAction @PressButtonEast => m_Wrapper.m_Gamepad_PressButtonEast;
         public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -393,6 +415,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LeftShoulder.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnLeftShoulder;
                 @LeftShoulder.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnLeftShoulder;
                 @LeftShoulder.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnLeftShoulder;
+                @PressButtonEast.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
+                @PressButtonEast.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
+                @PressButtonEast.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
             }
             m_Wrapper.m_GamepadActionsCallbackInterface = instance;
             if (instance != null)
@@ -415,6 +440,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @LeftShoulder.started += instance.OnLeftShoulder;
                 @LeftShoulder.performed += instance.OnLeftShoulder;
                 @LeftShoulder.canceled += instance.OnLeftShoulder;
+                @PressButtonEast.started += instance.OnPressButtonEast;
+                @PressButtonEast.performed += instance.OnPressButtonEast;
+                @PressButtonEast.canceled += instance.OnPressButtonEast;
             }
         }
     }
@@ -509,6 +537,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnMoveRightStick(InputAction.CallbackContext context);
         void OnRightShoulder(InputAction.CallbackContext context);
         void OnLeftShoulder(InputAction.CallbackContext context);
+        void OnPressButtonEast(InputAction.CallbackContext context);
     }
     public interface IMouseActions
     {

@@ -21,7 +21,7 @@ public class StateEnd : MonoBehaviour
     AudioManager audio;
     
 
-    private void Awake()
+    private void Start()
     {
         GetWinner();
 
@@ -31,9 +31,10 @@ public class StateEnd : MonoBehaviour
         towerPlayers.RemoveAll();
         collectibles.RemoveAll();
 
-        /*
+        //*
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
+        playerInput.playerControls.Gamepad.PressButtonEast.performed += OnPressSpace;
         //*/
 
         audio = FindObjectOfType<AudioManager>();

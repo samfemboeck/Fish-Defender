@@ -40,7 +40,13 @@ public class UITitle : MonoBehaviour
 
         OnGamepadChange(null);    //RM initially call OnGamepadChange to make sure everything is hidden at start
     }
-    
+
+    private void OnDestroy()
+    {
+        deviceManager.OnGamepadAdded -= OnGamepadChange;
+        deviceManager.OnGamepadRemoved -= OnGamepadChange;
+    }
+
     //Updates title screen when gamepad (dis-)connects
     void OnGamepadChange(Gamepad gamepad)    //RM sender is the deviceManager that raised the event
     {
