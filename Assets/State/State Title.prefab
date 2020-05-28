@@ -52,6 +52,8 @@ MonoBehaviour:
     type: 3}
   menuPlayers: {fileID: 11400000, guid: c44a54853a476f745853c7420ff06b23, type: 2}
   towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
+  towerScore: {fileID: 7621582221905824393, guid: 0f86677b2536935449f2addcf9a1bed0,
+    type: 3}
   gameplay: {fileID: 11400000, guid: 756894e2afd4a83479c813afd7cfcbd5, type: 2}
 --- !u!82 &-1248897453904931026
 AudioSource:

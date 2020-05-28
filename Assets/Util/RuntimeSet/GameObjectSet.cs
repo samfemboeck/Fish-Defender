@@ -41,13 +41,13 @@ public class GameObjectSet : ScriptableObject
         {
             Destroy(gameObject);
         }
-        
+
         items.RemoveRange(0, items.Count);
     }
 
 
     private void OnEnable()
     {
-        RemoveAll();
+        items.RemoveRange(0, items.Count);
     }
 }

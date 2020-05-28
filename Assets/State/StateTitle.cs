@@ -16,6 +16,9 @@ public class StateTitle : MonoBehaviour
     GameObjectSet towerPlayers;
 
     [SerializeField]
+    GameObject towerScore;
+
+    [SerializeField]
     Screen gameplay;
 
     public int LockedPlayers { get; set; }
@@ -80,7 +83,8 @@ public class StateTitle : MonoBehaviour
         if (towerPlayers.Count == 0)
             Instantiate(mouseTowerPlayerPrefab);
 
-        towerPlayers.items[0].GetComponent<TowerScore>().InitializeScore();
+        towerScore.GetComponent<TowerScore>().InitializeScore();
+        menuPlayers.RemoveAll();
 
         ScreenManager.Instance.ChangeToScreen(gameplay);
     }

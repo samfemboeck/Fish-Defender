@@ -33,4 +33,9 @@ public class FishController : MonoBehaviour
         Vector2 rotation = ctx.ReadValue<Vector2>();
         fishMovement.SetRotation(rotation);
     }
+
+    private void OnDestroy()
+    {
+        GetComponent<GameObjectItem>().set.Remove(gameObject);
+    }
 }

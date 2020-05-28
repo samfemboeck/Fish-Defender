@@ -6,15 +6,10 @@
 public class GameObjectItem : MonoBehaviour
 {
     [SerializeField]
-    GameObjectSet set;
+    public GameObjectSet set;
 
     void OnEnable()
     {
         set.Add(gameObject);
-    }
-
-    void OnDisable()
-    {
-        set.Remove(gameObject);
     }
 }

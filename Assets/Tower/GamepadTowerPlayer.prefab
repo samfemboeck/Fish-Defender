@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -3846641288697428798}
   - component: {fileID: 1406896480757838051}
   - component: {fileID: -886832103423171442}
-  - component: {fileID: -8607535976131529412}
   - component: {fileID: -3494611732040174204}
   - component: {fileID: 5446269365908203751}
   m_Layer: 0
@@ -90,21 +89,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
   tolerance: 0
---- !u!114 &-8607535976131529412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8363502071662476973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4853da7e2549544cb97040bbc3b35b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
-  towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
-  onTowerScoreUpdate: {fileID: 11400000, guid: be5ebdb73c869464782e081dbe5cb3ad, type: 2}
 --- !u!114 &-3494611732040174204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +105,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8607535976131529412}
+      - m_Target: {fileID: 0}
         m_MethodName: OnFishCollect
         m_Mode: 0
         m_Arguments:

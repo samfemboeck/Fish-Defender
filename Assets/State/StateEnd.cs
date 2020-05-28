@@ -15,6 +15,12 @@ public class StateEnd : MonoBehaviour
     [SerializeField]
     GameObjectSet collectibles;
 
+    [SerializeField]
+    GameObjectSet playerInputs;
+
+    [SerializeField]
+    GameObject towerScoreObject;
+
     public bool fishWin;
     public Color[] winnerColor;
 
@@ -25,11 +31,10 @@ public class StateEnd : MonoBehaviour
     {
         GetWinner();
 
-        print("debug winner: " + winnerColor.Length);
-
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
         collectibles.RemoveAll();
+        playerInputs.RemoveAll();
 
         //*
         PlayerInput playerInput = GetComponent<PlayerInput>();
@@ -52,7 +57,7 @@ public class StateEnd : MonoBehaviour
         int fishCount;
 
         int fishScore = GetHighestFishScore(ref winnerFishes, out fishCount);
-        int towerScore = towerPlayers.items[0].GetComponent<TowerScore>().Score;
+        int towerScore = towerScoreObject.GetComponent<TowerScore>().Score;
 
         //Fishes win
         if (towerScore <= 0 || fishScore >= 10)
@@ -70,8 +75,6 @@ public class StateEnd : MonoBehaviour
         {
             fishWin = false;
         }
-
-        print("debug win: " + winnerColor.Length);
     }
 
     private int GetHighestFishScore(ref GameObject[] winner, out int winnerCount)
