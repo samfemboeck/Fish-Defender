@@ -9,32 +9,32 @@ public class BuildGame : MonoBehaviour
     /// <summary>
     /// Builds all versions and pushes them to itch.io.
     /// </summary>
-    [MenuItem("Build/Butler Push")]
+    [MenuItem("Build/Butler Push _F6")]
     public static void ButlerPush()
     {
         string[] butlerArguments = new string[6];
 
-        butlerArguments[0] = "ramo-teamhellep";     // Account
-        butlerArguments[1] = "test-01";             // Project
+        butlerArguments[0] = "the-pigeon-protocol";     // Account
+        butlerArguments[1] = "fishtank-trouble";        // Project
 
         butlerArguments[3] = "Release";             // Configuration
         butlerArguments[4] = @".\";                 // Solution directory
 
         if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
         {
-            butlerArguments[2] = "fd-windows-test";
+            butlerArguments[2] = "windows-test";
             butlerArguments[5] = @"bin\Windows\Release\";
             StartButler(butlerArguments);
         }
         if (Build("Linux", BuildTarget.StandaloneLinux64, butlerArguments[1], "", butlerArguments[3]))
         {
-            butlerArguments[2] = "fd-linux-test";
+            butlerArguments[2] = "linux-test";
             butlerArguments[5] = @"bin\Linux\Release\";
             StartButler(butlerArguments);
         }
         if (Build("OSX", BuildTarget.StandaloneOSX, butlerArguments[1], ".app", butlerArguments[3]))
         {
-            butlerArguments[2] = "fd-osx-test";
+            butlerArguments[2] = "osx-test";
             butlerArguments[5] = @"bin\OSX\Release\";
             StartButler(butlerArguments);
         }
