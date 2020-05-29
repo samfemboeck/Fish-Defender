@@ -21,24 +21,12 @@ public class UIEnd : MonoBehaviour
 
     private void Start()
     {
-        //Get winner
-        //RM TODO
-
-        //Set image
-        //RM TODO
-
-        //Choose random fact
         int randomIndex = Random.Range(0, fishQuotes.Length - 1);
         factText.text = fishQuotes[randomIndex];
     }
 
     public void SetWinnerSprite(StateEnd endState)
     {
-
-        //StateEnd endState = FindObjectOfType<StateEnd>();
-
-        Debug.Log("debug end: " + endState.fishWin + " " + endState.winnerColor[0]);
-
         if (endState.fishWin)
         {
             for (int i=0; i<winnerImages.Length; i++)

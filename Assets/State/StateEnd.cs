@@ -31,16 +31,16 @@ public class StateEnd : MonoBehaviour
     {
         GetWinner();
 
+        FindObjectOfType<UIEnd>().SetWinnerSprite(this);
+
         fishes.RemoveAll();
         towerPlayers.RemoveAll();
         collectibles.RemoveAll();
         playerInputs.RemoveAll();
 
-        //*
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Keyboard.PressSpace.performed += OnPressSpace;
         playerInput.playerControls.Gamepad.PressButtonEast.performed += OnPressSpace;
-        //*/
 
         audio = FindObjectOfType<AudioManager>();
         audio.Play("MatchStarts");
