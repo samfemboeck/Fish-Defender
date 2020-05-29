@@ -17,6 +17,7 @@ public class UIGameplay : MonoBehaviour
 
     [SerializeField]
     GameObjectSet fishSet;
+    private GameObject[] localFishSet;
 
     [SerializeField]
     GameObject towerScoreObject;
@@ -39,6 +40,12 @@ public class UIGameplay : MonoBehaviour
         //Setup
         SetupGameplayScreenFishes();
         SetupGameplayScreenTower();
+
+        localFishSet = new GameObject[fishSet.items.Count];
+        for (int i=0; i<localFishSet.Length; i++)
+        {
+            localFishSet[i] = fishSet.items[i];
+        }
     }
 
     //Setup displayed fishes based on joined fishes
@@ -87,7 +94,7 @@ public class UIGameplay : MonoBehaviour
     public void UpdateFishUI(GameEvent gameEvent)
     {
         GameObject fish = gameEvent.GameObject;
-        int id = fishSet.items.IndexOf(fish);
+        int id = Array.IndexOf(localFishSet, fish);
         int score = fish.GetComponent<FishScore>().Score;
         
         //Enable next point
