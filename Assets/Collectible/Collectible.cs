@@ -26,7 +26,7 @@ public class Collectible : MonoBehaviour
             FishScore score = other.gameObject.GetComponent<FishScore>();
             score.Score += 1;
             onFishCollect.Raise(other.gameObject);
-            Destroy(gameObject);
+            GetComponent<GameObjectItem>().set.Remove(gameObject);
 
             int soundIndex = Random.Range(0, collectSounds.Length);
             audio.Play(collectSounds[soundIndex]);

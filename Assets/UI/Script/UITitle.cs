@@ -50,7 +50,7 @@ public class UITitle : MonoBehaviour
     //Updates title screen when gamepad (dis-)connects
     void OnGamepadChange(Gamepad gamepad)    //RM sender is the deviceManager that raised the event
     {
-        int gamepads = menuPlayers.items.Count;
+        int gamepads = deviceManager.gamepads.Count;
         
         //Iterate all UI images and check whether they should be visible
         for (int i = 0; i < playerDisplay.Length; i++)

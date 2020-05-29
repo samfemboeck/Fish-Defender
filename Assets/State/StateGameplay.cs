@@ -42,8 +42,8 @@ public class StateGameplay : MonoBehaviour
         Invoke("SpawnTowerProjectiles", 3);
 		InvokeRepeating("UpdateTimer", 1, 1);
         deviceManager = new DeviceManager();
-        deviceManager.OnGamepadRemoved += (gamepad) => DisconnectGamepad(gamepad);
-        deviceManager.OnGamepadAdded += (gamepad) => ReconnectGamepad(gamepad);
+        deviceManager.OnGamepadRemoved += DisconnectGamepad;
+        deviceManager.OnGamepadAdded += ReconnectGamepad;
     }
 
     void DisconnectGamepad(Gamepad gamepad)
@@ -71,6 +71,8 @@ public class StateGameplay : MonoBehaviour
     private void OnDestroy()
     {
         CancelInvoke("UpdateTimer");
+        deviceManager.OnGamepadRemoved -= DisconnectGamepad;
+        deviceManager.OnGamepadAdded -= ReconnectGamepad;
     }
 
     private void UpdateTimer()
