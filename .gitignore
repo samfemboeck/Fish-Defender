@@ -19,3 +19,4 @@ Thumbs.db
 
 # ----[ misc ]------- #
 .git/
+bin/
