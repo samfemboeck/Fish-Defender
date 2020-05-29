@@ -18,24 +18,19 @@ public class BuildGame : MonoBehaviour
         butlerArguments[1] = "test-01";             // Project
 
         butlerArguments[3] = "Release";             // Configuration
-        butlerArguments[4] = "";                    // Solution directory
+        butlerArguments[4] = @".\";                  // Solution directory
 
         if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
         {
             // Set arguments
             butlerArguments[2] = "fd-windows-test";
-            butlerArguments[5] = "bin/Windows/Release/";
+            butlerArguments[5] = @"bin\Windows\Release\";
 
             // call butler push
             Process butler = new Process();
             butler.StartInfo.FileName = "ButlerPush.bat";
             butler.StartInfo.Arguments = CreateArguments(butlerArguments);
-            butler.StartInfo.UseShellExecute = false;
-            butler.StartInfo.RedirectStandardOutput = true;
             butler.Start();
-
-            string output = butler.StandardOutput.ReadToEnd();
-            UnityEngine.Debug.Log(output);
         }
     }
 
@@ -124,7 +119,7 @@ public class BuildGame : MonoBehaviour
         string output = "";
         foreach (string arg in arguments)
         {
-            output = output + arg + " ";
+            output = output +  arg + " ";
         }
         return output;
     }
