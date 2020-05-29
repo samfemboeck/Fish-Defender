@@ -24,7 +24,7 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
         ClaimAvailableTower();
     }
 
-	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>();}
+	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>(); }
 
     private void SetTowerIndex(int index)
     {
