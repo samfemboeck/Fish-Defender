@@ -18,21 +18,28 @@ public class BuildGame : MonoBehaviour
         butlerArguments[1] = "test-01";             // Project
 
         butlerArguments[3] = "Release";             // Configuration
-        butlerArguments[4] = @".\";                  // Solution directory
+        butlerArguments[4] = @".\";                 // Solution directory
 
         if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
         {
-            // Set arguments
             butlerArguments[2] = "fd-windows-test";
             butlerArguments[5] = @"bin\Windows\Release\";
-
-            // call butler push
-            Process butler = new Process();
-            butler.StartInfo.FileName = "ButlerPush.bat";
-            butler.StartInfo.Arguments = CreateArguments(butlerArguments);
-            butler.Start();
+            StartButler(butlerArguments);
+        }
+        if (Build("Linux", BuildTarget.StandaloneLinux64, butlerArguments[1], "", butlerArguments[3]))
+        {
+            butlerArguments[2] = "fd-linux-test";
+            butlerArguments[5] = @"bin\Linux\Release\";
+            StartButler(butlerArguments);
+        }
+        if (Build("OSX", BuildTarget.StandaloneOSX, butlerArguments[1], ".app", butlerArguments[3]))
+        {
+            butlerArguments[2] = "fd-osx-test";
+            butlerArguments[5] = @"bin\OSX\Release\";
+            StartButler(butlerArguments);
         }
     }
+
 
     #region Targets
     [MenuItem("Build/Local Windows")]
@@ -63,13 +70,6 @@ public class BuildGame : MonoBehaviour
     /// <returns></returns>
     private static bool Build(string folderName, BuildTarget targetOS, string executableName, string suffix, string configurationName)
     {
-        /*
-        string path             = $"bin/{folderName}/";
-        string pathRelease      = path + "Release";
-        string pathBackup       = path + "Backup";
-        string pathExecutable   = pathRelease + "/" + executableName;
-        //*/
-
         string path = $"bin/{folderName}/";
         string pathConfig = path + configurationName;
         string pathExecutable = pathConfig + "/" + executableName + suffix;
@@ -113,6 +113,14 @@ public class BuildGame : MonoBehaviour
     #endregion
 
     #region Utility
+    private static void StartButler(string[] butlerArguments)
+    {
+        Process butler = new Process();
+        butler.StartInfo.FileName = "ButlerPush.bat";
+        butler.StartInfo.Arguments = CreateArguments(butlerArguments);
+        butler.Start();
+    }
+
     private static string CreateArguments(string[] arguments)
     {
         if (arguments.Length < 1) return null;

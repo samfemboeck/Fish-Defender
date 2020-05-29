@@ -41,6 +41,8 @@ echo config: %configuration%
 echo solution: %solutionDir%
 echo target: %targetDir%
 
+butler.exe status %account%/%project%
+
 git branch --show-current | find /v "" | findstr /r /c:"^master$" > nul & if errorlevel 1 (
     echo "not on master"
 ) else (
@@ -51,3 +53,7 @@ git branch --show-current | find /v "" | findstr /r /c:"^master$" > nul & if err
         butler.exe push %targetDir%..\%project%.zip %account%/%project%:%channel%
     )
 )
+
+butler.exe status %account%/%project%
+
+pause
