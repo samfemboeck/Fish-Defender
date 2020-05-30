@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -38,6 +39,7 @@ public class MenuPlayer : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Gamepad.PressDPad.performed += OnSwitchRole;
         playerInput.playerControls.Gamepad.PressButtonSouth.performed += OnLockRole;
+        playerInput.playerControls.Gamepad.PressButtonBack.performed += OnExitGame;
 
         audio = FindObjectOfType<AudioManager>();
     }
@@ -61,19 +63,25 @@ public class MenuPlayer : MonoBehaviour
             else
             {
                 fishCount--;
-                int soundIndex = Random.Range(0, switchSounds.Length);
+                int soundIndex = UnityEngine.Random.Range(0, switchSounds.Length);
                 audio.Play(switchSounds[soundIndex]);
             }
         }
         else
         {
             fishCount++;
-            int soundIndex = Random.Range(0, switchSounds.Length);
+            int soundIndex = UnityEngine.Random.Range(0, switchSounds.Length);
             audio.Play(switchSounds[soundIndex]);
         }
 
         isFish = !isFish;
         OnPlayerSwitch.Raise(gameObject);
+    }
+
+    private void OnExitGame(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Quit game");
+        Application.Quit();
     }
 
     public GameObject GetRolePrefab()

@@ -87,6 +87,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressButtonBack",
+                    "type": "Button",
+                    "id": "65ecf24e-b6f5-4165-977c-b276778eda6d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PressButtonStart",
+                    "type": "Button",
+                    "id": "e5aaf6a6-9093-43fc-9ed1-cc64c3875cb5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -164,6 +180,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "PressButtonEast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62db0c18-aca1-4a25-93c3-88554a5ff6a3",
+                    "path": "<XInputController>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressButtonBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65f688b9-d438-48b7-a9de-1c6ee1e8a67a",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressButtonStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

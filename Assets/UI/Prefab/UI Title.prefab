@@ -729,7 +729,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 72.5}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 500, y: 105.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385302118959734121
 CanvasRenderer:
@@ -772,7 +772,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Use D-Pad to switch role
 
-    Press A to lock role'
+    Press A to lock role
+
+    Press Back to exit'
 --- !u!1 &8385302118990709335
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +890,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8385302118990709335}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

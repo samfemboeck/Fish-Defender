@@ -100,6 +100,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PressButtonBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""65ecf24e-b6f5-4165-977c-b276778eda6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PressButtonStart"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5aaf6a6-9093-43fc-9ed1-cc64c3875cb5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -177,6 +193,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""PressButtonEast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62db0c18-aca1-4a25-93c3-88554a5ff6a3"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressButtonBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65f688b9-d438-48b7-a9de-1c6ee1e8a67a"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressButtonStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -285,6 +323,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gamepad_RightShoulder = m_Gamepad.FindAction("RightShoulder", throwIfNotFound: true);
         m_Gamepad_LeftShoulder = m_Gamepad.FindAction("LeftShoulder", throwIfNotFound: true);
         m_Gamepad_PressButtonEast = m_Gamepad.FindAction("PressButtonEast", throwIfNotFound: true);
+        m_Gamepad_PressButtonBack = m_Gamepad.FindAction("PressButtonBack", throwIfNotFound: true);
+        m_Gamepad_PressButtonStart = m_Gamepad.FindAction("PressButtonStart", throwIfNotFound: true);
         // Mouse
         m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
         m_Mouse_LeftClick = m_Mouse.FindAction("LeftClick", throwIfNotFound: true);
@@ -377,6 +417,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gamepad_RightShoulder;
     private readonly InputAction m_Gamepad_LeftShoulder;
     private readonly InputAction m_Gamepad_PressButtonEast;
+    private readonly InputAction m_Gamepad_PressButtonBack;
+    private readonly InputAction m_Gamepad_PressButtonStart;
     public struct GamepadActions
     {
         private @PlayerControls m_Wrapper;
@@ -388,6 +430,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @RightShoulder => m_Wrapper.m_Gamepad_RightShoulder;
         public InputAction @LeftShoulder => m_Wrapper.m_Gamepad_LeftShoulder;
         public InputAction @PressButtonEast => m_Wrapper.m_Gamepad_PressButtonEast;
+        public InputAction @PressButtonBack => m_Wrapper.m_Gamepad_PressButtonBack;
+        public InputAction @PressButtonStart => m_Wrapper.m_Gamepad_PressButtonStart;
         public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -418,6 +462,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressButtonEast.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
                 @PressButtonEast.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
                 @PressButtonEast.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonEast;
+                @PressButtonBack.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonBack;
+                @PressButtonBack.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonBack;
+                @PressButtonBack.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonBack;
+                @PressButtonStart.started -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonStart;
+                @PressButtonStart.performed -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonStart;
+                @PressButtonStart.canceled -= m_Wrapper.m_GamepadActionsCallbackInterface.OnPressButtonStart;
             }
             m_Wrapper.m_GamepadActionsCallbackInterface = instance;
             if (instance != null)
@@ -443,6 +493,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PressButtonEast.started += instance.OnPressButtonEast;
                 @PressButtonEast.performed += instance.OnPressButtonEast;
                 @PressButtonEast.canceled += instance.OnPressButtonEast;
+                @PressButtonBack.started += instance.OnPressButtonBack;
+                @PressButtonBack.performed += instance.OnPressButtonBack;
+                @PressButtonBack.canceled += instance.OnPressButtonBack;
+                @PressButtonStart.started += instance.OnPressButtonStart;
+                @PressButtonStart.performed += instance.OnPressButtonStart;
+                @PressButtonStart.canceled += instance.OnPressButtonStart;
             }
         }
     }
@@ -538,6 +594,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnRightShoulder(InputAction.CallbackContext context);
         void OnLeftShoulder(InputAction.CallbackContext context);
         void OnPressButtonEast(InputAction.CallbackContext context);
+        void OnPressButtonBack(InputAction.CallbackContext context);
+        void OnPressButtonStart(InputAction.CallbackContext context);
     }
     public interface IMouseActions
     {
