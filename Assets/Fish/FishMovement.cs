@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
@@ -35,42 +36,32 @@ public class FishMovement : MonoBehaviour
     void FixedUpdate()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
-        // Rotation
-        if (rb.velocity.magnitude > 0)
-        {
-            Vector3 addRotation = new Vector3(0, rotateSpeed * rotation.x * (rb.velocity.magnitude / maxSpeed), 0);
-            Vector3 currentTorque = rb.angularVelocity;
-            if (currentTorque.magnitude > maxRotationSpeed)
-            {
-                rb.angularVelocity = currentTorque.normalized * maxRotationSpeed;
-            }
-            else
-            {
-                rb.AddTorque(addRotation);
-            }
-        }
 
-        if (rb.velocity.magnitude < 0.5)
+        // Rotation
+        Vector3 addRotation = new Vector3(0, rotateSpeed * rotation.x * (Math.Max(rb.velocity.magnitude, 1) / maxSpeed), 0);
+        Vector3 currentTorque = rb.angularVelocity;
+        if (currentTorque.magnitude > maxRotationSpeed)
         {
-            rb.angularVelocity = Vector3.zero;
+            rb.angularVelocity = currentTorque.normalized * maxRotationSpeed;
+        }
+        else
+        {
+            rb.AddTorque(addRotation);
         }
 
         rb.velocity = transform.forward * rb.velocity.magnitude;
 
-        
+
         // Friction
-        if (rb.velocity.magnitude > 0)
+        if (rb.velocity.magnitude > 1)
         {
             Vector3 dir = transform.forward;
             rb.AddForce(dir * -friction * Time.deltaTime);
-            if (rb.velocity.magnitude - friction * Time.deltaTime < 0)
-            {
-                rb.velocity = dir * negativeSpeed;
-            }
-            else
-            {
-                rb.AddForce(dir * -friction * Time.deltaTime);
-            }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        rotation *= 2;
     }
 }
