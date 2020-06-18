@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using System.Diagnostics;
 using System.IO;
+using System;
 
 public class BuildGame : MonoBehaviour
 {
@@ -12,31 +13,38 @@ public class BuildGame : MonoBehaviour
     [MenuItem("Build/Butler Push _F6")]
     public static void ButlerPush()
     {
-        string[] butlerArguments = new string[6];
-
-        butlerArguments[0] = "the-pigeon-protocol";     // Account
-        butlerArguments[1] = "fishtank-trouble";        // Project
-
-        butlerArguments[3] = "Release";             // Configuration
-        butlerArguments[4] = @".\";                 // Solution directory
-
-        if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
+        try
         {
-            butlerArguments[2] = "windows-test";
-            butlerArguments[5] = @"bin\Windows\Release\";
-            StartButler(butlerArguments);
+            string[] butlerArguments = new string[6];
+
+            butlerArguments[0] = "the-pigeon-protocol";     // Account
+            butlerArguments[1] = "fishtank-trouble";        // Project
+
+            butlerArguments[3] = "Release";             // Configuration
+            butlerArguments[4] = @".\";                 // Solution directory
+
+            if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
+            {
+                butlerArguments[2] = "windows-test";
+                butlerArguments[5] = @"bin\Windows\Release\";
+                StartButler(butlerArguments);
+            }
+            if (Build("Linux", BuildTarget.StandaloneLinux64, butlerArguments[1], "", butlerArguments[3]))
+            {
+                butlerArguments[2] = "linux-test";
+                butlerArguments[5] = @"bin\Linux\Release\";
+                StartButler(butlerArguments);
+            }
+            if (Build("OSX", BuildTarget.StandaloneOSX, butlerArguments[1], ".app", butlerArguments[3]))
+            {
+                butlerArguments[2] = "osx-test";
+                butlerArguments[5] = @"bin\OSX\Release\";
+                StartButler(butlerArguments);
+            }
         }
-        if (Build("Linux", BuildTarget.StandaloneLinux64, butlerArguments[1], "", butlerArguments[3]))
+        catch (Exception e)
         {
-            butlerArguments[2] = "linux-test";
-            butlerArguments[5] = @"bin\Linux\Release\";
-            StartButler(butlerArguments);
-        }
-        if (Build("OSX", BuildTarget.StandaloneOSX, butlerArguments[1], ".app", butlerArguments[3]))
-        {
-            butlerArguments[2] = "osx-test";
-            butlerArguments[5] = @"bin\OSX\Release\";
-            StartButler(butlerArguments);
+            UnityEngine.Debug.Log("Failed to execute Butler Push: " + e.Message);
         }
     }
 
