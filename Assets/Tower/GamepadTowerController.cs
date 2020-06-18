@@ -14,6 +14,7 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
     private int activeTowerIndex = 0;
     private Tower activeTower;
     private Vector3 curDirection = Vector3.zero;
+    private bool isAiming = false;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
 
     private void OnPressDPad(CallbackContext ctx)
     {
+        if (isAiming) return;
         Vector2 value = ctx.ReadValue<Vector2>();
         int xDirection = (int)value.x;
         int index = activeTowerIndex + xDirection;
@@ -62,6 +64,7 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
         if (!activeTower.ActiveProjectile)
             return;
 
+        isAiming = true;
         Vector2 value = ctx.ReadValue<Vector2>();
         Vector3 newDirection = -new Vector3(value.x, 0, value.y);
 
@@ -69,6 +72,7 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
         {
             activeTower.ShootProjectile(curDirection);
             curDirection = Vector3.zero;
+            isAiming = false;
         }
         else
         {
