@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class StateTitle : MonoBehaviour
@@ -85,6 +86,8 @@ public class StateTitle : MonoBehaviour
 
         towerScore.GetComponent<TowerScore>().InitializeScore();
         menuPlayers.RemoveAll();
+
+        MenuPlayer.fishCount = 0;
 
         ScreenManager.Instance.ChangeToScreen(gameplay);
     }
