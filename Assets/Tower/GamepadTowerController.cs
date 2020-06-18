@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -11,21 +12,62 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
     [Range(0,1)]
     float tolerance = .3f;  // Joysticks tend to deliver inaccurate values
 
+	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>(); }
+
     private int activeTowerIndex = 0;
     private Tower activeTower;
     private Vector3 curDirection = Vector3.zero;
+    private Vector3 newDirection = Vector3.zero;
     private bool isAiming = false;
+    private PlayerInput playerInput;
+    private float analogStickDeadzone = .1f;
+
 
     private void Start()
     {
-        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
         playerInput.playerControls.Gamepad.PressDPad.performed += OnPressDPad;
-        playerInput.playerControls.Gamepad.MoveLeftStick.performed += OnMoveStick;
-        playerInput.playerControls.Gamepad.MoveRightStick.performed += OnMoveStick;
         ClaimAvailableTower();
     }
 
-	public PlayerColor PlayerColor { get => GetComponent<PlayerColor>(); }
+    private void Update()
+    {
+        Vector2 rightStick = playerInput.playerControls.Gamepad.MoveRightStick.ReadValue<Vector2>();
+        Vector2 leftStick = playerInput.playerControls.Gamepad.MoveLeftStick.ReadValue<Vector2>();
+
+        Vector2 direction = (rightStick + leftStick).normalized;
+        float length = Math.Min(1f, rightStick.magnitude + leftStick.magnitude);
+
+        Vector2 value = direction * length;
+
+        if (value.magnitude < analogStickDeadzone)
+        {
+            isAiming = false;
+            value = Vector2.zero;
+        }
+        else
+            isAiming = true;
+
+        if (!activeTower.ActiveProjectile)
+            return;
+
+        newDirection = -new Vector3(value.x, 0, value.y);
+
+        Debug.Log("debug aim old:" + curDirection.magnitude);
+        Debug.Log("debug aim new:" + newDirection.magnitude);
+
+        if (newDirection.magnitude + tolerance < curDirection.magnitude)
+        {
+            activeTower.ShootProjectile(curDirection);
+            curDirection = Vector3.zero;
+        }
+        else
+        {
+            curDirection = newDirection;
+            activeTower.SetAimDirection(curDirection);
+        }
+    }
+
 
     private void SetTowerIndex(int index)
     {
@@ -57,28 +99,6 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
             activeTower.Release();
 
         activeTower = decorator.GetByIndex(activeTowerIndex);
-    }
-
-    private void OnMoveStick(CallbackContext ctx)
-    {
-        if (!activeTower.ActiveProjectile)
-            return;
-
-        isAiming = true;
-        Vector2 value = ctx.ReadValue<Vector2>();
-        Vector3 newDirection = -new Vector3(value.x, 0, value.y);
-
-        if (newDirection.magnitude + tolerance < curDirection.magnitude)
-        {
-            activeTower.ShootProjectile(curDirection);
-            curDirection = Vector3.zero;
-            isAiming = false;
-        }
-        else
-        {
-            curDirection = newDirection;
-            activeTower.SetAimDirection(curDirection);
-        }
     }
 
     private void OnDestroy()

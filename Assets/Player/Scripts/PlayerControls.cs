@@ -47,7 +47,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""MoveLeftStick"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""ee2592c5-197e-46fc-951a-6fc4146e5bcf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -71,7 +71,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""MoveRightStick"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""df402b4f-b5c6-446e-9ac8-c5528f9ba3fe"",
                     ""expectedControlType"": """",
                     ""processors"": """",
