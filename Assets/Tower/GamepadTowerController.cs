@@ -53,9 +53,6 @@ public class GamepadTowerController : MonoBehaviour, ITowerController
 
         newDirection = -new Vector3(value.x, 0, value.y);
 
-        Debug.Log("debug aim old:" + curDirection.magnitude);
-        Debug.Log("debug aim new:" + newDirection.magnitude);
-
         if (newDirection.magnitude + tolerance < curDirection.magnitude)
         {
             activeTower.ShootProjectile(curDirection);

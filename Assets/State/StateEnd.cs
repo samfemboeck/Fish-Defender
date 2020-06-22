@@ -10,6 +10,9 @@ public class StateEnd : MonoBehaviour
     GameObjectSet fishes;
 
     [SerializeField]
+    GameObjectSet towers;
+
+    [SerializeField]
     GameObjectSet towerPlayers;
 
     [SerializeField]
@@ -32,6 +35,12 @@ public class StateEnd : MonoBehaviour
         GetWinner();
 
         FindObjectOfType<UIEnd>().SetWinnerSprite(this);
+
+        foreach (GameObject tower in towers.items)
+        {
+            Tower towerClass = tower.GetComponent<Tower>();
+            towerClass.UnLoad();
+        }
 
         fishes.RemoveAll();
         towerPlayers.RemoveAll();

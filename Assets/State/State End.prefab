@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 11400000, guid: 70a5f63e844cf714993191ec1e362a6f, type: 2}
   fishes: {fileID: 11400000, guid: 9d896782c1f5aab489f9a0ab0c61a11c, type: 2}
+  towers: {fileID: 11400000, guid: 480184c995da02c44b1065d6509304c5, type: 2}
   towerPlayers: {fileID: 11400000, guid: 999b808f394e40c488ee58cab2944ed8, type: 2}
   collectibles: {fileID: 11400000, guid: 73b11ceb7708761499fb73be36d66398, type: 2}
   playerInputs: {fileID: 11400000, guid: 63a5474da873db54c94567f3e4008876, type: 2}

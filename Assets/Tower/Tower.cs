@@ -87,4 +87,14 @@ public class Tower : MonoBehaviour
 		Light light = GetComponentInChildren<Light>();
 		light.color = color;
 	}
+
+    public void UnLoad()
+    {
+        if (ActiveProjectile)
+        {
+            Destroy(ActiveProjectile.gameObject);
+            ActiveProjectile = null;
+        }
+        CancelInvoke();
+    }
 }
