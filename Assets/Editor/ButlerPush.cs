@@ -25,19 +25,19 @@ public class BuildGame : MonoBehaviour
 
             if (Build("Windows", BuildTarget.StandaloneWindows, butlerArguments[1], ".exe", butlerArguments[3]))
             {
-                butlerArguments[2] = "windows-test";
+                butlerArguments[2] = "windows";
                 butlerArguments[5] = @"bin\Windows\Release\";
                 StartButler(butlerArguments);
             }
             if (Build("Linux", BuildTarget.StandaloneLinux64, butlerArguments[1], "", butlerArguments[3]))
             {
-                butlerArguments[2] = "linux-test";
+                butlerArguments[2] = "linux";
                 butlerArguments[5] = @"bin\Linux\Release\";
                 StartButler(butlerArguments);
             }
             if (Build("OSX", BuildTarget.StandaloneOSX, butlerArguments[1], ".app", butlerArguments[3]))
             {
-                butlerArguments[2] = "osx-test";
+                butlerArguments[2] = "osx";
                 butlerArguments[5] = @"bin\OSX\Release\";
                 StartButler(butlerArguments);
             }
@@ -65,7 +65,7 @@ public class BuildGame : MonoBehaviour
     [MenuItem("Build/Local OSX")]
     public static void BuildOSX()
     {
-        Build("IOS", BuildTarget.StandaloneOSX, "osxBuild", ".app", "Local");
+        Build("OSX", BuildTarget.StandaloneOSX, "osxBuild", ".app", "Local");
     }
     #endregion
 
